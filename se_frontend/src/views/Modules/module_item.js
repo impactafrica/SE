@@ -28,6 +28,8 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import Accordion from "components/Accordion/Module1_Accordion.js";
+import BeachHeadAccordion from "components/Accordion/beachhead_accordion";
+import PersonaAccordion from "components/Accordion/persona_accordion";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
 import LinearProgress from "components/CustomLinearProgress/LinearProgressBar";
@@ -90,12 +92,7 @@ export default function Module_Item(props) {
           newChecked.splice(currentIndex, 1);
         }
         setChecked(newChecked);
-      };
-    const now = 60;
-
-    // create dictionary of questions and their recaps
-    const brain = "Brainstorm with your team about every possible market type and segment. Keep in mind that a market segment is a grouping of potential customers who share similar characteristics, needs and/or interests"
-    
+      };    
 
   return (
     <div>
@@ -115,8 +112,10 @@ export default function Module_Item(props) {
           backgroundPosition: "top center"
         }}
       > */}
+        
         <div className={classes.container}>
           <GridContainer width="90%">
+          <GridItem><h1 style={{color:"black"}}>Market Research</h1></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               <div className={classes.title}>
                 <h3 style={{color:"black"}}>Your Progress</h3>
@@ -125,17 +124,43 @@ export default function Module_Item(props) {
                 <LinearProgress />
               </div>
             </GridItem>
-
+            
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
-                    <b><h2>Market Research</h2></b>
+                    <b><h2>Market Segmentation</h2></b>
                   </CardBody>
                   <CardBody>
+                    <div>
+                      
+                    </div>
                     <Accordion/>        
                 </CardBody>
               </Card>
             </GridItem>
+
+            <GridItem xs={12} sm={12} md={12}>
+              <Card color="primary" className={classes[cardAnimaton]}>
+                  <CardBody justify="center">
+                    <b><h2>Beachhead Market</h2></b>
+                  </CardBody>
+                  <CardBody>
+                    <BeachHeadAccordion/>        
+                </CardBody>
+              </Card>
+            </GridItem>
+
+            <GridItem xs={12} sm={12} md={12}>
+              <Card color="primary" className={classes[cardAnimaton]}>
+                  <CardBody justify="center">
+                    <b><h2>Buyer Persona</h2></b>
+                  </CardBody>
+                  <CardBody>
+                    <PersonaAccordion/>        
+                </CardBody>
+              </Card>
+            </GridItem>
+
           </GridContainer>
           <GridContainer>
           <GridItem xs={12} sm={12} md={12} className={classes.marginAuto}>

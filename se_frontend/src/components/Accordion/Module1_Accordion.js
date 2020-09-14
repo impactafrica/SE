@@ -49,6 +49,8 @@ export default function SimpleAccordion() {
   const [classicModal, setClassicModal] = React.useState(false);
   const [classicsModal, setClassicsModal] = React.useState(false);
   const [classicalModal, setClassicalModal] = React.useState(false);
+  const [brainModal, setbrainModal] = React.useState(false);
+  const [narrowModal, setnarrowModal] = React.useState(false);
 
   return (
     <div className={classes.root}>
@@ -61,7 +63,7 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>1. Market Segmentation</Typography>
+          <Typography className={classes.heading}>1. Market Types</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -107,9 +109,7 @@ export default function SimpleAccordion() {
                     id="classic-modal-slide-description"
                     className={classes.modalBody}
                   >
-                    <ReactPlayer width={"100%"}
-                      url="https://www.youtube.com/watch?v=gDRW8FydG8s&t=15s"
-                    />
+                    
                     <p>
                     Market segmentation is the process of dividing  your target market into
                      approachable groups. These subsets can be categorized according to primary 
@@ -122,6 +122,9 @@ export default function SimpleAccordion() {
                     <h4>
                       <b>a.1. Market Types</b>
                     </h4>
+                    <ReactPlayer width={"100%"}
+                      url="https://www.youtube.com/watch?v=0LNQxT9LvM0&t=2060s"
+                    />
                     <p>
                     To eventually understand who you are targeting with your product, we first need to 
                     distinguish between market types. Each market type will need a different strategy and 
@@ -133,7 +136,9 @@ export default function SimpleAccordion() {
                     <p><b>B2B (Business to Business):</b> These are businesses that sell to other businesses. </p>
                     <p><b>B2M (Business to Many):</b> Business to many is simply a collective term for businesses that 
                     operate on both b2b and b2c models. These businesses sell to both businesses and directly to consumers concurrently</p>
-
+                    <ReactPlayer width={"100%"}
+                      url="https://youtu.be/tckGI4C7k10"
+                    />
                     <p><b>B2B2C (Business to Business to Customer):</b> B2b2c is close to a fusion of b2b and b2c. In b2b2c, businesses sell 
                     their product to other businesses to leverage on the access to customers that the second company has. </p>
 
@@ -160,7 +165,155 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>2. Primary Market Research</Typography>
+          <Typography className={classes.heading}>2. Brainstorming</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          Think about every possible customer type that may need your product. 
+          <Link
+                  color="primary"
+                  block
+                  onClick={() => setbrainModal(true)}
+                >
+                   Read More...
+                </Link>
+                <Dialog
+                  classes={{
+                    root: classes.center,
+                    paper: classes.modal
+                  }}
+                  open={brainModal}
+                  TransitionComponent={Transition}
+                  keepMounted
+                  onClose={() => setClassicalModal(false)}
+                  aria-labelledby="classic-modal-slide-title"
+                  aria-describedby="classic-modal-slide-description"
+                >
+                  <DialogTitle
+                    id="classic-modal-slide-title"
+                    disableTypography
+                    className={classes.modalHeader}
+                  >
+                    <IconButton
+                      className={classes.modalCloseButton}
+                      key="close"
+                      aria-label="Close"
+                      color="inherit"
+                      onClick={() => setbrainModal(false)}
+                    >
+                      <Close className={classes.modalClose} />
+                    </IconButton>
+                    <h3 className={classes.modalTitle}><b> Brainstorming</b></h3>
+                  </DialogTitle>
+                  <DialogContent
+                    id="classic-modal-slide-description"
+                    className={classes.modalBody}
+                  >
+                    <p>
+                    At this point, you are allowed to dream. Think about every possible customer type that 
+                    may need your product. Nothing is off limits, however much of a longshot it may seem, be 
+                    sure to note it down. Be open minded and creative and so not shy away from speaking about 
+                    your idea to potential customers. This allows you to see your product from the customer's perspective.
+                    Some activities you can undertake during this step are: 
+
+                    Brainstorm with your team about every possible market type (b2b, b2c, b2b2c, b2b & b2c) and segment 
+                    these customers based on the following parameters (and as many others as you deem necessary:  
+                    Geography, Income, Industry and Gender, Profession. 
+                    </p>
+                   
+                  </DialogContent>
+                  <DialogActions className={classes.modalFooter}>
+                   
+                    <Button
+                      onClick={() => setbrainModal(false)}
+                      color="danger"
+                      simple
+                    >
+                      I'm done!
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}>3. Narrow</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          Your next step would be to narrow down to the most viable and interesting market opportunities
+          <Link
+                  color="primary"
+                  block
+                  onClick={() => setnarrowModal(true)}
+                >
+                   Read More...
+                </Link>
+                <Dialog
+                  classes={{
+                    root: classes.center,
+                    paper: classes.modal
+                  }}
+                  open={narrowModal}
+                  TransitionComponent={Transition}
+                  keepMounted
+                  onClose={() => setnarrowModal(false)}
+                  aria-labelledby="classic-modal-slide-title"
+                  aria-describedby="classic-modal-slide-description"
+                >
+                  <DialogTitle
+                    id="classic-modal-slide-title"
+                    disableTypography
+                    className={classes.modalHeader}
+                  >
+                    <IconButton
+                      className={classes.modalCloseButton}
+                      key="close"
+                      aria-label="Close"
+                      color="inherit"
+                      onClick={() => setnarrowModal(false)}
+                    >
+                      <Close className={classes.modalClose} />
+                    </IconButton>
+                    <h3 className={classes.modalTitle}><b> Narrowing</b></h3>
+                  </DialogTitle>
+                  <DialogContent
+                    id="classic-modal-slide-description"
+                    className={classes.modalBody}
+                  >
+                    <p>
+                    Naturally, now that you have identified the numerous potential market segments
+                     and end users, your next step would be to narrow down to the most viable and 
+                     interesting market opportunities (about 3-5 market segments).
+                    </p>
+                   
+                  </DialogContent>
+                  <DialogActions className={classes.modalFooter}>
+                   
+                    <Button
+                      onClick={() => setnarrowModal(false)}
+                      color="danger"
+                      simple
+                    >
+                      I'm done!
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}>4. Primary Market Research</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -238,7 +391,7 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>3. BeachHead Market</Typography>
+          <Typography className={classes.heading}>5. BeachHead Market</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
