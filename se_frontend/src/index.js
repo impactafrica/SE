@@ -25,6 +25,7 @@ ReactDOM.render(
       <Route path="/modules" component={Modules} />
       <Route path="/startup_register" component={RegisterStartup} />
       <Route path="/module_item" component={ModuleItem} />
+      <Route path="/components" component={Components} />
       <Route path="/" component={LandingPage} />
     </Switch>
   </Router>,

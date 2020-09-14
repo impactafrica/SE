@@ -58,7 +58,7 @@ export default function LoginPage(props) {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Register Your Startup</h4>
+                    <h4>Register Your Project</h4>
                     
                   </CardHeader>
                   <CardBody>

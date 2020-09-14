@@ -23,6 +23,7 @@ import Close from "@material-ui/icons/Close";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
+import ReactPlayer from "react-player"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,6 +107,9 @@ export default function SimpleAccordion() {
                     id="classic-modal-slide-description"
                     className={classes.modalBody}
                   >
+                    <ReactPlayer width={"100%"}
+                      url="https://www.youtube.com/watch?v=gDRW8FydG8s&t=15s"
+                    />
                     <p>
                     Market segmentation is the process of dividing  your target market into
                      approachable groups. These subsets can be categorized according to primary 
