@@ -16,7 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Quetabs from "components/CustomTabs/questiontabs";
+import Quetabs from "../../Questions/beachhead_questions";
 
 // @material-ui/icons
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
@@ -65,7 +65,7 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>1. Prepare the Process</Typography>
+          <Typography className={classes.heading}>1. Choosing your beachhead market</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -73,8 +73,7 @@ export default function SimpleAccordion() {
            that make it ideal for a product to thrive.  
                 <Link
                   color="primary"
-                  block
-                  onClick={() => setClassicModal(true)}
+                  to = "/choosing-beachhead"
                 >
                    Read More...
                 </Link>
@@ -147,7 +146,7 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>2. Define the Persona Profile</Typography>
+          <Typography className={classes.heading}>2. Is your market targeted enough?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -220,7 +219,6 @@ export default function SimpleAccordion() {
                   </DialogActions>
                 </Dialog>
           </Typography>
-          
         </AccordionDetails>
       </Accordion>
       <Accordion>
