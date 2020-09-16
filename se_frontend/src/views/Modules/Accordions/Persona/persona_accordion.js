@@ -16,7 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Quetabs from "../../Questions/persona_questions";
+import Quetabs from "../../../Questions/Persona/persona_questions";
 
 // @material-ui/icons
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
@@ -230,13 +230,11 @@ export default function SimpleAccordion() {
           <Typography>
           The success of a persona relies on using it. Therefore, you must make sure everyone 
           in your company knows what your customer looks like and is empathetic to his needs and pains.
-
-         
           </Typography>
         </AccordionDetails>
       </Accordion>
       <br></br>
-      <h3>Your exercise</h3>
+      <h4>Your exercise</h4>
           <Quetabs/>
     </div>
   );

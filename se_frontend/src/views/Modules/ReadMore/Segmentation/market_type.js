@@ -16,6 +16,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
 
 import image from "assets/img/bg7.jpg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -49,20 +50,15 @@ export default function Module_Item(props) {
       > */}
         
         <div className={classes.container}>
-          <GridContainer width="70%">
-          <GridItem><h2 style={{color:"black"}}><b>MARKET SEGMENTATION</b></h2></GridItem>
+          <GridContainer width="100%">
+          <GridItem
+            
+          ><h2 style={{color:"black"}}><b>Market Segmentation: Market Types</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
-              <ReactPlayer  width={"60%"}
-                      url="https://www.youtube.com/watch?v=0LNQxT9LvM0&t=2060s"
-                    />
-                  <Typography fontSize="12">
-                    Market segmentation is the process of dividing  your target market into
-                     approachable groups. These subsets can be categorized according to primary 
-                     factors such as demographics, priorities, needs, common interests and behaviour. 
-                     Market segmentation is the first and one of the most vital steps towards identifying 
-                     the single most important and necessary condition for a business; paying customers.  
+              
+                  <Typography fontSize="12"> 
                       We shall begin by looking into and understanding different market types.
                       <br></br>
                       <br></br>
@@ -87,11 +83,28 @@ export default function Module_Item(props) {
                     operate on both b2b and b2c models. These businesses sell to both businesses and directly to consumers concurrently
                     <br></br>
                     <br></br>
-                    <ReactPlayer width={"100%"}
-                      url="https://youtu.be/tckGI4C7k10"
-                    />
+                    
+          
                     <br></br>
-                   <b>B2B2C (Business to Business to Customer):</b> B2b2c is close to a fusion of b2b and b2c. In b2b2c, businesses sell 
+                   <b>B2B2C (Business to Business to Customer):</b> 
+                   <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <ReactPlayer
+                          url="https://www.youtube.com/watch?v=V1fALSzZXlI"
+                        />
+                        </div>
+                        <br></br>
+                   {' '}
+                   <Link to="https://www.forbes.com/sites/forbescommunicationscouncil/2018/05/18/the-challenges-of-b2b2c-marketing-in-major-corporations/#16b4149a776a">
+                  <b>B2B2C</b>
+                  </Link>
+                  {' '}
+                   is close to a fusion of b2b and b2c. In b2b2c, businesses sell 
                     their product to other businesses to leverage on the access to customers that the second company has. Sticking to our
                      previous example, if the cereals and grains wholesaler is struggling to acquire customers, they could sell their product
                       to an established chain of supermarkets that will in turn sell the cereals and grains to the end user. 

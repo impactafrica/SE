@@ -188,21 +188,6 @@ const dict = {
 </Button>
   </Typography>
 </div>,
-"You will quickly realize that your beachhead market can be segmented further into smaller markets.  In order for your market to be optimally targeted, it should meet these three conditions. Subject your beachhead market to these three conditions until you can find a segment which meets all three conditions:The customers within the market all buy similar products.The customers within the market have a similar sales cycle and expect products to provide value in similar ways. Your salespeople can shift from selling to one customer to selling to a different customer and still be very effective with little or no loss of productivity. There is “word of mouth” between customers in the market segment, meaning they can serve as compelling and high-value references for each other in making purchases."
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>8/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Describe your selected beachhead market explaining how it meets the criteria in the "Recap" section and why you think it is the right beachhead market. 
- </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
 "You are done!!":"You are done!!"
     };
 

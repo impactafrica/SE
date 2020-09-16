@@ -11,14 +11,11 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import SegmentingAccordion from "../../views/Modules/Accordions/Segmentation/main_seg";
-import BrainstormingAccordion from "../../views/Modules/Accordions/Segmentation/mkttypes_brainstroming_accordion";
-import NarrowingAccordion from "../../views/Modules/Accordions/Segmentation/narrowing_accordion";
-import ResearchAccordion from "../../views/Modules/Accordions/Segmentation/mktresearch_accordion";
-import ConclusionAccordion from "../../views/Modules/Accordions/Segmentation/conclusion_accordion";
-import LinearProgress from "components/CustomLinearProgress/LinearProgressBar";
+import BeachHeadAccordion from "./Accordions/Beachhead/beachhead_accordion";
+import TargetMarketAccordion from "./Accordions/Beachhead/target_market_accordion";
+import ConclusionAccordion from "./Accordions/Beachhead/beachhead_conlusion_accordion";
+import LinearProgress from "components/CustomLinearProgress/PersonaLinearProgressBar";
 import { Link } from "react-router-dom";
-
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -74,9 +71,18 @@ export default function Module_Item(props) {
         fixed
         {...rest}
       />
+      {/* <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      > */}
+        
         <div className={classes.container}>
           <GridContainer width="90%">
-          <GridItem><h2 style={{color:"black"}}>Market Segmentation</h2></GridItem>
+          <GridItem><h2 style={{color:"black"}}>Persona</h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               <div className={classes.title}>
                 <h3 style={{color:"black"}}>Your Progress</h3>
@@ -85,13 +91,16 @@ export default function Module_Item(props) {
                 <LinearProgress />
               </div>
             </GridItem>
-
+            
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
+                    {/* <b><h3>Choosing you beachhead</h3></b> */}
                   </CardBody>
                   <CardBody>
-                    <SegmentingAccordion/>        
+                    <div>
+                    <BeachHeadAccordion/>
+                    </div>
                 </CardBody>
               </Card>
             </GridItem>
@@ -99,49 +108,20 @@ export default function Module_Item(props) {
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
+                    {/* <b><h2>Conclusion</h2></b> */}
                   </CardBody>
                   <CardBody>
-                    <BrainstormingAccordion/>        
+                    <ConclusionAccordion/>
                 </CardBody>
               </Card>
             </GridItem>
-
-            <GridItem xs={12} sm={12} md={12}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                  </CardBody>
-                  <CardBody>
-                    <NarrowingAccordion/>        
-                </CardBody>
-              </Card>
-            </GridItem>
-
-            <GridItem xs={12} sm={12} md={12}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                  </CardBody>
-                  <CardBody>
-                    <ResearchAccordion/>        
-                </CardBody>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={12}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                  </CardBody>
-                  <CardBody>
-                    <ConclusionAccordion/>        
-                </CardBody>
-              </Card>
-            </GridItem>
-            <Link to="beachhead_item">
+            <Link to="modules">
               <Button
                   justify="right"
                   color="primary"> 
-                  Click Here to proceed to the next section
+                  You're done! Click here to go to modules
               </Button>
             </Link>
-            
           </GridContainer>
           <GridContainer>
           

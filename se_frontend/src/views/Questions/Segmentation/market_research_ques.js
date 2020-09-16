@@ -8,9 +8,6 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Chat from "@material-ui/icons/Chat";
 import Radio from "@material-ui/core/Radio";
 
-import CustomInput from "../../components/CustomInput/CustomInput";
-import TextField from '@material-ui/core/TextField';
-
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
@@ -22,7 +19,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
 import Carousel from "react-slick";
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -67,135 +63,133 @@ const useStyles = makeStyles(styles);
 
 
 const dict = {
-
-"By following these steps, you will be answering this question: “If I had only one end user to represent our end-user profile, who would it be?”"
+"Who specifically will use your product? "
 :
 <div>
-Let's get started
-<br></br>
-<Button color="primary">
+      <Typography >
+      <br></br>
+      <p><b>9/17</b></p>
+      <p style={{color:"black",justify:"center"}}>Who is your end user?</p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
         Next
     </Button>
-</div>
-
-,
-"If you have no sales yet you can look at your beachhead market and come up with persona projections by identifying the buyer(s) in that market."
+      </Typography>
+</div>,
+"Application: What will the end user use your product for and how will it improve their lives? "
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>1/8</b></p>
-        <h4>Collect and analyze sales data, focusing on the most successful
-         customers to date (maybe the 20% of customers generating 80% of the sales). Look at the primary market research you 
-         have already done, focusing on customers who would pay (not are just interested) in your potential offering.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>10/17</b></p>
+      <p style={{color:"black",justify:"center"}}>What will they use your product for? How will it improve their lives?</p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-"Remember you're answering this question: “If I had only one end user to represent our end-user profile, who would it be?”"
+"Benefits:Do they save time or money? Does it boost their profits? Will your product improve the users’ social status or self esteem? Think of benefits holistically and don;t be limited to physically/tangible things"
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>2/8</b></p>
-        <h4>Present a synthesis of all the research & findings to your team.</h4>
-        <br></br>
-        <h4>Present the end-user profile to your team.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>11/17</b></p>
+      <p style={{color:"black",justify:"center"}}>What is the actual value that the end user gains from your product?</p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-"Remember you're answering the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+"Lighthouse Customers: Who are the most influential users that may need your product? The people who are respected when they buy and others will follow."
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>3/8</b></p>
-        <h4>Discuss with your team which end-user would be the best fit for a persona</h4>
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>12/17</b></p>
+      <p style={{color:"black",justify:"center"}}>Who are your “lighthouse customers”?</p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-
-"Remember the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+"What about this market will either ease or hinder the adaptation of your product? "
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>4/8</b></p>
-        <h4>Consider separate personas for each customer type (for two- or multi-sided markets) but start with the end-user
-             because if they don't use it, there is no value created.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>13/17</b></p>
+      <p style={{color:"black",justify:"center"}}>What about this market will either ease or hinder the adaptation of your product? </p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-
-"You are done!!":"Let's now define our persona",
-
-"Personal Details"
+"Partners/Players: Who do you need to deliver and add value to your product? "
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>1/4</b></p>
-      <h4><b>Personal Details</b></h4>
-
-        <TextField id="standard-basic" label="First Name" />
-        <br></br>
-        <TextField id="standard-basic" label="Last Name" />
-        <br></br>
-        <br></br>
-        <p>Personal info (sex, age, education, family, born, raised)</p>
-        <TextField
-          id="outlined-multiline-static"
-          label="Personal Info"
-          multiline
-          rows={5}
-          variant="outlined"
-        />
-
-<br></br>
-
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>14/17</b></p>
+      <p style={{color:"black",justify:"center"}}>Who are our partners? </p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-"Career Context"
+"Size of the market: If you can achieve 100 market penetration, how many potential customers exist?  "
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>1/4</b></p>
-      <h4><b>Career Context</b></h4> 
-      <p>Job info (company, position, how many years in the job, training, salary, performance metrics if a B2B case etc.) </p>
-      <TextField
-          id="outlined-multiline-static"
-          label="Job Info"
-          multiline
-          rows={5}
-          variant="outlined"
-        />   
-        <p>Operating environment (This could be both the work and home environments. Consider factors such as managers, colleagues, workplace challenges, children ets)</p>
-      <TextField
-          id="outlined-multiline-static"
-          label="Job Info"
-          multiline
-          rows={5}
-          variant="outlined"
-        /> 
-<br></br>
-
-         <Button color="primary">
-            Next
-        </Button>
+      <p><b>15/17</b></p>
+      <p style={{color:"black",justify:"center"}}>How many potential customers exist?  </p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
       </Typography>
 </div>,
-
+"Competition: Who, if anyone, is making a similar product?  "
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>16/17</b></p>
+      <p style={{color:"black",justify:"center"}}>Who is your competition?</p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
+      </Typography>
+</div>,
+"Complementary assets required: What else does your customer need in order to get the full solution? "
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>17/17</b></p>
+      <p style={{color:"black",justify:"center"}}>What are the complementary assets required? </p>
+      <textarea style={{height:80,width:270}}/>
+      <br></br>
+      <Button color="primary">
+        Next
+    </Button>
+      </Typography>
+</div>,
+"You are done!!":"You are done!!"
     };
 
 export default function ScrollableTabsButtonForce() {

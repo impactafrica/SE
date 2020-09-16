@@ -63,21 +63,7 @@ const useStyles = makeStyles(styles);
 
 
 const dict = {
-    "Brainstorm with your team about every possible market type and segment. Keep in mind that a market segment is a grouping of potential customers who share similar characteristics, needs and/or interests"
-    :
-    <div >
-        <p><b>1/17</b></p>
-        <p style={{color:"black",justify:"center"}}>
-        List 8 possible market segments. 
-        Keep in mind that a market segment is 
-        a grouping of potential customers who share similar characteristics, needs and/or interests. 
-        </p>
-        <textarea style={{height:80,width:270}}/>
-        <br></br>
-        <Button color="primary">
-            Next
-        </Button>
-    </div>,
+    
     "Evaluate the purchasing power of the target group:  If not, then the market is not as attractive. "
     :
     <div>
@@ -202,132 +188,7 @@ const dict = {
     </Button>
       </Typography>
 </div>,
-"Who specifically will use your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>9/17</b></p>
-      <p style={{color:"black",justify:"center"}}>Who is your end user?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Application: What will the end user use your product for and how will it improve their lives? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>10/17</b></p>
-      <p style={{color:"black",justify:"center"}}>What will they use your product for? How will it improve their lives?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Benefits:Do they save time or money? Does it boost their profits? Will your product improve the users’ social status or self esteem? Think of benefits holistically and don;t be limited to physically/tangible things"
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>11/17</b></p>
-      <p style={{color:"black",justify:"center"}}>What is the actual value that the end user gains from your product?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Lighthouse Customers: Who are the most influential users that may need your product? The people who are respected when they buy and others will follow."
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>12/17</b></p>
-      <p style={{color:"black",justify:"center"}}>Who are your “lighthouse customers”?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"What about this market will either ease or hinder the adaptation of your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>13/17</b></p>
-      <p style={{color:"black",justify:"center"}}>What about this market will either ease or hinder the adaptation of your product? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Partners/Players: Who do you need to deliver and add value to your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>14/17</b></p>
-      <p style={{color:"black",justify:"center"}}>Who are our partners? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Size of the market: If you can achieve 100 market penetration, how many potential customers exist?  "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>15/17</b></p>
-      <p style={{color:"black",justify:"center"}}>How many potential customers exist?  </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Competition: Who, if anyone, is making a similar product?  "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>16/17</b></p>
-      <p style={{color:"black",justify:"center"}}>Who is your competition?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Complementary assets required: What else does your customer need in order to get the full solution? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>17/17</b></p>
-      <p style={{color:"black",justify:"center"}}>What are the complementary assets required? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
+
 "You are done!!":"You are done!!"
     };
 

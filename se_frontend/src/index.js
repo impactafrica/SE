@@ -20,7 +20,9 @@ import PrimaryResearch from "views/Modules/ReadMore/Segmentation/primary_researc
 import ChoosingBeachhead from "views/Modules/ReadMore/Beachhead/choosing_beachhead"
 import TargetedMarket from "views/Modules/ReadMore/Beachhead/targeted_market"
 import PrepareProcess from "views/Modules/ReadMore/Persona/prepare_process"
-
+import BeachheadItem from "views/Modules/beachhead_item"
+import PersonaItem from "views/Modules/persona_item"
+import Segmenting from "views/Modules/ReadMore/Segmentation/segmenting"
 
 var hist = createBrowserHistory();
 
@@ -41,6 +43,9 @@ ReactDOM.render(
       <Route path="/choosing-beachhead" component={ChoosingBeachhead} />
       <Route path="/targeted-market" component={TargetedMarket} />
       <Route path="/prepare-process" component={PrepareProcess} />
+      <Route path="/beachhead_item" component={BeachheadItem} />
+      <Route path="/persona_item" component={PersonaItem} />
+      <Route path="/segmenting" component={Segmenting} />
       <Route path="/" component={LandingPage} />
     </Switch>
   </Router>,

@@ -16,6 +16,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
 
 import image from "assets/img/bg7.jpg";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -39,10 +40,20 @@ export default function Module_Item(props) {
         fixed
         {...rest}
       />
+      {/* <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      > */}
         
         <div className={classes.container}>
-          <GridContainer width="70%">
-          <GridItem><h2 style={{color:"black"}}><b>Brainstorming</b></h2></GridItem>
+          <GridContainer width="100%">
+          <GridItem
+            
+          ><h2 style={{color:"black"}}><b>Market Segmentation</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
@@ -54,41 +65,31 @@ export default function Module_Item(props) {
                         }}
                       >
                         <ReactPlayer
-                          url="https://www.youtube.com/watch?v=JyYoXu0cJwA"
+                          url= "https://www.youtube.com/watch?v=Gj2lyU10Y84"
                         />
                         </div>
-             
-                    <br></br>
+               
                   <Typography fontSize="12">
-                  At this point, you are allowed to dream. Think about every possible customer type that 
-                  may need your product. Nothing is off limits, however much of a longshot it may seem, be 
-                  sure to note it down. Be open minded and creative and so not shy away from speaking about 
-                  your idea to potential customers. This allows you to see your product from the customer's perspective.
-                  <br></br>
-                  <br></br>
-                  {/* <div
-                        style={{
+                    Market segmentation is the process of dividing  your target market into
+                     approachable groups. These subsets can be categorized according to primary 
+                     factors such as demographics, priorities, needs, common interests and behaviour. 
+                     Market segmentation is the first and one of the most vital steps towards identifying 
+                     the single most important and necessary condition for a business; paying customers.  
+                      We shall begin by looking into and understanding different market types.
+                      <br></br>
+                      <br></br>
+                      <Link style={{
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center"
-                        }}
-                      >
-                        <ReactPlayer
-                          url="https://www.youtube.com/watch?v=Gj2lyU10Y84"
-                        />
-                        </div> */}
-                  
-                    <br></br>
-                    Some activities you can undertake during this step are: 
+                        }} to="https://blog.alexa.com/types-of-market-segmentation/">
+                        <b>Further Content</b>
+                      </Link>
+                   
+                    </Typography>
+                  </div>
 
-                    Brainstorm with your team about every possible market type (b2b, b2c, b2b2c, b2b & b2c) and segment 
-                    these customers based on the following parameters (and as many others as you deem necessary:  Geography,
-                     Income, Industry and Gender, Profession. 
-
-                      <br></br>
-                      <br></br>
-                  </Typography>
-              </div>
+                    
             </GridItem>
           </GridContainer>
           

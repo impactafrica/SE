@@ -16,7 +16,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import SegmentationQues from "../../Questions/segmentation_questions";
+import Quetabs from "../../../Questions/Beachhead/beachhead_questions";
+
 // @material-ui/icons
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
@@ -64,61 +65,15 @@ export default function SimpleAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>1. Market Types</Typography>
+          <Typography className={classes.heading}>1. Choosing your beachhead market</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Market segmentation is the process of dividing  your target market into approachable groups. 
-          These subsets can be categorized according to primary factors such as demographics, priorities,
-           needs, common interests and behaviour.
-                
-                <br></br>
+          By definition, a beachhead market is  a market that fits certain characteristics
+           that make it ideal for a product to thrive.  
                 <Link
                   color="primary"
-                  to={"/market_type"}
-                >
-                   Read More...
-                </Link>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>2. Brainstorming</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          Think about every possible customer type that may need your product. 
-                <Link
-                  color="primary"
-                  to={"/brainstorming"}
-                >
-                   Read More...
-                </Link>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>3. Narrow</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          Your next step would be to narrow down to the most viable and interesting market opportunities
-          <Link
-                  color="primary"
-                  block
-                  onClick={() => setnarrowModal(true)}
+                  to = "/choosing-beachhead"
                 >
                    Read More...
                 </Link>
@@ -127,10 +82,10 @@ export default function SimpleAccordion() {
                     root: classes.center,
                     paper: classes.modal
                   }}
-                  open={narrowModal}
+                  open={classicModal}
                   TransitionComponent={Transition}
                   keepMounted
-                  onClose={() => setnarrowModal(false)}
+                  onClose={() => setClassicModal(false)}
                   aria-labelledby="classic-modal-slide-title"
                   aria-describedby="classic-modal-slide-description"
                 >
@@ -144,30 +99,35 @@ export default function SimpleAccordion() {
                       key="close"
                       aria-label="Close"
                       color="inherit"
-                      onClick={() => setnarrowModal(false)}
+                      onClick={() => setClassicModal(false)}
                     >
                       <Close className={classes.modalClose} />
                     </IconButton>
-                    <h3 className={classes.modalTitle}><b> Narrowing</b></h3>
+                    <h3 className={classes.modalTitle}><b>Choosing your beachhead market</b></h3>
                   </DialogTitle>
                   <DialogContent
                     id="classic-modal-slide-description"
                     className={classes.modalBody}
                   >
-                    <ReactPlayer width={"100%"}
-                      url="https://www.youtube.com/watch?v=c2XwfP4jlZs"
-                    />
                     <p>
-                    Naturally, now that you have identified the numerous potential market segments
-                     and end users, your next step would be to narrow down to the most viable and 
-                     interesting market opportunities (about 3-5 market segments).
+                    We started out by brainstorming and laying out all of the potential markets where your 
+                    product would thrive. Then we narrowed down all of the options you had to about 3-5 markets.
+                     In this step we will narrow down focus further to enable us to determine what your beachhead market is. 
+
+                    By definition, a beachhead market is  a market that fits certain characteristics that make it ideal 
+                    for a product to thrive.               
+                    In this step, we shall analyze the top 3-5 markets you selected and narrow them the ideal one. After 
+                    that, we shall further segment that one market to determine your beachhead market. Initially, especially 
+                    with first time entrepreneurs, there’s a notion that more markets will mean their odds of success are higher.
+                     However, the contrary is true. You should aim to identify one market that fits the demand for your product
+                      then leverage off that success. 
                     </p>
-                   
+                    
                   </DialogContent>
                   <DialogActions className={classes.modalFooter}>
                    
                     <Button
-                      onClick={() => setnarrowModal(false)}
+                      onClick={() => setClassicModal(false)}
                       color="danger"
                       simple
                     >
@@ -175,54 +135,15 @@ export default function SimpleAccordion() {
                     </Button>
                   </DialogActions>
                 </Dialog>
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+            
 
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>4. Primary Market Research</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          Gather the vast majority of your information by directly talking to real potential customers. 
-          Understand their needs, situations, pains and opportunities. It is imperative to interact with your 
-          potential end users. There are no shortcuts to this step. 
-                <Link
-                  color="primary"
-                  to={"/primary-research"}
-                >
-                   Read More...
-                </Link>
           </Typography>
         </AccordionDetails>
       </Accordion>
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>5. Conclusion</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          By this point, you will have gained some clarity on how your potential market will look like. 
-          However, we shall choose the ideal market in the next step. For now, come up with a data driven
-           (based on the steps and exercises above) list of potential market segments you can pursue. Ensure
-            that each segment is loaded with enough details for it to be meaningful: 
-          
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      
       <br></br>
-      <h3>Your exercise</h3>
-          <SegmentationQues/>
+      <h4>Your exercise</h4>
+          <Quetabs/>
     </div>
   );
 }
