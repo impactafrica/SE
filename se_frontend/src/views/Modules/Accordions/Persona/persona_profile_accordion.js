@@ -16,7 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Quetabs from "../../../Questions/Beachhead/beachhead_questions";
+import Quetabs from "../../../Questions/Persona/profile_questions";
 
 // @material-ui/icons
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
@@ -56,28 +56,23 @@ export default function SimpleAccordion() {
 
   return (
     <div className={classes.root}>
-      <Accordion
-       color="primary"
-       >
+      
+      <Accordion>
         <AccordionSummary
-        color="primary"
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel2a-content"
+          id="panel2a-header"
         >
-          <Typography className={classes.heading}>1. Choosing your beachhead market</Typography>
+          <Typography className={classes.heading}>2. Define the Persona Profile</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          In this step, we shall subject the 3-5 markets that we picked earlier to the 
-                    same criteria in Step a.2 till we can identify your beachhead markets. 
-                    NOTE: In the eventuality that 2 or more markets stand out as your beachhead market,
-                     it is important that you select one and move with it.  
-                
+          Now fill out the details below and be as specific as possible. Keep in mind that the persona is an
+           accurate representation of your end user, hence estimates and/or ranges will not work.  
+          If you are able to find other distinguishing characteristics of your persona, be sure to add them.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      
       <br></br>
       <h4><b>Your exercise</b></h4>
           <Quetabs/>

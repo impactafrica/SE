@@ -50,13 +50,26 @@ export default function Module_Item(props) {
         
         <div className={classes.container}>
           <GridContainer width="70%">
-          <GridItem><h2 style={{color:"black"}}><b>Primary Market Research</b></h2></GridItem>
+          <GridItem style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}><h2 style={{color:"black"}}><b>Primary Market Research</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
-              <ReactPlayer  width={"60%"}
-                      url="https://www.youtube.com/watch?v=_-N5u7i_Vgk"
+              <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                    <ReactPlayer
+                            url="https://www.youtube.com/watch?v=_-N5u7i_Vgk"
                     />
+                    </div>
+                    <br></br>
                   <Typography fontSize="12">
                   After narrowing down your viable market opportunities,  an in depth analysis and 
                   research of your primary market is now due. Gather the vast majority of your information 
@@ -66,16 +79,24 @@ export default function Module_Item(props) {
 
                       <br></br>
                       <br></br>
-                      <ReactPlayer  width={"60%"}
-                      url="https://www.youtube.com/watch?v=qhAAnfSj7m8"
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                    <ReactPlayer
+                            url="https://www.youtube.com/watch?v=qhAAnfSj7m8"
                     />
+                    </div>
+                     
                   </Typography>    
               </div>
             </GridItem>
           </GridContainer>
           
         </div>
-        <Footer whiteFont />
       </div>
     // </div>
   );

@@ -23,6 +23,7 @@ import PrepareProcess from "views/Modules/ReadMore/Persona/prepare_process"
 import BeachheadItem from "views/Modules/beachhead_item"
 import PersonaItem from "views/Modules/persona_item"
 import Segmenting from "views/Modules/ReadMore/Segmentation/segmenting"
+import BeachheadDef from "views/Modules/ReadMore/Beachhead/beachhead_main"
 
 var hist = createBrowserHistory();
 
@@ -46,6 +47,8 @@ ReactDOM.render(
       <Route path="/beachhead_item" component={BeachheadItem} />
       <Route path="/persona_item" component={PersonaItem} />
       <Route path="/segmenting" component={Segmenting} />
+      <Route path="/beachhead-def" component={BeachheadDef} />
+      
       <Route path="/" component={LandingPage} />
     </Switch>
   </Router>,

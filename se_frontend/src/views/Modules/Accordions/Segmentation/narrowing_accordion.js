@@ -62,7 +62,7 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>3. Narrow</Typography>
+          <Typography className={classes.heading}>3. Narrowing</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -72,7 +72,7 @@ export default function SimpleAccordion() {
                   block
                   onClick={() => setnarrowModal(true)}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
                 
                 <Dialog
@@ -110,6 +110,7 @@ export default function SimpleAccordion() {
                     <ReactPlayer width={"100%"}
                       url="https://www.youtube.com/watch?v=c2XwfP4jlZs"
                     />
+                    <br></br>
                     <p>
                     Naturally, now that you have identified the numerous potential market segments
                      and end users, your next step would be to narrow down to the most viable and 
@@ -132,7 +133,7 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
       <br></br>
-      <h4>Your exercise</h4>
+      <h4><b>Your exercise</b></h4>
           <SegmentationQues/>
     </div>
   );

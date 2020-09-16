@@ -67,7 +67,7 @@ export default function SimpleAccordion() {
                   color="primary"
                   to={"/market_type"}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
           </Typography>
         </AccordionDetails>
@@ -83,19 +83,19 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Think about every possible customer type that may need your product. 
+          At this point, you are allowed to dream. Think about every possible customer type that may need your product.
                 <Link
                   color="primary"
                   to={"/brainstorming"}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
           </Typography>
         </AccordionDetails>
       </Accordion>
 
       <br></br>
-      <h4>Your exercise</h4>
+      <h4><b><b>Your exercise</b></b></h4>
           <SegmentationQues/>
     </div>
   );

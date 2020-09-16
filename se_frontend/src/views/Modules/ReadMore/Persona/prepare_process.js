@@ -42,13 +42,26 @@ export default function Module_Item(props) {
         
         <div className={classes.container}>
           <GridContainer width="70%">
-          <GridItem><h2 style={{color:"black"}}><b>Persona</b></h2></GridItem>
+          <GridItem style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}><h2 style={{color:"black"}}><b>Persona</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
-              <ReactPlayer  width={"60%"}
+              <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <ReactPlayer  
                       url="https://www.youtube.com/watch?v=hdYneP3mavo"
                     />
+                        </div>
+              <br></br>
                   <Typography fontSize="12">
                   In this step you will describe a persona. A buyer persona is a detailed description of one
                    potential, real end user. This step ensures that the whole team shares the same vision as
@@ -57,14 +70,7 @@ export default function Module_Item(props) {
                      audience has higher chances of success. Further narrowing down to a specific persona goes on 
                      to very much boost those odds. 
                     A paying—or monetizable—customer is the most important element for any business.
-                    <br></br>
-                    <br></br>
-                    Step c.1: Prepare the Process
-                    By following these steps, you will be answering this question: “If I had only one end user to
-                     represent our end-user profile, who would it be?”
-
-                      <br></br>
-                      <br></br>
+              
                   </Typography>
               </div>
             </GridItem>

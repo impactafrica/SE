@@ -12,7 +12,6 @@ import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import BeachHeadAccordion from "./Accordions/Beachhead/beachhead_accordion";
-import TargetMarketAccordion from "./Accordions/Beachhead/target_market_accordion";
 import ConclusionAccordion from "./Accordions/Beachhead/beachhead_conlusion_accordion";
 import LinearProgress from "components/CustomLinearProgress/BeachheadLinearProgressBar";
 import { Link } from "react-router-dom";
@@ -82,20 +81,46 @@ export default function Module_Item(props) {
         
         <div className={classes.container}>
           <GridContainer width="90%">
-          <GridItem><h2 style={{color:"black"}}>Beachhead</h2></GridItem>
-          <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
+         
+          <GridItem><h3 style={{color:"black"}}><b>Module 2: Market Research</b></h3></GridItem>
+          <GridItem xs={12} sm={12} md={12} className={classes[cardAnimaton]}>
               <div className={classes.title}>
-                <h3 style={{color:"black"}}>Your Progress</h3>
+                <h5 style={{color:"black"}}><b>Your Progress</b></h5>
               </div>
               <div className={classes.root}>
                 <LinearProgress />
               </div>
             </GridItem>
-            
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          <GridItem><h3 style={{color:"black"}}><b>b. Beachhead Market</b></h3></GridItem>
+
+          <GridItem xs={12} sm={12} md={12}>
+              <Card color="primary" className={classes[cardAnimaton]}>
+                  <CardBody>
+                    <h5>
+                    By definition, a beachhead market is  a market that fits certain characteristics that 
+                    make it ideal for a product to thrive.               
+                    In this step, we shall analyze the top 3-5 markets you selected and narrow them the ideal one.  
+                    <Link
+                      color="primary"
+                      to={"/beachhead-def"}
+                    >
+                      {' '}<b><b>Read More...</b></b>
+                    </Link>
+                    </h5>
+                    {/* <SegmentingAccordion/>         */}
+                </CardBody>
+              </Card>
+            </GridItem>
+
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                    {/* <b><h3>Choosing you beachhead</h3></b> */}
+              <CardBody justify="center">
+                  <h4 style={{color:"black"}}><b>Lets Get Started</b></h4>
                   </CardBody>
                   <CardBody>
                     <div>

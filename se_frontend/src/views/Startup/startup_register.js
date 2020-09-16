@@ -63,7 +63,7 @@ export default function LoginPage(props) {
                   </CardHeader>
                   <CardBody>
                     <CustomInput
-                      labelText="Startup Name..."
+                      labelText="Project Name..."
                       id="first"
                       formControlProps={{
                         fullWidth: true

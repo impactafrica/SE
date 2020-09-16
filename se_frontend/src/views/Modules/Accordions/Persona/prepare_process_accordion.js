@@ -12,14 +12,9 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
-import Quetabs from "../../../Questions/Beachhead/beachhead_questions";
+import Quetabs from "../../../Questions/Persona/prepare_questions";
 
 // @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -44,15 +39,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 Transition.displayName = "Transition";
 export default function SimpleAccordion() {
   const classes = useStyles();
-  const [anchorElLeft, setAnchorElLeft] = React.useState(null);
-  const [anchorElTop, setAnchorElTop] = React.useState(null);
-  const [anchorElBottom, setAnchorElBottom] = React.useState(null);
-  const [anchorElRight, setAnchorElRight] = React.useState(null);
   const [classicModal, setClassicModal] = React.useState(false);
-  const [classicsModal, setClassicsModal] = React.useState(false);
-  const [classicalModal, setClassicalModal] = React.useState(false);
-  const [brainModal, setbrainModal] = React.useState(false);
-  const [narrowModal, setnarrowModal] = React.useState(false);
+
 
   return (
     <div className={classes.root}>
@@ -60,24 +48,22 @@ export default function SimpleAccordion() {
        color="primary"
        >
         <AccordionSummary
-        color="primary"
+          color="primary"
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          headerstyle={{height: "100px"}}
         >
-          <Typography className={classes.heading}>1. Choosing your beachhead market</Typography>
+          <Typography className={classes.heading}>1. Prepare the Process</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          In this step, we shall subject the 3-5 markets that we picked earlier to the 
-                    same criteria in Step a.2 till we can identify your beachhead markets. 
-                    NOTE: In the eventuality that 2 or more markets stand out as your beachhead market,
-                     it is important that you select one and move with it.  
+          By following these steps, you will be answering this question: “If I had only one end user to 
+          represent our end-user profile, who would it be?” 
                 
           </Typography>
         </AccordionDetails>
       </Accordion>
-      
       <br></br>
       <h4><b>Your exercise</b></h4>
           <Quetabs/>

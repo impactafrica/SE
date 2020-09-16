@@ -9,21 +9,12 @@ import Chat from "@material-ui/icons/Chat";
 import Radio from "@material-ui/core/Radio";
 
 
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
-import HelpIcon from '@material-ui/icons/Help';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import ThumbDown from '@material-ui/icons/ThumbDown';
-import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
 import Carousel from "react-slick";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 
 
 function TabPanel(props) {
@@ -65,14 +56,14 @@ const useStyles = makeStyles(styles);
 const dict = {
 
 
-"You will quickly realize that your beachhead market can be segmented further into smaller markets.  In order for your market to be optimally targeted, it should meet these three conditions. Subject your beachhead market to these three conditions until you can find a segment which meets all three conditions:The customers within the market all buy similar products.The customers within the market have a similar sales cycle and expect products to provide value in similar ways. Your salespeople can shift from selling to one customer to selling to a different customer and still be very effective with little or no loss of productivity. There is “word of mouth” between customers in the market segment, meaning they can serve as compelling and high-value references for each other in making purchases."
+"Remember, a beachhead market is a market that fits certain characteristics that make it ideal for a product to thrive."
 :
 <div>
       <Typography >
       <br></br>
-      <p><b>8/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Describe your selected beachhead market explaining how it meets the criteria in the "Recap" section and why you think it is the right beachhead market. 
- </p>
+      <p style={{color:"black",justify:"center"}}>Describe your selected beachhead market explaining how it meets the 
+      criteria in the target market section and why you think it is the right beachhead market. 
+        </p>
       <textarea style={{height:80,width:270}}/>
       <br></br>
       <Button color="primary">
@@ -111,12 +102,12 @@ export default function ScrollableTabsButtonForce() {
           onChange={handleChange}
           variant="scrollable"
           scrollButtons="on"
-          indicatorColor="primary"
+          indicatorColor="white"
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
           <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>

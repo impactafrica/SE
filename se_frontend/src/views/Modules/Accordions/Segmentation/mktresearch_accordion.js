@@ -74,7 +74,7 @@ export default function SimpleAccordion() {
                   color="primary"
                   to={"/primary-research"}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
           </Typography>
         </AccordionDetails>
@@ -82,7 +82,7 @@ export default function SimpleAccordion() {
 
       
       <br></br>
-      <h4>Your exercise</h4>
+      <h4><b>Your exercise</b></h4>
           <SegmentationQues/>
     </div>
   );

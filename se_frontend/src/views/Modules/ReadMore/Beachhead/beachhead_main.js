@@ -16,7 +16,6 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
 
 import image from "assets/img/bg7.jpg";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -29,7 +28,6 @@ export default function Module_Item(props) {
   const { ...rest } = props;
   const dashboardRoutes = [];
    
-
   return (
     <div>
       <Header
@@ -40,25 +38,10 @@ export default function Module_Item(props) {
         fixed
         {...rest}
       />
-      {/* <div
-        className={classes.pageHeader}
-        style={{
-          backgroundImage: "url(" + image + ")",
-          backgroundSize: "cover",
-          backgroundPosition: "top center"
-        }}
-      > */}
         
         <div className={classes.container}>
-          <GridContainer width="100%">
-          <GridItem
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width:"100%"
-            }}
-          ><h2 style={{color:"black"}}><b>Market Segmentation</b></h2></GridItem>
+          <GridContainer width="70%">
+          <GridItem><h2 style={{color:"black"}}><b>Beachhead market</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
@@ -66,37 +49,52 @@ export default function Module_Item(props) {
                         style={{
                           display: "flex",
                           justifyContent: "center",
-                          alignItems: "center",
-                          width:"100%"
+                          alignItems: "center"
                         }}
                       >
-                        <ReactPlayer
-                          url= "https://www.youtube.com/watch?v=Gj2lyU10Y84"
-                        />
+                        <ReactPlayer  width={"60%"}
+                      url="https://www.youtube.com/watch?v=EO7oMbQlI9U "
+                    />
                         </div>
+              
                     <br></br>
                   <Typography fontSize="12">
-                    Market segmentation is the process of dividing  your target market into
-                     approachable groups. These subsets can be categorized according to primary 
-                     factors such as demographics, priorities, needs, common interests and behaviour. 
-                     Market segmentation is the first and one of the most vital steps towards identifying 
-                     the single most important and necessary condition for a business; paying customers.  
-                      We shall begin by looking into and understanding different market types.
-                      <br></br>
-                      <br></br>
-                      <a style={{
+                  We started out by brainstorming and laying out all of the potential markets where your 
+                  product would thrive. Then we narrowed down all of the options you had to about 3-5 markets. 
+                  In this step we will narrow down focus further to enable us to determine what your beachhead market is. 
+
+                    By definition, a beachhead market is  a market that fits certain characteristics that make it 
+                    ideal for a product to thrive.               
+                    In this step, we shall analyze the top 3-5 markets you selected and narrow them the ideal one.
+                     After that, we shall further segment that one market to determine your beachhead market. Initially,
+                      especially with first time entrepreneurs, there’s a notion that more markets will mean their odds of
+                       success are higher. However, the contrary is true. You should aim to identify one market that fits 
+                       the demand for your product then leverage off that success. 
+
+                    
+                    <br></br>
+                    <br></br>
+                    <div
+                        style={{
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center"
-                        }} href="https://blog.alexa.com/types-of-market-segmentation/">
-                        <b>Further Content</b>
-                      </a>
-                    </Typography>
-                  </div>                    
+                        }}
+                      >
+                        <ReactPlayer  width={"60%"}
+                      url="https://www.youtube.com/watch?v=Gj2lyU10Y84"
+                    />
+                        </div>
+                  
+                    
+                 
+                  </Typography>
+              </div>
             </GridItem>
           </GridContainer>
           
         </div>
+        <Footer whiteFont />
       </div>
     // </div>
   );

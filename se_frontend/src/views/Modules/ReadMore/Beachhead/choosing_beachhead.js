@@ -46,9 +46,19 @@ export default function Module_Item(props) {
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
-              <ReactPlayer  width={"60%"}
+              <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center"
+                        }}
+                      >
+                        <ReactPlayer 
                       url="https://www.youtube.com/watch?v=EO7oMbQlI9U "
                     />
+                        </div>
+              
+                    <br></br>
                   <Typography fontSize="12">
                   We started out by brainstorming and laying out all of the potential markets where your 
                   product would thrive. Then we narrowed down all of the options you had to about 3-5 markets. 
@@ -65,10 +75,12 @@ export default function Module_Item(props) {
                     In this step, we shall subject the 3-5 markets that we picked earlier to the same criteria
                      in Step a.2 till we can identify your beachhead markets. NOTE: In the eventuality that 2 or
                       more markets stand out as your beachhead market, it is important that you select one and move with it. 
-
+                    <br></br>
+                    <br></br>
                   <ReactPlayer  width={"60%"}
                       url="https://www.youtube.com/watch?v=Gj2lyU10Y84"
                     />
+                    <br></br>
                     Some activities you can undertake during this step are: 
 
                     Brainstorm with your team about every possible market type (b2b, b2c, b2b2c, b2b & b2c) and segment 

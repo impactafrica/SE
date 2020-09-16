@@ -8,6 +8,8 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import Chat from "@material-ui/icons/Chat";
 import Radio from "@material-ui/core/Radio";
 
+import TextField from '@material-ui/core/TextField';
+
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
@@ -19,6 +21,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
 import Carousel from "react-slick";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -63,21 +66,28 @@ const useStyles = makeStyles(styles);
 
 
 const dict = {
-    "Brainstorm with your team about every possible market type and segment. Keep in mind that a market segment is a grouping of potential customers who share similar characteristics, needs and/or interests"
-    :
-    <div >
-        <p style={{color:"black",justify:"center"}}>
-        List 8 possible market segments. 
-        Keep in mind that a market segment is 
-        a grouping of potential customers who share similar characteristics, needs and/or interests. 
-        </p>
-        <textarea style={{height:80,width:270}}/>
-        <br></br>
-        <Button color="primary">
+
+"Persona Description"
+:
+<div>
+      <Typography >
+      <br></br>
+        <p>Describe all its characteristics. </p>
+        <TextField
+          id="outlined-multiline-static"
+          label="Persona Description"
+          multiline
+          rows={5}
+          variant="outlined"
+        />
+
+<br></br>
+
+         <Button color="primary">
             Submit
         </Button>
-    </div>,
-    "You are done!!":"You are done!! You can now proceeed to narrowing"
+      </Typography>
+</div>
     };
 
 export default function ScrollableTabsButtonForce() {
@@ -112,8 +122,8 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white",height: "32px"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}}style={{color:"white"}} icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
+          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>

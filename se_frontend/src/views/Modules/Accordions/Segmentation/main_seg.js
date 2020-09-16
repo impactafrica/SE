@@ -60,22 +60,20 @@ export default function SimpleAccordion() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className={classes.heading}>Market Segmentation</Typography>
+          <Typography className={classes.heading}><b>What is market segmentation?</b></Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
           Market segmentation is the process of dividing  your target market into approachable groups. 
           These subsets can be categorized according to primary factors such as demographics, priorities, 
-          needs, common interests and behaviour. Market segmentation is the first and one of the most vital 
-          steps towards identifying the single most important and necessary condition for a business; paying customers.  
-          We shall begin by looking into and understanding different market types.
+          needs, common interests and behaviour. 
 
             <br></br>
             <Link
                   color="primary"
                   to={"/segmenting"}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
             <br></br>
              

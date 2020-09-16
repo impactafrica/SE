@@ -73,7 +73,7 @@ export default function SimpleAccordion() {
                   block
                   onClick={() => setbrainModal(true)}
                 >
-                   Read More...
+                   <b>Read More...</b>
                 </Link>
                 <Dialog
                   classes={{
@@ -101,26 +101,38 @@ export default function SimpleAccordion() {
                     >
                       <Close className={classes.modalClose} />
                     </IconButton>
-                    <h3 className={classes.modalTitle}><b> Brainstorming</b></h3>
+                    <h3 className={classes.modalTitle}><b> Targeted Market</b></h3>
                   </DialogTitle>
                   <DialogContent
                     id="classic-modal-slide-description"
                     className={classes.modalBody}
                   >
-                    <p>
+                     <p>
                     You will quickly realize that your beachhead market can be segmented further into smaller markets. 
                      In order for your market to be optimally targeted, it should meet these three conditions. 
+                     <br></br>
+                     <br></br>
                      Subject your beachhead market to these three conditions until you can find a segment which
                       meets all three conditions:
-
-                    The customers within the market all buy similar products. 
-                    The customers within the market have a similar sales cycle and expect products to provide value 
+                      <br></br>
+                      <ul>
+                        <li>
+                        The customers within the market all buy similar products.
+                        </li>
+                        <li>
+                        The customers within the market have a similar sales cycle and expect products to provide value 
                     in similar ways. Your salespeople can shift from selling to one customer to selling to a different
                      customer and still be very effective with little or no loss of productivity. 
-                    There is “word of mouth” between customers in the market segment, meaning they can serve as compelling 
+                        </li>
+                        <li>
+                        There is “word of mouth” between customers in the market segment, meaning they can serve as compelling 
                     and high-value references for each other in making purchases. 
-
+                        </li>
+                      </ul>
+                     
                     </p>
+                    
+
                    
                   </DialogContent>
                   <DialogActions className={classes.modalFooter}>
@@ -155,7 +167,7 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
       <br></br>
-      <h4>Your exercise</h4>
+      <h4><b>Your exercise</b></h4>
           <Quetabs/>
     </div>
   );

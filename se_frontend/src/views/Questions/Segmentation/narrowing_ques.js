@@ -69,7 +69,7 @@ const dict = {
     <div>
           <Typography >
           <br></br>
-          <p><b>2/17</b></p>
+          <p><b>1/7</b></p>
             <FormControl component="fieldset">
             <FormLabel style={{color:"black"}} component="legend">Is the customer well funded?</FormLabel>
             <RadioGroup aria-label="gender" name="gender1">
@@ -89,7 +89,7 @@ const dict = {
          
           <Typography >
           <br></br>
-          <p><b>3/17</b></p>
+          <p><b>2/7</b></p>
             <FormControl component="fieldset">
             <FormLabel style={{color:"black"}} component="legend">is the end user readily accessible to you and your salesforce?</FormLabel>
             <RadioGroup aria-label="gender" name="gender1">
@@ -108,7 +108,7 @@ const dict = {
     <div>
           <Typography >
           <br></br>
-          <p><b>4/17</b></p>
+          <p><b>3/7</b></p>
           <p style={{color:"black",justify:"center"}}>What need does your product fulfill?</p>
           <textarea style={{height:80,width:270}}/>
           <br></br>
@@ -122,7 +122,7 @@ const dict = {
     <div>
           <Typography >
           <br></br>
-          <p><b>5/17</b></p>
+          <p><b>4/7</b></p>
             <FormControl component="fieldset">
             <FormLabel style={{color:"black"}} component="legend">Can you deliver a full product?</FormLabel>
             <RadioGroup aria-label="gender" name="gender1">
@@ -141,7 +141,7 @@ const dict = {
     <div>
           <Typography >
           <br></br>
-          <p><b>6/17</b></p>
+          <p><b>5/7</b></p>
           <p style={{color:"black",justify:"center"}}>Where is the competition??</p>
           <textarea style={{height:80,width:270}}/>
           <br></br>
@@ -155,7 +155,7 @@ const dict = {
 <div>
       <Typography >
       <br></br>
-      <p><b>7/17</b></p>
+      <p><b>6/7</b></p>
         <FormControl component="fieldset">
         <FormLabel style={{color:"black"}} component="legend">Can you leverage on success? </FormLabel>
         <RadioGroup aria-label="gender" name="gender1">
@@ -174,7 +174,7 @@ const dict = {
 <div>
       <Typography >
       <br></br>
-      <p><b>8/17</b></p>
+      <p><b>7/7</b></p>
         <FormControl component="fieldset">
         <FormLabel style={{color:"black"}} component="legend">Does this market segment align itself to your brand? </FormLabel>
         <RadioGroup aria-label="gender" name="gender1">
@@ -189,7 +189,7 @@ const dict = {
       </Typography>
 </div>,
 
-"You are done!!":"You are done!!"
+"You are done!!":"You are done!!You can now proceed to primary market research"
     };
 
 export default function ScrollableTabsButtonForce() {
@@ -225,7 +225,7 @@ export default function ScrollableTabsButtonForce() {
           aria-label="scrollable force tabs example"
         >
           <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>

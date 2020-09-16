@@ -11,9 +11,9 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import BeachHeadAccordion from "./Accordions/Beachhead/beachhead_accordion";
-import TargetMarketAccordion from "./Accordions/Beachhead/target_market_accordion";
-import ConclusionAccordion from "./Accordions/Beachhead/beachhead_conlusion_accordion";
+import PrepareProcessAccordion from "./Accordions/Persona/prepare_process_accordion";
+import PersonaProfileAccordion from "./Accordions/Persona/persona_profile_accordion";
+import DistributePersonaAccordion from "./Accordions/Persona/distribute_persona_accordion";
 import LinearProgress from "components/CustomLinearProgress/PersonaLinearProgressBar";
 import { Link } from "react-router-dom";
 
@@ -82,24 +82,52 @@ export default function Module_Item(props) {
         
         <div className={classes.container}>
           <GridContainer width="90%">
-          <GridItem><h2 style={{color:"black"}}>Persona</h2></GridItem>
-          <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
+
+
+          <GridItem><h3 style={{color:"black"}}><b>Module 2: Market Research</b></h3></GridItem>
+          <GridItem xs={12} sm={12} md={12} className={classes[cardAnimaton]}>
               <div className={classes.title}>
-                <h3 style={{color:"black"}}>Your Progress</h3>
+                <h5 style={{color:"black"}}><b>Your Progress</b></h5>
               </div>
               <div className={classes.root}>
                 <LinearProgress />
               </div>
             </GridItem>
-            
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          <GridItem><h3 style={{color:"black"}}><b>c. Buyer Persona</b></h3></GridItem>
+
+          <GridItem xs={12} sm={12} md={12}>
+              <Card color="primary" className={classes[cardAnimaton]}>
+                  <CardBody>
+                    <h5>
+                    A buyer persona is a detailed description of one potential, real end user. 
+                    This step ensures that the whole team shares the same vision as to who the 
+                    intended end user is set out to be and allows focus to be narrowed down to 
+                    that one single persona. 
+                    <Link
+                      color="primary"
+                      to={"/prepare-process"}
+                    >
+                      {' '}<b><b>Read More...</b></b>
+                    </Link>
+                    </h5>
+                    {/* <SegmentingAccordion/>         */}
+                </CardBody>
+              </Card>
+            </GridItem>
+
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                    {/* <b><h3>Choosing you beachhead</h3></b> */}
+              <CardBody justify="center">
+                  <h4 style={{color:"black"}}><b>Lets Get Started</b></h4>
                   </CardBody>
                   <CardBody>
                     <div>
-                    <BeachHeadAccordion/>
+                    <PrepareProcessAccordion />
                     </div>
                 </CardBody>
               </Card>
@@ -111,7 +139,18 @@ export default function Module_Item(props) {
                     {/* <b><h2>Conclusion</h2></b> */}
                   </CardBody>
                   <CardBody>
-                    <ConclusionAccordion/>
+                    <PersonaProfileAccordion/>
+                </CardBody>
+              </Card>
+            </GridItem>
+
+            <GridItem xs={12} sm={12} md={12}>
+              <Card color="primary" className={classes[cardAnimaton]}>
+                  <CardBody justify="center">
+                    {/* <b><h2>Conclusion</h2></b> */}
+                  </CardBody>
+                  <CardBody>
+                    <DistributePersonaAccordion/>
                 </CardBody>
               </Card>
             </GridItem>

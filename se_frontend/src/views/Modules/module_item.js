@@ -76,29 +76,46 @@ export default function Module_Item(props) {
       />
         <div className={classes.container}>
           <GridContainer width="90%">
-          <GridItem><h2 style={{color:"black"}}>Market Segmentation</h2></GridItem>
-          <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
+
+          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black"}}><b>Module 2: Market Research</b></h3></GridItem>
+          <GridItem xs={12} sm={12} md={12} className={classes[cardAnimaton]}>
               <div className={classes.title}>
-                <h3 style={{color:"black"}}>Your Progress</h3>
+                <h5 style={{color:"black"}}><b>Your Progress</b></h5>
               </div>
               <div className={classes.root}>
                 <LinearProgress />
               </div>
             </GridItem>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black"}}><b>a. Market Segmentation</b></h3></GridItem>
 
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                  </CardBody>
                   <CardBody>
-                    <SegmentingAccordion/>        
+                    <h5>
+                    Market segmentation is the process of dividing  your target market into approachable groups. 
+                    These subsets can be categorized according to primary factors such as demographics, priorities, 
+                    needs, common interests and behaviour. 
+                    <Link
+                      color="primary"
+                      to={"/segmenting"}
+                    >
+                      {' '}<b><b>Read More...</b></b>
+                    </Link>
+                    </h5>
+                    {/* <SegmentingAccordion/>         */}
                 </CardBody>
               </Card>
             </GridItem>
-
+            
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
+                  <h4 style={{color:"black"}}><b>Lets Get Started</b></h4>
                   </CardBody>
                   <CardBody>
                     <BrainstormingAccordion/>        

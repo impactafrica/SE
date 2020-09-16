@@ -16,7 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Quetabs from "../../../Questions/Beachhead/beachhead_questions";
+import Quetabs from "../../../Questions/Persona/persona_description";
 
 // @material-ui/icons
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
@@ -56,31 +56,40 @@ export default function SimpleAccordion() {
 
   return (
     <div className={classes.root}>
-      <Accordion
-       color="primary"
-       >
+      <Accordion>
         <AccordionSummary
-        color="primary"
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel2a-content"
+          id="panel2a-header"
         >
-          <Typography className={classes.heading}>1. Choosing your beachhead market</Typography>
+          <Typography className={classes.heading}>3. Distribute the Persona</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          In this step, we shall subject the 3-5 markets that we picked earlier to the 
-                    same criteria in Step a.2 till we can identify your beachhead markets. 
-                    NOTE: In the eventuality that 2 or more markets stand out as your beachhead market,
-                     it is important that you select one and move with it.  
-                
+          The success of a persona relies on using it. Therefore, you must make sure everyone 
+          in your company knows what your customer looks like and is empathetic to his needs and pains.
           </Typography>
         </AccordionDetails>
       </Accordion>
-      
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography className={classes.heading}>4. Persona Conclusion</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          Describe the essentials of the persona below, trying to describe all its characteristics.
+          
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
       <br></br>
       <h4><b>Your exercise</b></h4>
           <Quetabs/>
+      
     </div>
   );
 }
