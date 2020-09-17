@@ -11,13 +11,11 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import BrainstormingAccordion from "../../views/Modules/Accordions/Segmentation/mkttypes_brainstroming_accordion";
-import NarrowingAccordion from "../../views/Modules/Accordions/Segmentation/narrowing_accordion";
-import ResearchAccordion from "../../views/Modules/Accordions/Segmentation/mktresearch_accordion";
-import ConclusionAccordion from "../../views/Modules/Accordions/Segmentation/conclusion_accordion";
-import LinearProgress from "components/CustomLinearProgress/LinearProgressBar";
+import PrepareProcessAccordion from "./Accordions/Persona/prepare_process_accordion";
+import PersonaProfileAccordion from "./Accordions/Persona/persona_profile_accordion";
+import DistributePersonaAccordion from "./Accordions/Persona/distribute_persona_accordion";
+import LinearProgress from "components/CustomLinearProgress/PersonaLinearProgressBar";
 import { Link } from "react-router-dom";
-
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -31,7 +29,7 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-  
+
   return (
     <div>
       <Header
@@ -42,10 +40,20 @@ export default function Module_Item(props) {
         fixed
         {...rest}
       />
+      {/* <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      > */}
+        
         <div className={classes.container}>
           <GridContainer width="90%">
 
-          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black"}}><b>Module 2: Market Research</b></h3></GridItem>
+
+          <GridItem><h3 style={{color:"black"}}><b>Module 2: Market Research</b></h3></GridItem>
           <GridItem xs={12} sm={12} md={12} className={classes[cardAnimaton]}>
               <div className={classes.title}>
                 <h5 style={{color:"black"}}><b>Your Progress</b></h5>
@@ -59,18 +67,19 @@ export default function Module_Item(props) {
             <br></br>
             <br></br>
             <br></br>
-          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black"}}><b>a. Market Segmentation</b></h3></GridItem>
+          <GridItem><h3 style={{color:"black"}}><b>c. Buyer Persona</b></h3></GridItem>
 
-            <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody>
                     <h5>
-                    Market segmentation is the process of dividing  your target market into approachable groups. 
-                    These subsets can be categorized according to primary factors such as demographics, priorities, 
-                    needs, common interests and behaviour. 
+                    A buyer persona is a detailed description of one potential, real end user. 
+                    This step ensures that the whole team shares the same vision as to who the 
+                    intended end user is set out to be and allows focus to be narrowed down to 
+                    that one single persona. 
                     <Link
                       color="primary"
-                      to={"/segmenting"}
+                      to={"/prepare-process"}
                     >
                       {' '}<b><b>Read More...</b></b>
                     </Link>
@@ -79,14 +88,16 @@ export default function Module_Item(props) {
                 </CardBody>
               </Card>
             </GridItem>
-            
+
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
+              <CardBody justify="center">
                   <h4 style={{color:"black"}}><b>Lets Get Started</b></h4>
                   </CardBody>
                   <CardBody>
-                    <BrainstormingAccordion/>        
+                    <div>
+                    <PrepareProcessAccordion />
+                    </div>
                 </CardBody>
               </Card>
             </GridItem>
@@ -94,9 +105,10 @@ export default function Module_Item(props) {
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
+                    {/* <b><h2>Conclusion</h2></b> */}
                   </CardBody>
                   <CardBody>
-                    <NarrowingAccordion/>        
+                    <PersonaProfileAccordion/>
                 </CardBody>
               </Card>
             </GridItem>
@@ -104,29 +116,20 @@ export default function Module_Item(props) {
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
                   <CardBody justify="center">
+                    {/* <b><h2>Conclusion</h2></b> */}
                   </CardBody>
                   <CardBody>
-                    <ResearchAccordion/>        
+                    <DistributePersonaAccordion/>
                 </CardBody>
               </Card>
             </GridItem>
-            <GridItem xs={12} sm={12} md={12}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardBody justify="center">
-                  </CardBody>
-                  <CardBody>
-                    <ConclusionAccordion/>        
-                </CardBody>
-              </Card>
-            </GridItem>
-            <Link to="beachhead_item">
+            <Link to="modules">
               <Button
                   justify="right"
                   color="primary"> 
-                  Click Here to proceed to the next section
+                  You're done! Click here to go to modules
               </Button>
             </Link>
-            
           </GridContainer>
           <GridContainer>
           

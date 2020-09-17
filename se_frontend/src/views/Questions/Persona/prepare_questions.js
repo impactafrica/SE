@@ -4,17 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PhoneIcon from '@material-ui/icons/Phone';
 import Chat from "@material-ui/icons/Chat";
-import Radio from "@material-ui/core/Radio";
-
-
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
-import HelpIcon from '@material-ui/icons/Help';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import ThumbDown from '@material-ui/icons/ThumbDown';
-import ThumbUp from '@material-ui/icons/ThumbUp';
+
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
@@ -59,31 +51,62 @@ const useStyles = makeStyles(styles);
 
 
 const dict = {
-    "Brainstorm with your team about every possible market type and segment. Keep in mind that a market segment is a grouping of potential customers who share similar characteristics, needs and/or interests"
-    :
-    <div >
-        <h3><b>1/8</b></h3>
-        <p style={{color:"black",justify:"center"}}>
-        List 8 possible market segments. 
-        Keep in mind that a market segment is 
-        a grouping of potential customers who share similar characteristics, needs and/or interests. 
-        </p>
-        <textarea style={{height:80,width:270}}/>
-        <br></br>
-        <Button color="primary">
+"If you have no sales yet you can look at your beachhead market and come up with persona projections by identifying the buyer(s) in that market."
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>1/4</b></p>
+        <h4>Collect and analyze sales data, focusing on the most successful
+         customers to date (maybe the 20% of customers generating 80% of the sales). Look at the primary market research you 
+         have already done, focusing on customers who would pay (not are just interested) in your potential offering.</h4>
+         <Button color="primary">
             Next
         </Button>
-    </div>,
-    "If the customer is not well funded,then the market is not as attractive. "
-    :
-    <div>
-        <p> 
-        Purchasing power of the target group: Is the customer well funded?
-        </p>
-        <Radio>Yes</Radio>
-        <Radio>No</Radio>
-        <Button color="primary">Next</Button>
-    </div>
+      </Typography>
+</div>,
+"Remember you're answering this question: “If I had only one end user to represent our end-user profile, who would it be?”"
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>2/4</b></p>
+        <h4>Present a synthesis of all the research & findings to your team.</h4>
+        <br></br>
+        <h4>Present the end-user profile to your team.</h4>
+         <Button color="primary">
+            Next
+        </Button>
+      </Typography>
+</div>,
+"Remember you're answering the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>3/4</b></p>
+        <h4>Discuss with your team which end-user would be the best fit for a persona</h4>
+         <Button color="primary">
+            Next
+        </Button>
+      </Typography>
+</div>,
+
+"Remember the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+:
+<div>
+      <Typography >
+      <br></br>
+      <p><b>4/4</b></p>
+        <h4>Consider separate personas for each customer type (for two- or multi-sided markets) but start with the end-user
+             because if they don't use it, there is no value created.</h4>
+         <Button color="primary">
+            Next
+        </Button>
+      </Typography>
+</div>,
+
+"You are done!!":"Let's now define our persona"
     };
 
 export default function ScrollableTabsButtonForce() {
@@ -99,6 +122,7 @@ export default function ScrollableTabsButtonForce() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
+    wrap:false,
     arrows: false,
     nextIcon: <Button color="primary">Next</Button>,
     prevIcon: <Button>Previous</Button>     
@@ -118,7 +142,7 @@ export default function ScrollableTabsButtonForce() {
           aria-label="scrollable force tabs example"
         >
           <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
