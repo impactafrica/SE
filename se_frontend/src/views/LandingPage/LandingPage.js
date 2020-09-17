@@ -23,7 +23,6 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
-import Logo from "../../assets/img/se_logo.png";
 
 const dashboardRoutes = [];
 

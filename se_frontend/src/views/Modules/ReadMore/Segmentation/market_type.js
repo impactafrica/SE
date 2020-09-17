@@ -8,14 +8,12 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
 import Typography from '@material-ui/core/Typography';
 
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
 
-import image from "assets/img/bg7.jpg";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(styles);

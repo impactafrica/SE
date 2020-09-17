@@ -8,14 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link } from "react-router-dom";
 import Slide from "@material-ui/core/Slide";
 import SegmentationQues from "../../../Questions/Segmentation/brainstorming_ques";
-// @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
-import Close from "@material-ui/icons/Close";
-// core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-import ReactPlayer from "react-player"
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,15 +27,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 Transition.displayName = "Transition";
 export default function SimpleAccordion() {
   const classes = useStyles();
-  const [anchorElLeft, setAnchorElLeft] = React.useState(null);
-  const [anchorElTop, setAnchorElTop] = React.useState(null);
-  const [anchorElBottom, setAnchorElBottom] = React.useState(null);
-  const [anchorElRight, setAnchorElRight] = React.useState(null);
-  const [classicModal, setClassicModal] = React.useState(false);
-  const [classicsModal, setClassicsModal] = React.useState(false);
-  const [classicalModal, setClassicalModal] = React.useState(false);
-  const [brainModal, setbrainModal] = React.useState(false);
-  const [narrowModal, setnarrowModal] = React.useState(false);
 
   return (
     <div className={classes.root}>

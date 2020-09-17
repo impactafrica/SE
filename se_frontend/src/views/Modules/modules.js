@@ -1,10 +1,7 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
-import Email from "@material-ui/icons/Email";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -16,7 +13,6 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -70,10 +66,9 @@ export default function LoginPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-  const [progress1, setProgress1] = React.useState(100);
-  const [progress2, setProgress2] = React.useState(10);
-  const [progress3, setProgress3] = React.useState(0);
-  const [progress4, setProgress4] = React.useState(0);
+  const [progress1] = React.useState(100);
+  const [progress2] = React.useState(10);
+  
 
   return (
     <div>
@@ -138,7 +133,7 @@ export default function LoginPage(props) {
                   <CircularProgressWithLabel value={progress2} />
                   <Link to={"/module_item"} className={classes.link}>
                     <Button simple color="primary" size="lg">
-                      Get started
+                      Continue
                     </Button>
                 </Link>
                   </CardFooter>
@@ -188,6 +183,6 @@ export default function LoginPage(props) {
         </div>
         <Footer whiteFont />
       </div>
-    // </div>
+   </div>
   );
 }

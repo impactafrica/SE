@@ -12,20 +12,12 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import InputLabel from "@material-ui/core/InputLabel";
-import FormControl from "@material-ui/core/FormControl";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
 import Quetabs from "../../../Questions/Beachhead/beachhead_conclusion";
 
 // @material-ui/icons
-import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import Close from "@material-ui/icons/Close";
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import ReactPlayer from "react-player"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,15 +36,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 Transition.displayName = "Transition";
 export default function SimpleAccordion() {
   const classes = useStyles();
-  const [anchorElLeft, setAnchorElLeft] = React.useState(null);
-  const [anchorElTop, setAnchorElTop] = React.useState(null);
-  const [anchorElBottom, setAnchorElBottom] = React.useState(null);
-  const [anchorElRight, setAnchorElRight] = React.useState(null);
-  const [classicModal, setClassicModal] = React.useState(false);
-  const [classicsModal, setClassicsModal] = React.useState(false);
-  const [classicalModal, setClassicalModal] = React.useState(false);
   const [brainModal, setbrainModal] = React.useState(false);
-  const [narrowModal, setnarrowModal] = React.useState(false);
 
   return (
     <div className={classes.root}>
@@ -83,7 +67,7 @@ export default function SimpleAccordion() {
                   open={brainModal}
                   TransitionComponent={Transition}
                   keepMounted
-                  onClose={() => setClassicalModal(false)}
+                  onClose={() => setbrainModal(false)}
                   aria-labelledby="classic-modal-slide-title"
                   aria-describedby="classic-modal-slide-description"
                 >

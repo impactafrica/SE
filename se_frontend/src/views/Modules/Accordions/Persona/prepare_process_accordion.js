@@ -5,22 +5,12 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from "react-router-dom";
 import Slide from "@material-ui/core/Slide";
-import IconButton from "@material-ui/core/IconButton";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogActions from "@material-ui/core/DialogActions";
+
 import Quetabs from "../../../Questions/Persona/prepare_questions";
 
 // @material-ui/icons
-import Close from "@material-ui/icons/Close";
 // core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-import ReactPlayer from "react-player"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +29,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 Transition.displayName = "Transition";
 export default function SimpleAccordion() {
   const classes = useStyles();
-  const [classicModal, setClassicModal] = React.useState(false);
 
 
   return (

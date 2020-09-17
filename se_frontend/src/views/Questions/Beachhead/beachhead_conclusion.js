@@ -4,11 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PhoneIcon from '@material-ui/icons/Phone';
 import Chat from "@material-ui/icons/Chat";
-import Radio from "@material-ui/core/Radio";
 
-
+import {useState} from 'react'
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -53,27 +51,6 @@ function a11yProps(index) {
 const useStyles = makeStyles(styles);
 
 
-const dict = {
-
-
-"Remember, a beachhead market is a market that fits certain characteristics that make it ideal for a product to thrive."
-:
-<div>
-      <Typography >
-      <br></br>
-      <p style={{color:"black",justify:"center"}}>Describe your selected beachhead market explaining how it meets the 
-      criteria in the target market section and why you think it is the right beachhead market. 
-        </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"You are done!!":"You are done!!"
-    };
-
 export default function ScrollableTabsButtonForce() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -92,6 +69,29 @@ export default function ScrollableTabsButtonForce() {
     nextIcon: <Button color="primary">Next</Button>,
     prevIcon: <Button>Previous</Button>     
 };
+const [buttonText, setButtonText] = useState("Submit");
+
+const dict = {
+
+
+  "Remember, a beachhead market is a market that fits certain characteristics that make it ideal for a product to thrive."
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p style={{color:"black",justify:"center"}}>Describe your selected beachhead market explaining how it meets the 
+        criteria in the target market section and why you think it is the right beachhead market. 
+          </p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button onClick={() => setButtonText("Submitted!")}
+        color="primary">
+          {buttonText}
+      </Button>
+        </Typography>
+  </div>,
+  "You are done!!":"You are done!!"
+      };
 
   return (
       

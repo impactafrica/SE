@@ -28,37 +28,6 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-  const [anchorElLeft, setAnchorElLeft] = React.useState(null);
-  const [anchorElTop, setAnchorElTop] = React.useState(null);
-  const [anchorElBottom, setAnchorElBottom] = React.useState(null);
-  const [anchorElRight, setAnchorElRight] = React.useState(null);
-  const [classicModal, setClassicModal] = React.useState(false);
-  const [checked, setChecked] = React.useState([24, 22]);
-  const [selectedEnabled, setSelectedEnabled] = React.useState("b");
-  const [checkedA, setCheckedA] = React.useState(true);
-  const [checkedB, setCheckedB] = React.useState(false);
-
-  const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        arrows: false,
-        nextIcon: <Button color="primary">Next</Button>,
-        prevIcon: <Button>Previous</Button>     
-    };
-    const handleToggle = value => {
-        const currentIndex = checked.indexOf(value);
-        const newChecked = [...checked];
-    
-        if (currentIndex === -1) {
-          newChecked.push(value);
-        } else {
-          newChecked.splice(currentIndex, 1);
-        }
-        setChecked(newChecked);
-      };    
 
   return (
     <div>
