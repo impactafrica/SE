@@ -6,13 +6,15 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Chat from "@material-ui/icons/Chat";
 
+import Card from "components/Card/Card.js";
 import { useState } from 'react';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
-import Carousel from "react-slick";
+import Slider from "react-slick";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import ArrowLeft from "assets/img/arrow_left.png"
 
 
 function TabPanel(props) {
@@ -59,18 +61,44 @@ export default function ScrollableTabsButtonForce() {
     setValue(newValue);
     
   };
+
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red" }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green" }}
+        onClick={onClick}
+      >
+        <img src={ArrowLeft} alt="arrow_left"/>
+      </div>
+    );
+  }
+
   const settings = {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
     wrap:false,
-    arrows: false,
-    nextIcon: <Button color="primary">Next</Button>,
-    prevIcon: <Button>Previous</Button>     
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />   
 };
-const dict = {
-  "Brainstorm with your team about every possible market type and segment. Keep in mind that a market segment is a grouping of potential customers who share similar characteristics, needs and/or interests"
+
+const dict = [
+  {
+  "mydiv"
   :
   <div >
       <p style={{color:"black",justify:"center"}}>
@@ -84,9 +112,9 @@ const dict = {
       color="primary">
           {buttonText}
       </Button>
-  </div>,
-  "You are done!!":"You are done!! You can now proceeed to narrowing"
-  };
+  </div>
+  }
+]
   return (
       
     <div className={classes.root}>
@@ -100,29 +128,23 @@ const dict = {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white",height: "32px"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}} icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}} icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <Slider {...settings} >
+            {
+              dict.map(function(d,idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
-            </Carousel>
+              })
+            }
+          </Slider>
           
-      }
+      } 
       
       <div>
           

@@ -24,6 +24,7 @@ import BeachheadItem from "views/Modules/beachhead_item"
 import PersonaItem from "views/Modules/persona_item"
 import Segmenting from "views/Modules/ReadMore/Segmentation/segmenting"
 import BeachheadDef from "views/Modules/ReadMore/Beachhead/beachhead_main"
+import Onboarding from "views/Modules/onboarding"
 
 var hist = createBrowserHistory();
 
@@ -47,8 +48,8 @@ ReactDOM.render(
       <Route path="/beachhead_item" component={BeachheadItem} />
       <Route path="/persona_item" component={PersonaItem} />
       <Route path="/segmenting" component={Segmenting} />
+      <Route path="/onboarding" component={Onboarding} />
       <Route path="/beachhead-def" component={BeachheadDef} />
-      
       <Route path="/" component={LandingPage} />
     </Switch>
   </Router>,
