@@ -79,7 +79,6 @@ export default function SimpleAccordion() {
       </Accordion>
 
       <br></br>
-      <h4><b><b>Your exercise</b></b></h4>
           <SegmentationQues/>
     </div>
   );

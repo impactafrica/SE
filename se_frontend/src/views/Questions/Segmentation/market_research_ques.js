@@ -13,6 +13,8 @@ import Box from '@material-ui/core/Box';
 import Button from "components/CustomButtons/Button.js";
 import Carousel from "react-slick";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import ArrowNext from "assets/img/arrow_right.png"
+import ArrowPrev from "assets/img/arrow_left.png"
 
 
 function TabPanel(props) {
@@ -50,136 +52,32 @@ function a11yProps(index) {
 
 const useStyles = makeStyles(styles);
 
+function LeftNavButton(props) {
+  const {className, style, onClick} = props
+  return (
+      <div
+          className="slick-arrow"
+          style={{...style, display: 'block'}}
+          onClick={onClick}
+      >
+          <Button color="primary">Previous</Button>
+      </div>
+  );
+}
 
-const dict = {
-"Who specifically will use your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>1/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Who is your end user?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Application: What will the end user use your product for and how will it improve their lives? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>2/8</b></p>
-      <p style={{color:"black",justify:"center"}}>What will they use your product for? How will it improve their lives?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Benefits:Do they save time or money? Does it boost their profits? Will your product improve the users’ social status or self esteem? Think of benefits holistically and don;t be limited to physically/tangible things"
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>3/8</b></p>
-      <p style={{color:"black",justify:"center"}}>What is the actual value that the end user gains from your product?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Lighthouse Customers: Who are the most influential users that may need your product? The people who are respected when they buy and others will follow."
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>4/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Who are your “lighthouse customers”?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"What about this market will either ease or hinder the adaptation of your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>5/8</b></p>
-      <p style={{color:"black",justify:"center"}}>What about this market will either ease or hinder the adaptation of your product? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Partners/Players: Who do you need to deliver and add value to your product? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>6/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Who are our partners? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Size of the market: If you can achieve 100 market penetration, how many potential customers exist?  "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>7/8</b></p>
-      <p style={{color:"black",justify:"center"}}>How many potential customers exist?  </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Competition: Who, if anyone, is making a similar product?  "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>8/8</b></p>
-      <p style={{color:"black",justify:"center"}}>Who is your competition?</p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"Complementary assets required: What else does your customer need in order to get the full solution? "
-:
-<div>
-      <Typography >
-      <br></br>
-      <p><b>8/8</b></p>
-      <p style={{color:"black",justify:"center"}}>What are the complementary assets required? </p>
-      <textarea style={{height:80,width:270}}/>
-      <br></br>
-      <Button color="primary">
-        Next
-    </Button>
-      </Typography>
-</div>,
-"You are done!!":"You are done!!"
-    };
+function RightNavButton(props) {
+  const {className, style, onClick} = props
+  return (
+      <div
+          className="slick-arrow"
+          style={{...style, display: 'block',}}
+          onClick={onClick}
+      >
+        <Button color="primary">Next</Button>
+          {/* <img src={ArrowNext} alt="arrow_left"/> */}
+      </div>
+  );
+}
 
 export default function ScrollableTabsButtonForce() {
   const classes = useStyles();
@@ -189,6 +87,7 @@ export default function ScrollableTabsButtonForce() {
     setValue(newValue);
     
   };
+
   const settings = {
     speed: 500,
     slidesToShow: 1,
@@ -196,9 +95,154 @@ export default function ScrollableTabsButtonForce() {
     autoplay: false,
     wrap:false,
     arrows: false,
-    nextIcon: <Button color="primary">Next</Button>,
-    prevIcon: <Button>Previous</Button>     
-};
+  };
+  
+const dict = [
+  {
+  "mydiv":
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>1/8</b></p>
+        <p style={{color:"black",justify:"center"}}>Who is your end user?</p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>2/8</b></p>
+        <p style={{color:"black",justify:"center"}}>What will they use your product for? How will it improve their lives?</p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>3/8</b></p>
+        <p style={{color:"black",justify:"center"}}>What is the actual value that the end user gains from your product?</p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>4/8</b></p>
+        <p style={{color:"black",justify:"center"}}>Who are your “lighthouse customers”?</p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>5/8</b></p>
+        <p style={{color:"black",justify:"center"}}>What about this market will either ease or hinder the adaptation of your product? </p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>6/8</b></p>
+        <p style={{color:"black",justify:"center"}}>Who are our partners? </p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>7/8</b></p>
+        <p style={{color:"black",justify:"center"}}>How many potential customers exist?  </p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>8/8</b></p>
+        <p style={{color:"black",justify:"center"}}>Who is your competition?</p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {
+  "mydiv"
+  :
+  <div>
+        <Typography >
+        <br></br>
+        <p><b>8/8</b></p>
+        <p style={{color:"black",justify:"center"}}>What are the complementary assets required? </p>
+        <textarea style={{height:80,width:270}}/>
+        <br></br>
+        <Button color="primary">
+          Next
+      </Button>
+        </Typography>
+  </div>
+  },
+  {"You are done!!":"You are done!!"}
+];
 
   return (
       
@@ -213,28 +257,23 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Here is your exercise" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <div>
+            <Carousel {...settings}>
+            {
+              dict.map(function(d, idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel  key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
+              })
+            }
             </Carousel>
-          
+          </div>     
       }
       
       <div>
