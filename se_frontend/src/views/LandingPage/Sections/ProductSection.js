@@ -101,7 +101,7 @@ export default function ProductSection() {
                 <h3><b>Mentorship</b></h3>
               </CardBody>
               <CardBody>
-                <p>A holding hand for both accountability and knwoledge sharing</p>
+                <p>A holding hand for both accountability and knowledge sharing</p>
               </CardBody>
           </Card>
         </GridItem>
