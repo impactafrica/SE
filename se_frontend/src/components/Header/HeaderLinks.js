@@ -26,58 +26,39 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
+
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="Modules"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={Apps}
-          dropdownList={[
-            <Link to="/modules" className={classes.dropdownLink}>
-              Modules List
-            </Link>
-            // <a
-            //   href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
-            //   target="_blank"
-            //   className={classes.dropdownLink}
-            // >
-            //   Documentation
-            // </a>
-          ]}
-        />
+        <Link to="/landing-page">
+          <Button color="transparent" style={{color:"white"}}>
+            Home
+          </Button>
+        </Link>
       </ListItem>
+
       <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="Community"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          // buttonIcon={Apps}
-          // dropdownList={[
-          //   <Link to="/" className={classes.dropdownLink}>
-          //     All components
-          //   </Link>,
-          //   <a
-          //     href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
-          //     target="_blank"
-          //     className={classes.dropdownLink}
-          //   >
-          //     Documentation
-          //   </a>
-          // ]}
-        />
+        <Link to="/modules">
+          <Button color="transparent" style={{color:"white"}}>
+            Modules
+          </Button>
+        </Link>
       </ListItem>
+
       <ListItem className={classes.listItem}>
-        {/*<Tooltip title="Delete">
+        <Link to="">
+          <Button color="transparent" style={{color:"white"}}>
+            Community
+          </Button>
+        </Link>
+      </ListItem>
+
+      
+      
+      {/* <ListItem className={classes.listItem}>
+        <Tooltip title="Delete">
           <IconButton aria-label="Delete">
             <DeleteIcon />
           </IconButton>
-        </Tooltip>*/}
+        </Tooltip>
         <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
@@ -93,8 +74,8 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
+      </ListItem> */}
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
@@ -127,7 +108,7 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 }

@@ -84,7 +84,6 @@ export default function Components(props) {
         <SectionExamples />
         <SectionDownload />
       </div>
-      <Footer />
     </div>
   );
 }

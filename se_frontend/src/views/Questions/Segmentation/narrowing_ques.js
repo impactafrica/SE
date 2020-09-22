@@ -92,9 +92,7 @@ const dict = [
             </RadioGroup>
         </FormControl>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
     </div>
     },
@@ -114,9 +112,7 @@ const dict = [
             </RadioGroup>
         </FormControl>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
     },
@@ -130,9 +126,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>What need does your product fulfill?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
     },
@@ -151,9 +145,7 @@ const dict = [
             </RadioGroup>
         </FormControl>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
     },
@@ -167,9 +159,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>Where is the competition??</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
     },
@@ -230,7 +220,7 @@ const dict = [
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Your Exercise" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>

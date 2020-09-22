@@ -71,10 +71,8 @@ export default function ScrollableTabsButtonForce() {
 };
 const [buttonText, setButtonText] = useState("Submit");
 
-const dict = {
-
-
-  "Remember, a beachhead market is a market that fits certain characteristics that make it ideal for a product to thrive."
+const dict = [
+  {"mydiv"
   :
   <div>
         <Typography >
@@ -89,9 +87,9 @@ const dict = {
           {buttonText}
       </Button>
         </Typography>
-  </div>,
-  "You are done!!":"You are done!!"
-      };
+  </div>},
+  {"mydiv":"You are done!!"}
+]
 
   return (
       
@@ -106,28 +104,23 @@ const dict = {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <div>
+            <Carousel {...settings}>
+            {
+              dict.map(function(d, idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
+              })
+            }
             </Carousel>
-          
+          </div>     
       }
       
       <div>

@@ -50,64 +50,55 @@ function a11yProps(index) {
 const useStyles = makeStyles(styles);
 
 
-const dict = {
-"If you have no sales yet you can look at your beachhead market and come up with persona projections by identifying the buyer(s) in that market."
+const dict = [
+{"mydiv"
 :
 <div>
       <Typography >
       <br></br>
       <p><b>1/4</b></p>
-        <h4>Collect and analyze sales data, focusing on the most successful
+        <p>Collect and analyze sales data, focusing on the most successful
          customers to date (maybe the 20% of customers generating 80% of the sales). Look at the primary market research you 
-         have already done, focusing on customers who would pay (not are just interested) in your potential offering.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+         have already done, focusing on customers who would pay (not are just interested) in your potential offering.</p>
+        
       </Typography>
-</div>,
-"Remember you're answering this question: “If I had only one end user to represent our end-user profile, who would it be?”"
+</div>},
+{"mydiv"
 :
 <div>
       <Typography >
       <br></br>
       <p><b>2/4</b></p>
-        <h4>Present a synthesis of all the research & findings to your team.</h4>
-        <br></br>
-        <h4>Present the end-user profile to your team.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+        <p>Present a synthesis of all the research & findings to your team.</p>
+        <p>Present the end-user profile to your team.</p>
+        
       </Typography>
-</div>,
-"Remember you're answering the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+</div>},
+{"mydiv"
 :
 <div>
       <Typography >
       <br></br>
       <p><b>3/4</b></p>
-        <h4>Discuss with your team which end-user would be the best fit for a persona</h4>
-         <Button color="primary">
-            Next
-        </Button>
+        <p>Discuss with your team which end-user would be the best fit for a persona</p>
+         
       </Typography>
-</div>,
+</div>},
 
-"Remember the question: “If I had only one end user to represent our end-user profile, who would it be?”"
+{"mydiv"
 :
 <div>
       <Typography >
       <br></br>
       <p><b>4/4</b></p>
-        <h4>Consider separate personas for each customer type (for two- or multi-sided markets) but start with the end-user
-             because if they don't use it, there is no value created.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+        <p>Consider separate personas for each customer type (for two- or multi-sided markets) but start with the end-user
+             because if they don't use it, there is no value created.</p>
+       
       </Typography>
-</div>,
+</div>},
 
-"You are done!!":"Let's now define our persona"
-    };
+{"mydiv":"Let's now define our persona"}
+]
 
 export default function ScrollableTabsButtonForce() {
   const classes = useStyles();
@@ -141,28 +132,23 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <div>
+            <Carousel {...settings}>
+            {
+              dict.map(function(d, idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
+              })
+            }
             </Carousel>
-          
+          </div>     
       }
       
       <div>
