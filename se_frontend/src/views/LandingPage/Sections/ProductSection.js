@@ -16,10 +16,10 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import image from "assets/img/bg7.jpg";
 import idea from "assets/img/idea.png";
-import arrow from "assets/img/right.png";
-import read from "assets/img/read.png";
-import logo from "assets/img/se_logo.png";
-import report from "assets/img/report.png";
+import arrow from "assets/img/content.png";
+import read from "assets/img/framework.png";
+import logo from "assets/img/people.png";
+import report from "assets/img/mentor.png";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -39,7 +39,6 @@ export default function ProductSection() {
           <h5 className={classes.description}>
           Welcome to SE! We will help you start, execute and launch your project.
           <br></br>
-          Here are the steps will you will undertake:
           </h5>
           
           <br></br>
@@ -47,52 +46,65 @@ export default function ProductSection() {
       </GridContainer>
       <div>
         <GridContainer>
-        <GridItem xs={12} sm={12} md={4}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                  <img src={read} height="80px" justify="center" alt="ideation"/>
-                  {'   '}
-                  {/* <img src={arrow} height="50px" style={{float:"right"}} alt="ideation"/> */}
-                  </CardHeader>
-                  <CardBody>
-                    <div style={{backgroundColor:"purple",width:"100%"}}>
-                    </div>
-                  <h3><b>1. Read the content </b></h3>
-                  </CardBody>
-                  <CardBody>
-                   <p>You will take a few minutes to read about a concept about entrepreneurship </p>
-                  </CardBody>
-                  </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <img src={idea} height="80px"  alt="ideation"/>
-                  </CardHeader>
-                  <CardBody justify="center">
-                    <h3><b>2. Take the assessment </b></h3>
-                  </CardBody>
-                  <CardBody>
-                    <p>Spend a short time answering the given questions about your project </p>
-                  </CardBody>
-                  <CardFooter className={classes.cardFooter}>
-                  </CardFooter>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card color="primary" className={classes[cardAnimaton]}>
+              <CardHeader color="primary" className={classes.cardHeader}>
+              <img src={read} height="80px" justify="center" alt="ideation"/>
+              {'   '}
+              </CardHeader>
+              <CardBody>
+                <div style={{backgroundColor:"purple",width:"100%"}}>
+                </div>
+              <h3><b>Framework </b></h3>
+              </CardBody>
+              <CardBody>
+                <p>Systematic approach to your entrepreneurial journey</p>
+              </CardBody>
               </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
-              <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                  <img src={report} height="80px" justify="center" alt="ideation"/>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card color="primary" className={classes[cardAnimaton]}>
+              <CardHeader color="primary" className={classes.cardHeader}>
+                <img src={arrow} height="80px"  alt="ideation"/>
+              </CardHeader>
+              <CardBody justify="center">
+                <h3><b>Curated Content </b></h3>
+              </CardBody>
+              <CardBody>
+                <p>Content organized for easy obtaining and easy linkage with the stepwise process of SE</p>
+              </CardBody>
+              <CardFooter className={classes.cardFooter}>
+              </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card color="primary" className={classes[cardAnimaton]}>
+              <CardHeader color="primary" className={classes.cardHeader}>
+              <img src={logo} height="80px" justify="center" alt="ideation"/>
 
-                  </CardHeader>
-                  <CardBody>
-                    <h3><b>3. Get your report</b></h3>
-                  </CardBody>
-                  <CardBody>
-                   <p>You will receive a personalized report per module to see how you are doing so far</p>
-                  </CardBody>
-              </Card>
-            </GridItem>
+              </CardHeader>
+              <CardBody>
+                <h3><b>Community</b></h3>
+              </CardBody>
+              <CardBody>
+                <p>A support system from one colleague to the other throughout the entrepreneurial journey</p>
+              </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={3}>
+          <Card color="primary" className={classes[cardAnimaton]}>
+              <CardHeader color="primary" className={classes.cardHeader}>
+              <img src={report} height="80px" justify="center" alt="ideation"/>
+
+              </CardHeader>
+              <CardBody>
+                <h3><b>Mentorship</b></h3>
+              </CardBody>
+              <CardBody>
+                <p>A holding hand for both accountability and knwoledge sharing</p>
+              </CardBody>
+          </Card>
+        </GridItem>
         </GridContainer>
       </div>
     </div>
