@@ -29,7 +29,7 @@ export default function HeaderLinks(props) {
 
       <ListItem className={classes.listItem}>
         <Link to="/landing-page">
-          <Button color="transparent" style={{color:"white"}}>
+          <Button color="transparent" style={{color:"black"}}>
             Home
           </Button>
         </Link>
@@ -37,7 +37,7 @@ export default function HeaderLinks(props) {
 
       <ListItem className={classes.listItem}>
         <Link to="/modules">
-          <Button color="transparent" style={{color:"white"}}>
+          <Button color="transparent" style={{color:"black"}}>
             Modules
           </Button>
         </Link>
@@ -45,13 +45,12 @@ export default function HeaderLinks(props) {
 
       <ListItem className={classes.listItem}>
         <Link to="">
-          <Button color="transparent" style={{color:"white"}}>
+          <Button color="transparent" style={{color:"black"}}>
             Community
           </Button>
         </Link>
       </ListItem>
 
-      
       
       {/* <ListItem className={classes.listItem}>
         <Tooltip title="Delete">
@@ -74,8 +73,8 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
-      </ListItem> */}
-      {/* <ListItem className={classes.listItem}>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
