@@ -127,7 +127,7 @@ export default function LoginPage(props) {
                   <img src={market} height="50px" justify="center" alt="ideation"/>
                   </CardBody>
                   <CardBody>
-                   <p>We will first identify your reasons for starting this venture. </p>
+                   <p>Get to engage and find out your target customer.</p>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                   <CircularProgressWithLabel value={progress2} />
@@ -148,7 +148,7 @@ export default function LoginPage(props) {
                   <img src={mvp} height="50px" justify="center" alt="ideation"/>
                   </CardBody>
                   <CardBody>
-                   <p>We will first identify your reasons for starting this venture. </p>
+                   <p>Here we show you how to build and design a minimum product for user testing and feedback</p>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                   <Link to={"/modules"} className={classes.link}>
@@ -168,7 +168,7 @@ export default function LoginPage(props) {
                   <img src={mvp} height="50px" justify="center" alt="ideation"/>
                   </CardBody>
                   <CardBody>
-                   <p>We will first identify your reasons for starting this venture. </p>
+                   <p>Notarize and understand what you can do for your customer.</p>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                   <Link to={"/modules"} className={classes.link}>
@@ -181,7 +181,6 @@ export default function LoginPage(props) {
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
       </div>
    </div>
   );

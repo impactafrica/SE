@@ -107,9 +107,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>Who is your end user?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -123,9 +121,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>What will they use your product for? How will it improve their lives?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -139,9 +135,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>What is the actual value that the end user gains from your product?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -155,9 +149,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>Who are your “lighthouse customers”?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -171,9 +163,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>What about this market will either ease or hinder the adaptation of your product? </p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -187,9 +177,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>Who are our partners? </p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -203,9 +191,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>How many potential customers exist?  </p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -219,9 +205,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>Who is your competition?</p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -235,9 +219,7 @@ const dict = [
         <p style={{color:"black",justify:"center"}}>What are the complementary assets required? </p>
         <textarea style={{height:80,width:270}}/>
         <br></br>
-        <Button color="primary">
-          Next
-      </Button>
+         
         </Typography>
   </div>
   },
@@ -257,7 +239,7 @@ const dict = [
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Here is your exercise" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>

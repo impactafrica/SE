@@ -91,7 +91,6 @@ export default function Module_Item(props) {
           </GridContainer>
           
         </div>
-        <Footer whiteFont />
       </div>
     // </div>
   );

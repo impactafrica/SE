@@ -56,9 +56,9 @@ function a11yProps(index) {
 const useStyles = makeStyles(styles);
 
 
-const dict = {
-
-"Beachhead: Evaluate the purchasing power of the target group. the market is not as attractive. "
+const dict = [
+{
+"mydiv"
 :
 <div>
           <Typography >
@@ -72,12 +72,12 @@ const dict = {
               </RadioGroup>
           </FormControl>
           <br></br>
-          <Button color="primary">
-            Next
-        </Button>
+          
           </Typography>
-    </div>,
-"Beachhead: Access: While starting out, it is imperative that you deal directly with customers, hence it is important you ask yourself this"
+    </div>
+    },
+{
+"mydiv"
 :
 <div>
      
@@ -92,12 +92,12 @@ const dict = {
           </RadioGroup>
       </FormControl>
       <br></br>
-      <Button color="primary">
-        Next
-    </Button>
+      
       </Typography>
-</div>,
-"Beachhead: Reason to buy: Does your target customer have a compelling and valid reason to buy your product?"
+</div>
+},
+{
+"mydiv"
 :
 <div>
       <Typography >
@@ -106,12 +106,12 @@ const dict = {
       <p style={{color:"black",justify:"center"}}>What need does your product fulfill?</p>
       <textarea style={{height:80,width:270}}/>
       <br></br>
-      <Button color="primary">
-        Next
-    </Button>
+      
       </Typography>
-</div>,
-"Beachhead: Can you deliver a full product?  Is it within your scope to deliver a fully functional solution with or without partners? Is your product complete and can it offer a singular holistic solution to the end user’s challenges and /or needs?"
+</div>
+},
+{
+"mydiv"
 :
 <div>
       <Typography >
@@ -125,12 +125,12 @@ const dict = {
           </RadioGroup>
       </FormControl>
       <br></br>
-      <Button color="primary">
-        Next
-    </Button>
+      
       </Typography>
-</div>,
-"Beachhead: Competition is inevitable. At any given point competitors are trying to win over market segments similar to yours. Take some time to understand where the competition exists, how they can be a blocker to you and your product and where your competitive advantage is. "
+</div>
+},
+{
+"mydiv"
 :
 <div>
       <Typography >
@@ -139,12 +139,12 @@ const dict = {
       <p style={{color:"black",justify:"center"}}>Where is the competition??</p>
       <textarea style={{height:80,width:270}}/>
       <br></br>
-      <Button color="primary">
-        Next
-    </Button>
+      
       </Typography>
-</div>,
-" Beachhead: Given that you win over this particular market segment, can you leverage on this success to enter new markets with moderate adjustments to your product? Or will new markets mean that your product has to radically change? Will the same happen with your sales strategy? Nonetheless, ensure that focus remains within your beachhead market. (NB: We shall cover how to identify your beachhead market later on in this module)"
+</div>
+},
+{
+"mydiv"
 :
 <div>
   <Typography >
@@ -158,12 +158,11 @@ const dict = {
       </RadioGroup>
   </FormControl>
   <br></br>
-  <Button color="primary">
-    Next
-</Button>
+ 
   </Typography>
-</div>,
-"Beachhead: Does this market segment stay consistent and align itself to your brand i.e values, passion and goals? It is paramount that you stay within brand."
+</div>},
+{
+"mydiv"
 :
 <div>
   <Typography >
@@ -177,13 +176,12 @@ const dict = {
       </RadioGroup>
   </FormControl>
   <br></br>
-  <Button color="primary">
-    Next
-</Button>
+  
   </Typography>
-</div>,
-"You are done!!":"You are done!! Proceed to section 2"
-    };
+</div>},
+{
+"mydiv":"You are done!! Proceed to section 2"}
+]
 
 export default function ScrollableTabsButtonForce() {
   const classes = useStyles();
@@ -217,29 +215,25 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
-          <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
+          <Tab label="Engage" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <div>
+            <Carousel {...settings}>
+            {
+              dict.map(function(d, idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
+              })
+            }
             </Carousel>
-          
+          </div>     
       }
+      
       
       <div>
           

@@ -52,9 +52,9 @@ function a11yProps(index) {
 const useStyles = makeStyles(styles);
 
 
-const dict = {
+const dict = [
 
-"Persona Description"
+{"mydiv"
 :
 <div>
       <Typography >
@@ -74,8 +74,8 @@ const dict = {
             Submit
         </Button>
       </Typography>
-</div>
-    };
+</div>}
+    ]
 
 export default function ScrollableTabsButtonForce() {
   const classes = useStyles();
@@ -109,30 +109,24 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Recap" style={{color:"white"}} icon={<PersonPinIcon/>} {...a11yProps(0)} />
           <Tab label="Question" style={{color:"white"}}icon={<Chat />} {...a11yProps(1)} />
           
         </Tabs>
       </AppBar>
       {
-          <Carousel {...settings} >
+          <div>
+            <Carousel {...settings}>
+            {
+              dict.map(function(d, idx)
               {
-                Object.entries(dict)
-                .map(([mykey,myvalue])=>
-                        <div >
-                            <TabPanel value={value} index={0}>
-                                {mykey}      
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                {myvalue}      
-                            </TabPanel>
-                    </div>
+                return(
+                  <TabPanel key={idx}>{d.mydiv}</TabPanel>
                 )
-              }
+              })
+            }
             </Carousel>
-          
+          </div>     
       }
-      
       <div>
           
       </div>

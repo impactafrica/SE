@@ -87,9 +87,7 @@ Let's get started
         <h4>Collect and analyze sales data, focusing on the most successful
          customers to date (maybe the 20% of customers generating 80% of the sales). Look at the primary market research you 
          have already done, focusing on customers who would pay (not are just interested) in your potential offering.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+         
       </Typography>
 </div>,
 "Remember you're answering this question: “If I had only one end user to represent our end-user profile, who would it be?”"
@@ -101,9 +99,7 @@ Let's get started
         <h4>Present a synthesis of all the research & findings to your team.</h4>
         <br></br>
         <h4>Present the end-user profile to your team.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+        
       </Typography>
 </div>,
 "Remember you're answering the question: “If I had only one end user to represent our end-user profile, who would it be?”"
@@ -113,9 +109,7 @@ Let's get started
       <br></br>
       <p><b>3/8</b></p>
         <h4>Discuss with your team which end-user would be the best fit for a persona</h4>
-         <Button color="primary">
-            Next
-        </Button>
+         
       </Typography>
 </div>,
 
@@ -127,9 +121,7 @@ Let's get started
       <p><b>4/8</b></p>
         <h4>Consider separate personas for each customer type (for two- or multi-sided markets) but start with the end-user
              because if they don't use it, there is no value created.</h4>
-         <Button color="primary">
-            Next
-        </Button>
+       
       </Typography>
 </div>,
 
@@ -159,9 +151,7 @@ Let's get started
 
 <br></br>
 
-         <Button color="primary">
-            Next
-        </Button>
+         
       </Typography>
 </div>,
 "Career Context"
@@ -189,9 +179,7 @@ Let's get started
         /> 
 <br></br>
 
-         <Button color="primary">
-            Next
-        </Button>
+        
       </Typography>
 </div>,
 
