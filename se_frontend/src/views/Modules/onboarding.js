@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -69,7 +69,9 @@ export default function LoginPage(props) {
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
   
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
   return (
     <div>
       <Header

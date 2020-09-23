@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,7 +25,9 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   return (
     <div>
@@ -64,17 +66,7 @@ export default function Module_Item(props) {
                   your idea to potential customers. This allows you to see your product from the customer's perspective.
                   <br></br>
                   <br></br>
-                  {/* <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center"
-                        }}
-                      >
-                        <ReactPlayer
-                          url="https://www.youtube.com/watch?v=Gj2lyU10Y84"
-                        />
-                        </div> */}
+                  
                   
                     <br></br>
                     Some activities you can undertake during this step are: 

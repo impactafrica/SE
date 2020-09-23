@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -31,6 +31,9 @@ const useStyles = makeStyles(styles);
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
   return (
     <div>
       <Header
