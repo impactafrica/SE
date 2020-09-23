@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -8,10 +8,13 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Typography from '@material-ui/core/Typography';
+import Button from "components/CustomButtons/Button.js";
 
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
+import { Link } from "@material-ui/core";
+
 
 const useStyles = makeStyles(styles);
 
@@ -23,7 +26,9 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   return (
     <div>
@@ -86,7 +91,11 @@ export default function Module_Item(props) {
                             url="https://www.youtube.com/watch?v=qhAAnfSj7m8"
                     />
                     </div>
-                     
+                    <Link to={"/module_item"} className={classes.link}>
+                    <Button color="primary" size="lg">
+                      Get started
+                    </Button>
+                </Link>
                   </Typography>    
               </div>
             </GridItem>

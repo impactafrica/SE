@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -8,10 +8,12 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Typography from '@material-ui/core/Typography';
+import Button from "components/CustomButtons/Button.js";
 
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
+import { Link } from "@material-ui/core";
 
 
 const useStyles = makeStyles(styles);
@@ -24,7 +26,9 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   return (
     <div>
@@ -47,6 +51,7 @@ export default function Module_Item(props) {
         
         <div className={classes.container}>
           <GridContainer width="100%">
+          <br></br>
           <GridItem
             style={{
               display: "flex",
@@ -54,7 +59,8 @@ export default function Module_Item(props) {
               alignItems: "center",
               width:"100%"
             }}
-          ><h2 style={{color:"black"}}><b>Market Segmentation</b></h2></GridItem>
+          >
+            <h2 style={{color:"black"}}><b>Market Segmentation</b></h2></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
               
               <div className={classes.root} style={{color:"black",fontSize:"10px"}}>
@@ -90,6 +96,11 @@ export default function Module_Item(props) {
                     </Typography>
                   </div>                    
             </GridItem>
+            <Link href={"/"} className={classes.link}>
+                    <Button color="primary" size="lg">
+                      Get started
+                    </Button>
+                </Link>
           </GridContainer>
           
         </div>

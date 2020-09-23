@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,7 +25,9 @@ export default function Module_Item(props) {
   const classes = useStyles();
   const { ...rest } = props;
   const dashboardRoutes = [];
-   
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   return (
     <div>
