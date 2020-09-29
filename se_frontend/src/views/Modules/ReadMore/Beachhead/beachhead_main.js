@@ -9,10 +9,13 @@ import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Typography from '@material-ui/core/Typography';
+import Button from "components/CustomButtons/Button.js";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import ReactPlayer from "react-player"
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles(styles);
@@ -87,6 +90,11 @@ export default function Module_Item(props) {
                     
                   </Typography>
               </div>
+              <Link to="/beachhead_item" className={classes.link}>
+                <Button color="primary" size="lg">
+                  <ArrowBackIcon /> Back
+                </Button>
+              </Link>
             </GridItem>
           </GridContainer>
           
