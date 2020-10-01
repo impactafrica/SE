@@ -17,6 +17,7 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
+import { useHistory } from "react-router-dom";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
@@ -24,57 +25,72 @@ const useStyles = makeStyles(styles);
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const to_modules = () => history.push('/modules_list');
+  const to_home = () => history.push('/landing_page');
+  const to_signin = () => history.push('/signin-page');
+
   return (
     <List className={classes.list}>
 
       <ListItem className={classes.listItem}>
-        <Link to="/landing-page">
-          <Button color="transparent" style={{color:"black"}}>
-            Home
-          </Button>
-        </Link>
-      </ListItem>
-
-      <ListItem className={classes.listItem}>
-        <Link to="/modules">
-          <Button color="transparent" style={{color:"black"}}>
-            Modules
-          </Button>
-        </Link>
-      </ListItem>
-
-      <ListItem className={classes.listItem}>
-        <Link to="">
-          <Button color="transparent" style={{color:"black"}}>
-            Community
-          </Button>
-        </Link>
-      </ListItem>
-
-      
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip title="Delete">
-          <IconButton aria-label="Delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-        <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
+        <Button
+          onClick={to_home}
+          target="_blank"
+          color="transparent"
+          className={classes.navLink}
         >
-          <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
+          <b>Home</b>
+        </Button>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Button
+          onClick={to_modules}
+          to="/modules_list"
+          target="_blank"
+          color="transparent"
+          className={classes.navLink}
+        >
+          <b>Modules</b>
+        </Button>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+        <Button
+          onClick={to_modules}
+          to="/modules"
+          target="_blank"
+          color="transparent"
+          className={classes.navLink}
+        >
+          <b>Community</b>
+        </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Button
+          onClick={to_modules}
+          to="/modules"
+          target="_blank"
+          color="transparent"
+          className={classes.navLink}
+        >
+          <b>Profile</b>
+        </Button>
+      </ListItem>
+      
+      <ListItem className={classes.listItem}>
+        <Button
+          onClick={to_signin}
+          target="_blank"
+          color="primary"
+          className={classes.navLink}
+        >
+          <b>Sign In</b>
+        </Button>
+      </ListItem>
+
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
@@ -105,6 +121,23 @@ export default function HeaderLinks(props) {
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
+          </Button>
+        </Tooltip>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Tooltip
+          id="twitter-tooltip"
+          title="Follow us on twitter"
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Button
+            color="transparent"
+            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+            target="_blank"
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
       </ListItem> */}

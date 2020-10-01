@@ -143,6 +143,24 @@ export default function LoginPage(props) {
                         autoComplete: "off"
                       }}
                     />
+                    <CustomInput
+                      labelText="Confirm Password"
+                      id="pass"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "password",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Icon className={classes.inputIconsColor}>
+                              lock_outline
+                            </Icon>
+                          </InputAdornment>
+                        ),
+                        autoComplete: "off"
+                      }}
+                    />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                   <Link to={"/onboarding"} className={classes.link}>
@@ -153,7 +171,18 @@ export default function LoginPage(props) {
                     >
                       Continue
                     </Button>
-          </Link>
+                  </Link>
+                  <Link to={"/signin-page"} className={classes.link}>
+                    <Button
+                      style={{backgroundColor:"#ff9933"}}
+                      color="magenta"
+                      size="lg"
+                      rel="noopener noreferrer"
+                    >
+                      Sign In
+                    </Button>
+                  </Link>
+                  
                   </CardFooter>
                 </form>
               </Card>

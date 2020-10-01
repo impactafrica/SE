@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 
 export default function LinearWithValueLabel() {
   const classes = useStyles();
-  const [progress] = React.useState(99);
+  const [progress] = React.useState(30);
 
   return (
     <div className={classes.root}>

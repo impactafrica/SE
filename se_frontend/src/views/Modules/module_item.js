@@ -18,7 +18,6 @@ import ConclusionAccordion from "../../views/Modules/Accordions/Segmentation/con
 import LinearProgress from "components/CustomLinearProgress/LinearProgressBar";
 import { Link } from "react-router-dom";
 
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const useStyles = makeStyles(styles);

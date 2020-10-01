@@ -2,6 +2,7 @@ import React,{useEffect} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
@@ -17,9 +18,10 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import MultipleValueTextInput from 'react-multivalue-text-input';
 
 import { Link } from "react-router-dom";
+
+
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg7.jpg";
@@ -41,6 +43,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
+        href="/"
         brand="Systematic Entrepreneurship"
         rightLinks={<HeaderLinks />}
         {...rest}
@@ -59,27 +62,41 @@ export default function LoginPage(props) {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Register Your Project</h4>
-                    
+                    <h4>Sign In</h4>
+                    <div className={classes.socialLine}>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={e => e.preventDefault()}
+                      >
+                        <i className={"fab fa-twitter"} />
+                      </Button>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={e => e.preventDefault()}
+                      >
+                        <i className={"fab fa-facebook"} />
+                      </Button>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={e => e.preventDefault()}
+                      >
+                        <i className={"fab fa-google-plus-g"} />
+                      </Button>
+                    </div>
                   </CardHeader>
+                  <p className={classes.divider}>Or Be Classical</p>
                   <CardBody>
                     <CustomInput
-                      labelText="Project Name..."
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
-                      labelText="Company Email..."
+                      labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
@@ -93,37 +110,26 @@ export default function LoginPage(props) {
                         )
                       }}
                     />
-                    {/* <CustomInput
-                      labelText="Members"
+                    <CustomInput
+                      labelText="Password"
                       id="pass"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "text",
+                        type: "password",
                         endAdornment: (
-                            <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
+                          <InputAdornment position="end">
+                            <Icon className={classes.inputIconsColor}>
+                              lock_outline
+                            </Icon>
                           </InputAdornment>
                         ),
                         autoComplete: "off"
                       }}
-                    /> */}
-                    <br></br>
-                    <br></br>
-                    <div style={{display:"flex",alignItems:'center'}}>
-                    <MultipleValueTextInput
-                      style={{border:"none", borderBottom: "1px solid lightgray",flex: 1,width: "100%"}}
-                      placeholder="Members Email Addresses,Comma Separated"
-                      onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
-                      onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
-                      name="item-input"
-                      border="none"
                     />
-                    <People style={{position:"right"}}/>
-                    </div>
+                    
                   </CardBody>
-
                   <CardFooter className={classes.cardFooter}>
                   <Link to={"/modules_list"} className={classes.link}>
                     <Button
@@ -131,9 +137,10 @@ export default function LoginPage(props) {
                       size="lg"
                       rel="noopener noreferrer"
                     >
-                      Get Started
+                      Login
                     </Button>
                   </Link>
+                  
                   </CardFooter>
                 </form>
               </Card>
