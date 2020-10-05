@@ -102,8 +102,13 @@ export default function LoginPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="left">
+            <GridItem style={{color:"black",textAlign:"center"}} xs={12} sm={12} md={12}>
+              <h3><b>My project: Done!</b></h3>
+              <h5>Welcome to the modules! We will undergo one module at a time</h5>
+            </GridItem>
+
             <GridItem xs={12} sm={12} md={4}>
-              <Card style={{background:"lightgray"}} className={classes[cardAnimaton]}>
+              <Card style={{background:"white"}} className={classes[cardAnimaton]}>
                   <CardBody>
                     <div style={{display:"flex"}}>
                       <div 
@@ -151,7 +156,7 @@ export default function LoginPage(props) {
             </GridItem>
 
             <GridItem xs={12} sm={12} md={4}>
-              <Card style={{background:"gray"}} className={classes[cardAnimaton]}>
+              <Card style={{background:"white"}} className={classes[cardAnimaton]}>
                   <CardBody>
                     <div style={{display:"flex"}}>
                     <div 
@@ -162,11 +167,12 @@ export default function LoginPage(props) {
                                   display:"table-cell",
                                   verticalAlign:"middle",
                                   textAlign:"center",
+                                  color:"light gray",
                                   background: "purple"}}
                       >
                           <img src={mvp} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5><b>MVP DEVELOPMENT</b><br/><MVP /></h5>
+                      <h5 style={{color:"gray"}}><b>MVP DEVELOPMENT</b><br/><MVP /></h5>
                     </div>
                     <br></br>
                     
@@ -175,7 +181,7 @@ export default function LoginPage(props) {
             </GridItem>
 
             <GridItem xs={12} sm={12} md={4}>
-              <Card style={{background:"gray"}} className={classes[cardAnimaton]}>
+              <Card style={{background:"white"}} className={classes[cardAnimaton]}>
                   <CardBody>
                     <div style={{display:"flex"}}>
                     <div 
@@ -190,7 +196,7 @@ export default function LoginPage(props) {
                       >
                           <img src={customer} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5><b>CUSTOMER VALUE PROPOSITION</b><br/><MVP /></h5>
+                      <h5 style={{color:"gray"}}><b>CUSTOMER VALUE PROPOSITION</b><br/><MVP /></h5>
                     </div>
                     <br></br>
                     

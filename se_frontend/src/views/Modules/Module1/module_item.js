@@ -54,7 +54,7 @@ export default function Module_Item(props) {
           <GridItem xs={12} sm={12} md={12}>
             <Button 
               onClick={to_module}
-              style = {{backgroundColor:"black"}}>
+              style = {{backgroundColor:"purple"}}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </Button>
           </GridItem>

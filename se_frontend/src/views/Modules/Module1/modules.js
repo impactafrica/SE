@@ -28,7 +28,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg7.jpg";
-import idea from "assets/img/idea.png";
+import segment from "assets/img/segment.png";
 import market from "assets/img/market.png";
 import mvp from "assets/img/mvp.png";
 
@@ -100,13 +100,47 @@ export default function LoginPage(props) {
       > */}
         <div className={classes.container}>
           <GridContainer justify="left" width="60%">
+          <GridItem style={{paddingTop:"20px",alignItems:"center"}} xs={12} sm={12} md={12}>
+              <Button 
+                onClick={to_module}
+                style = {{backgroundColor:"purple"}}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </Button>
+            </GridItem>
+
           <GridItem xs={12} sm={12} md={12}>
-            <Button 
-              onClick={to_module}
-              style = {{backgroundColor:"black"}}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </Button>
+            <Card plain>
+            <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
+            <img src={segment}  width="100%" />
+              </GridItem>
+            </Card>
           </GridItem>
+          
+          <GridItem xs={12} sm={12} md={12}>
+            <Card plain>
+            <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
+            <h3><b>Welcome to Market Segmentation!</b></h3>
+            <h4 className={classes.cardTitle}>
+                  
+                   Market segmentation is the process
+                   of dividing  your target market into approachable groups. 
+                  These subsets can be categorized according to primary factors 
+                  such as demographics, priorities, 
+                  needs, common interests and behaviour.
+                <br/>
+              </h4>
+              <Link
+                    color="primary"
+                    to={"/segmenting"}
+                  >
+                    <b>Read More...</b>
+                  </Link>
+                  <br/><br/>
+                  <h5><b>Let's get started</b></h5>
+              </GridItem>
+            </Card>
+          </GridItem>
+          
             <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
               <Card onClick={to_modules} style={{position: "relative"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
@@ -115,65 +149,62 @@ export default function LoginPage(props) {
                 <div style={{paddingLeft:"16px"}}>
                   <p><b>Market Types</b></p>
                 </div>
-                
-                  <div style={{backgroundColor:"purple",color:"white",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
                     <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
                   </div>
-                
               </Card>
-              
               </GridItem>
 
               <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"grey"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"#ff9933",textAlign:"right"}}>
+              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
+              <div style={{color:"gray",textAlign:"right"}}>
                   <p><b>2/4{' '}</b></p>
                 </div>
-                <div style={{paddingLeft:"16px"}}>
+                <div style={{paddingLeft:"16px",color:"gray"}}>
                   <p><b>Brainstorming</b></p>
                   <br/>
                   <br/>
                   <br/>
                   <br/>
                 </div>
-                <div style={{backgroundColor:"purple",color:"white",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
                     <div><b>1 Step{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
                 </div>
               </Card>
               </GridItem>
 
               <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"grey"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"#ff9933",textAlign:"right"}}>
+              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
+              <div style={{color:"gray",textAlign:"right"}}>
                   <p><b>3/4{' '}</b></p>
                 </div>
-                <div style={{paddingLeft:"16px"}}>
+                <div style={{paddingLeft:"16px",color:"gray"}}>
                   <p><b>Narrowing</b></p>
                   <br/>
                   <br/>
                   <br/>
                   <br/>
                 </div>
-                <div style={{backgroundColor:"purple",color:"white",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
                     <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
                 </div>
               </Card>
               </GridItem>
 
               <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"grey"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"#ff9933",textAlign:"right"}}>
+              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
+              <div style={{color:"gray",textAlign:"right"}}>
                   <p><b>4/4{' '}</b></p>
                 </div>
-                <div style={{paddingLeft:"16px"}}>
+                <div style={{paddingLeft:"16px",color:"gray"}}>
                   <p><b>Primary Market Research</b></p>
                   <br/>
                   <br/>
                   <br/>
                   <br/>
                 </div>
-                <div style={{backgroundColor:"purple",color:"white",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
-                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
+                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div ><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
                 </div>
               </Card>
               </GridItem>

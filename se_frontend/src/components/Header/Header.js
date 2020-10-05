@@ -17,6 +17,7 @@ import Menu from "@material-ui/icons/Menu";
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 import { useHistory } from "react-router-dom";
 import logo from "assets/img/se_logo.png";
+import se_logo from "assets/img/Logo.png";
 
 const useStyles = makeStyles(styles);
 
@@ -65,7 +66,7 @@ export default function Header(props) {
   const history = useHistory();
   const to_modules = () => history.push('/');
   // const brandComponent = <Button onClick={to_modules} className={classes.title}>{brand}</Button>;
-  const brandComponent = <img onClick={to_modules} src={logo} style={{height:"70px"}}/>;
+  const brandComponent = <img onClick={to_modules} src={se_logo} style={{height:"70px"}}/>;
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
