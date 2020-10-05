@@ -96,7 +96,7 @@ export default function Module_Item(props) {
                 </a>
               </Typography>
             </div>
-            <Link to="/module_item" className={classes.link}>
+            <Link to="/module1_item" className={classes.link}>
               <Button color="primary" size="lg">
                 <ArrowBackIcon /> Back
                     </Button>

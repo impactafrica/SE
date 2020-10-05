@@ -5,7 +5,6 @@ import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
-
 // @material-ui/icons
 
 // core components
@@ -16,13 +15,18 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-
+import team2 from "assets/img/marketseg.png";
+import team3 from "assets/img/customer.png";
+import team4 from "assets/img/value.png";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
+import Card from "components/Card/Card.js";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleLeft} from "@fortawesome/free-solid-svg-icons";
+import TeamSection from "./TeamSection.js";
+import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.js";
-import TeamSection from "./Sections/TeamSection.js";
-import WorkSection from "./Sections/WorkSection.js";
+import { useHistory } from "react-router-dom";
 
 const dashboardRoutes = [];
 
@@ -31,53 +35,31 @@ const useStyles = makeStyles(styles);
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  setTimeout(function() {
+    setCardAnimation("");
+  }, 700);
+  const history = useHistory();
+  const to_module = () => history.push('/module1_item');
   useEffect(() => {
     window.scrollTo(0, 0)
   });
   return (
     <div>
       <Header
-        color="transparent"
-        routes={dashboardRoutes}
+        color="primary"
+        href="/"
+        fixed
         brand="Systematic Entrepreneurship"
         rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "primary"
-        }}
         {...rest}
       />
-      <Parallax filter image={require("assets/img/landing-bg.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h2 className={classes.title}>Start, Execute and Launch Your Project!</h2>
-              
-              <br />
-              <br/>
-              <br />
-              <br/>
-              <Link to={"/login-page"} className={classes.link}>
-              <Button
-                color="primary"
-                size="lg"
-                rel="noopener noreferrer"
-              >
-                Sign Up
-              </Button>
-          </Link>
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      
+      <div className={classNames(classes.main)}>
         <div className={classes.container} style={{width:"100%"}}>
-          <ProductSection/>
           <TeamSection />
-          <WorkSection/>
         </div>
       </div>
-    </div>
+      </div>
   );
 }

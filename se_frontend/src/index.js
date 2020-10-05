@@ -10,9 +10,15 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
+import SigninPage from "views/LoginPage/SigninPage.js";
 import Modules from "views/Modules/modules";
+import ModulesList from "views/Modules/modules_list";
 import MarketType from "views/Modules/ReadMore/Segmentation/market_type";
 import ModuleItem from "views/Modules/module_item";
+import ModuleOneLanding from "views/Modules/Module1/landing";
+import ModuleOneItem from "views/Modules/Module1/modules";
+import MarketTypes from "views/Modules/Module1/module_item";
+import Question1 from "views/Modules/Module1/question1";
 import RegisterStartup from "views/Startup/startup_register";
 import Brainstorming from "views/Modules/ReadMore/Segmentation/brainstorming"
 import Narrowing from "views/Modules/ReadMore/Segmentation/narrowing"
@@ -34,11 +40,17 @@ ReactDOM.render(
       <Route path="/landing-page" component={LandingPage} />
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/login-page" component={LoginPage} />
+      <Route path="/signin-page" component={SigninPage} />
       <Route path="/modules" component={Modules} />
+      <Route path="/modules_list" component={ModulesList} />
+      <Route path="/module1" component={ModuleOneLanding} />
+      <Route path="/module1_item" component={ModuleOneItem} />
       <Route path="/startup_register" component={RegisterStartup} />
       <Route path="/module_item" component={ModuleItem} />
+      <Route path="/segment_que" component={Question1} />
       <Route path="/components" component={Components} />
       <Route path="/market_type" component={MarketType} />
+      <Route path="/market_types" component={MarketTypes} />
       <Route path="/brainstorming" component={Brainstorming} />
       <Route path="/narrowing" component={Narrowing} />
       <Route path="/primary-research" component={PrimaryResearch} />

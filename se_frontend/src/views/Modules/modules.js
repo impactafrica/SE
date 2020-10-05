@@ -33,6 +33,7 @@ function CircularProgressWithLabel(props) {
   return (
     <Box position="relative" display="inline-flex">
       <CircularProgress variant="static" {...props} />
+      <CircularProgress variant="static" {...props} />
       <Box
         top={0}
         left={0}
@@ -76,15 +77,11 @@ export default function LoginPage(props) {
   return (
     <div>
       <Header
-        color="primary"
-        routes={dashboardRoutes}
+        absolute
+        color="transparent"
+        href="/"
         brand="Systematic Entrepreneurship"
         rightLinks={<HeaderLinks />}
-        fixed
-        // changeColorOnScroll={{
-        //   height: 400,
-        //   color: "primary"
-        // }}
         {...rest}
       />
       <div
@@ -99,21 +96,22 @@ export default function LoginPage(props) {
           <GridContainer justify="left">
             <GridItem xs={12} sm={12} md={4}>
               <Card color="primary" className={classes[cardAnimaton]}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader color="primary">
                     <h3>1. Ideation and Formation</h3>
                   </CardHeader>
-                  <CardBody justify="center">
-                    <img src={idea} height="50px"  alt="ideation"/>
-                    
-                  </CardBody>
+                  {/* <div style={{backgroundColor:"purple",height:"80px",color:"white",textAlign:"center"}}>
+                    <h3>1. Ideation and Formation</h3>
+                  </div> */}
                   <CardBody>
+                    <img src={idea} height="50px"  alt="ideation"/>
+                   
                     <p>In this hunt for specificity we will first identify your reasons for starting this venture. </p>
                   </CardBody>
                   
                   <CardFooter className={classes.cardFooter}>
                   <CircularProgressWithLabel value={progress1} />
                   
-                  <Link to={"/module_item"} className={classes.link}>
+                  <Link to={"/module1"} className={classes.link}>
                     <Button simple color="primary" size="lg">
                       Get started
                     </Button>

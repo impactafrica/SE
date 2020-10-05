@@ -14,12 +14,14 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
+import Button from "components/CustomButtons/Button.js";
 import image from "assets/img/bg7.jpg";
 import idea from "assets/img/idea.png";
 import arrow from "assets/img/content.png";
 import read from "assets/img/framework.png";
 import logo from "assets/img/people.png";
 import report from "assets/img/mentor.png";
+import { Link } from "react-router-dom";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 
@@ -105,6 +107,18 @@ export default function ProductSection() {
               </CardBody>
           </Card>
         </GridItem>
+        <GridItem>
+        <Link to={"/login-page"} className={classes.link}>
+              <Button
+                color="primary"
+                size="lg"
+                rel="noopener noreferrer"
+              >
+                Get Started
+              </Button>
+              </Link>
+        </GridItem>
+          
         </GridContainer>
       </div>
     </div>
