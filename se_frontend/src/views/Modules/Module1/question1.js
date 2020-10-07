@@ -82,9 +82,9 @@ export default function Module_Item(props) {
             </Button>
           </GridItem>
          
-          <GridItem className={classes[cardAnimaton]}>
-          <h3 style={{color:"black"}}><b>Market Types</b></h3>
-          <h5 style={{color:"black"}}><b>List 8 possible market segments</b></h5>
+          <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
+          <h3 style={{color:"black",fontFamily:"Montserrat"}}><b>Market Types</b></h3>
+          <h5 style={{color:"black",fontFamily:"Montserrat"}}><b>List 8 possible market segments</b></h5>
             
             </GridItem>
 

@@ -52,7 +52,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h2 className={classes.title}>Start, Execute and Launch Your Project!</h2>
+              <h3 style={{fontFamily:"Montserrat"}} className={classes.title}>Start, Execute and Launch Your Project!</h3>
               
               <br />
               <br/>
@@ -74,7 +74,6 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container} style={{width:"100%"}}>
           <ProductSection/>
-          <TeamSection />
           <WorkSection/>
         </div>
       </div>

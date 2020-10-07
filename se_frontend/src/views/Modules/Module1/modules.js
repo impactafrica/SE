@@ -100,27 +100,21 @@ export default function LoginPage(props) {
       > */}
         <div className={classes.container}>
           <GridContainer justify="left" width="60%">
-          <GridItem style={{paddingTop:"20px",alignItems:"center"}} xs={12} sm={12} md={12}>
-              <Button 
-                onClick={to_module}
-                style = {{backgroundColor:"purple"}}>
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </Button>
-            </GridItem>
+          
 
-          <GridItem xs={12} sm={12} md={12}>
+          {/* <GridItem xs={12} sm={12} md={12}>
             <Card plain>
             <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
             <img src={segment}  width="100%" />
               </GridItem>
             </Card>
-          </GridItem>
+          </GridItem> */}
           
-          <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={12} style={{fontFamily:"Montserrat"}}>
             <Card plain>
             <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
-            <h3><b>Welcome to Market Segmentation!</b></h3>
-            <h4 className={classes.cardTitle}>
+            <h3  style={{fontFamily:"Montserrat"}}><b>Welcome to Market Segmentation!</b></h3>
+            <h4  style={{fontFamily:"Montserrat",fontWeight: "400"}} className={classes.cardTitle}>
                   
                    Market segmentation is the process
                    of dividing  your target market into approachable groups. 
@@ -136,111 +130,80 @@ export default function LoginPage(props) {
                     <b>Read More...</b>
                   </Link>
                   <br/><br/>
-                  <h5><b>Let's get started</b></h5>
               </GridItem>
             </Card>
           </GridItem>
           
-            <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card onClick={to_modules} style={{position: "relative"}} color="primary" className={classes[cardAnimaton]}>
+            <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
+              <Card xs={4} sm={4} md={3} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat, sans-serif'}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>1/4{' '}</b></p>
                 </div>
                 <div style={{paddingLeft:"16px"}}>
                   <p><b>Market Types</b></p>
                 </div>
-                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
                     <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
                   </div>
               </Card>
-              </GridItem>
-
-              <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"gray",textAlign:"right"}}>
+              <Card xs={4} sm={4} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+                <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>2/4{' '}</b></p>
                 </div>
+                
                 <div style={{paddingLeft:"16px",color:"gray"}}>
                   <p><b>Brainstorming</b></p>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
                 </div>
-                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
-                    <div><b>1 Step{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
-                </div>
+                <br/>
+                  <br/><br/>
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                  </div>
               </Card>
-              </GridItem>
-
-              <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"gray",textAlign:"right"}}>
+              <Card xs={3} sm={3} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+                <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>3/4{' '}</b></p>
                 </div>
+               
                 <div style={{paddingLeft:"16px",color:"gray"}}>
                   <p><b>Narrowing</b></p>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
                 </div>
-                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
-                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
-                </div>
+                <br/>
+                  <br/>
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                  </div>
               </Card>
-              </GridItem>
-
-              <GridItem xs={6} sm={6} md={3} style={{display:"flex"}}>
-              <Card style={{backgroundColor:"white"}} color="primary" className={classes[cardAnimaton]}>
-              <div style={{color:"gray",textAlign:"right"}}>
-                  <p><b>4/4{' '}</b></p>
-                </div>
-                <div style={{paddingLeft:"16px",color:"gray"}}>
-                  <p><b>Primary Market Research</b></p>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                </div>
-                <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",bottom: "0",paddingLeft:"20px",display:"flex"}} >
-                    <div ><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faLock}/></div>
-                </div>
-              </Card>
-              </GridItem>
-
               
+
+              </GridItem>
+              <GridItem xs={5} sm={5} md={4} style={{display:"flex"}}>
+              
+                <Card style={{position: "relative",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+                  <div style={{color:"#ff9933",textAlign:"right"}}>
+                    <p><b>4/4{' '}</b></p>
+                  </div>
+                
+                  <div style={{paddingLeft:"16px",color:"gray"}}>
+                    <p><b>Primary Market Research</b></p>
+                  </div>
+                  <br/>
+                    <br/>
+                    <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",paddingBottom:"5px",display:"flex"}} >
+                      <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                    </div>
+                </Card>
+              </GridItem>
+
+              <GridItem style={{paddingTop:"20px",alignItems:"center"}} xs={12} sm={12} md={12}>
+              <Button 
+                onClick={to_module}
+                style = {{backgroundColor:"purple",borderRadius: "25px",fontFamily:"Montserrat"}}>
+                Back 
+              </Button>
+            </GridItem>
+
             
-            {/* <GridItem xs={12} sm={12} md={3}>
-              <Card style={{backgroundColor:"grey"}} color="primary" className={classes[cardAnimaton]}>
-                <div style={{textAlign:"center"}}>
-                  <h3><b>Narrowing</b></h3>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                </div>
-                <div style={{color:"#ff9933",textAlign:"center"}}>
-                  <p><b>3 Questions</b> </p>
-                  </div>
-              </Card>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={3}>
-              <Card style={{backgroundColor:"grey"}} color="primary" className={classes[cardAnimaton]}>
-                <div style={{textAlign:"center"}}>
-                  <h3><b>Primary Market Research</b></h3>
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                 
-                </div>
-                <div style={{color:"#ff9933",textAlign:"center"}}>
-                  <p><b>3 Questions</b> </p>
-                  </div>
-              </Card>
-            </GridItem>
-             */}
             
           </GridContainer>
         </div>

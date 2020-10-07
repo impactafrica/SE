@@ -55,20 +55,20 @@ export default function TeamSection() {
               </Button>
             </GridItem>
 
-          <GridItem xs={12} sm={12} md={12}>
+          {/* <GridItem xs={12} sm={12} md={12}>
             <Card plain>
             <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
               <br/>
                 <img src={research} style={{width:"100%"}}/>
               </GridItem>
             </Card>
-          </GridItem>
+          </GridItem> */}
 
         <GridItem xs={12} sm={12} md={12}>
             <Card plain>
             <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
               <br/>
-            <h4 className={classes.cardTitle}>
+            <h4 style={{fontFamily:"Montserrat"}} className={classes.cardTitle}>
                 Welcome to Market Research. Get to engage and find out your target customer.
                  You will go through the following three sections
                 <br/>
@@ -80,7 +80,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card onClick={to_modules} color="primary" plain>
             <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="primary" style={{borderRadius:"50%",width:"150px",height:"150px"}}>
+            <Button color="primary" style={{borderRadius:"50%",width:"160px",height:"160px",fontFamily:"Montserrat"}}>
               Market Segmentation
             </Button>
               </GridItem>
@@ -90,7 +90,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card color="primary" plain>
             <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px"}}>
+            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px",fontFamily:"Montserrat"}}>
               Beachhead Market
             </Button>
               </GridItem>
@@ -100,7 +100,7 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card color="primary" plain>
             <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px"}}>
+            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px",fontFamily:"Montserrat"}}>
               Persona
             </Button>
               </GridItem>

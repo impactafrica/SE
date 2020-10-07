@@ -31,11 +31,12 @@ export default function HeaderLinks(props) {
   const to_signin = () => history.push('/signin-page');
 
   return (
-    <List className={classes.list}>
+    <List className={classes.list} style={{fontFamily:"Montserrat"}}>
 
       <ListItem className={classes.listItem}>
         <Button
           onClick={to_home}
+          style={{fontFamily:"Montserrat"}}
           target="_blank"
           color="transparent"
           className={classes.navLink}
@@ -47,6 +48,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Button
           onClick={to_modules}
+          style={{fontFamily:"Montserrat"}}
           to="/modules_list"
           target="_blank"
           color="transparent"
@@ -59,6 +61,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Button
           onClick={to_modules}
+          style={{fontFamily:"Montserrat"}}
           to="/modules"
           target="_blank"
           color="transparent"
@@ -70,6 +73,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Button
           onClick={to_modules}
+          style={{fontFamily:"Montserrat"}}
           to="/modules"
           target="_blank"
           color="transparent"
@@ -82,6 +86,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Button
           onClick={to_signin}
+          style={{fontFamily:"Montserrat"}}
           target="_blank"
           color="primary"
           className={classes.navLink}

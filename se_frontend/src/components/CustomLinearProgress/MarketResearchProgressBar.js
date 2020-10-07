@@ -9,7 +9,7 @@ function LinearProgressWithLabel(props) {
   return (
     <Box display="flex" alignItems="center">
       <Box width="100%"   mr={1}>
-        <LinearProgress style={{borderRadius: 5,height: 10}} variant="determinate" {...props} />
+        <LinearProgress style={{borderRadius: 5,height: 10,color:"#FF931E"}} variant="determinate" {...props} />
       </Box>
       <Box minWidth={35}>
         <Typography variant="body2" color="textSecondary"><b>{`${Math.round(
