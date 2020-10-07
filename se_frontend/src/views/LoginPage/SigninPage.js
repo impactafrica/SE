@@ -131,7 +131,7 @@ export default function LoginPage(props) {
                     
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                  <Link to={"/modules_list"} className={classes.link}>
+                  <Link to={"/onboarding"} className={classes.link}>
                     <Button
                       color="primary"
                       size="lg"
