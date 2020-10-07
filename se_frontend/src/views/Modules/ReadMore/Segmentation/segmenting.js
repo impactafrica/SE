@@ -51,7 +51,7 @@ export default function Module_Item(props) {
       > */}
 
       <div className={classes.container}>
-        <GridContainer width="100%">
+        <GridContainer style={{fontFamily:"Montserrat"}} width="100%">
           <br></br>
           <GridItem
             style={{
@@ -61,7 +61,7 @@ export default function Module_Item(props) {
               width: "100%"
             }}
           >
-            <h2 style={{ color: "black" }}><b>Market Segmentation</b></h2></GridItem>
+            <h3 style={{ color: "black",fontFamily:"Montserrat" }}><b>Market Segmentation</b></h3></GridItem>
           <GridItem xs={12} sm={12} md={11} className={classes[cardAnimaton]}>
 
             <div className={classes.root} style={{ color: "black", fontSize: "10px" }}>
@@ -78,7 +78,7 @@ export default function Module_Item(props) {
                 />
               </div>
               <br></br>
-              <Typography fontSize="12">
+              <Typography style={{fontFamily:"Montserrat"}} fontSize="12">
                 Market segmentation is the process of dividing  your target market into
                 approachable groups. These subsets can be categorized according to primary
                 factors such as demographics, priorities, needs, common interests and behaviour.

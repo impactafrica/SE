@@ -37,8 +37,8 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk Projects</h2>
-          <h5 className={classes.description}>
+          <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Let{"'"}s talk Projects</h2>
+          <h5 style={{fontFamily:"Montserrat"}} className={classes.description}>
           Welcome to SE! We will help you start, execute and launch your project.
           <br></br>
           </h5>
@@ -47,7 +47,7 @@ export default function ProductSection() {
         </GridItem>
       </GridContainer>
       <div>
-        <GridContainer>
+        <GridContainer >
         <GridItem xs={12} sm={12} md={3}>
           <Card color="primary" className={classes[cardAnimaton]}>
               <CardHeader color="primary" className={classes.cardHeader}>
@@ -57,10 +57,10 @@ export default function ProductSection() {
               <CardBody>
                 <div style={{backgroundColor:"purple",width:"100%"}}>
                 </div>
-              <h3><b>Framework </b></h3>
+              <h3 style={{fontFamily:"Montserrat"}}><b>Framework </b></h3>
               </CardBody>
               <CardBody>
-                <p>Systematic approach to your entrepreneurial journey</p>
+                <p style={{fontFamily:"Montserrat"}}>Systematic approach to your entrepreneurial journey</p>
               </CardBody>
               </Card>
         </GridItem>
@@ -70,10 +70,10 @@ export default function ProductSection() {
                 <img src={arrow} height="80px"  alt="ideation"/>
               </CardHeader>
               <CardBody justify="center">
-                <h3><b>Curated Content </b></h3>
+                <h3 style={{fontFamily:"Montserrat"}}><b>Curated Content </b></h3>
               </CardBody>
               <CardBody>
-                <p>Content organized for easy obtaining and easy linkage with the stepwise process of SE</p>
+                <p style={{fontFamily:"Montserrat"}}>Content organized for easy obtaining and easy linkage with the stepwise process of SE</p>
               </CardBody>
               <CardFooter className={classes.cardFooter}>
               </CardFooter>
@@ -86,10 +86,10 @@ export default function ProductSection() {
 
               </CardHeader>
               <CardBody>
-                <h3><b>Community</b></h3>
+                <h3 style={{fontFamily:"Montserrat"}}><b>Community</b></h3>
               </CardBody>
               <CardBody>
-                <p>A support system from one colleague to the other throughout the entrepreneurial journey</p>
+                <p style={{fontFamily:"Montserrat"}}>A support system from one colleague to the other throughout the entrepreneurial journey</p>
               </CardBody>
           </Card>
         </GridItem>
@@ -100,16 +100,17 @@ export default function ProductSection() {
 
               </CardHeader>
               <CardBody>
-                <h3><b>Mentorship</b></h3>
+                <h3 style={{fontFamily:"Montserrat"}}><b>Mentorship</b></h3>
               </CardBody>
               <CardBody>
-                <p>A holding hand for both accountability and knowledge sharing</p>
+                <p style={{fontFamily:"Montserrat"}}>A holding hand for both accountability and knowledge sharing</p>
               </CardBody>
           </Card>
         </GridItem>
         <GridItem>
         <Link to={"/login-page"} className={classes.link}>
               <Button
+                style={{fontFamily:"Montserrat"}}
                 color="primary"
                 size="lg"
                 rel="noopener noreferrer"

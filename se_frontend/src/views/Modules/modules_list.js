@@ -102,9 +102,9 @@ export default function LoginPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="left">
-            <GridItem style={{color:"black",textAlign:"center"}} xs={12} sm={12} md={12}>
-              <h3><b>My project: Done!</b></h3>
-              <h5>Welcome to the modules! We will undergo one module at a time</h5>
+            <GridItem style={{color:"black",textAlign:"center",fontFamily:"Montserrat"}} xs={12} sm={12} md={12}>
+              <h3 style={{fontFamily:"Montserrat"}}><b>My project: Done!</b></h3>
+              <h5 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h5>
             </GridItem>
 
             <GridItem xs={12} sm={12} md={4}>
@@ -118,12 +118,13 @@ export default function LoginPage(props) {
                                   alignItems:"center",
                                   display:"table-cell",
                                   verticalAlign:"middle",
+                                  marginRight:"3px",
                                   textAlign:"center",
                                   background: "purple"}}
                       >
                           <img src={idea} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5><b>IDEATION AND FORMATION </b><br/><LinearProgress /></h5>
+                      <h5 style={{fontFamily:"Montserrat"}}><b>IDEATION AND FORMATION </b><br/><LinearProgress /></h5>
                     </div>
                     <br></br>
                     
@@ -143,11 +144,23 @@ export default function LoginPage(props) {
                                   display:"table-cell",
                                   verticalAlign:"middle",
                                   textAlign:"center",
+                                  marginRight:"3px",
                                   background: "purple"}}
                       >
                           <img src={market} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5><b>MARKET RESEARCH</b><br/> <Research /></h5>
+                      <div style={{fontFamily:"Montserrat",display:"flex"}} >
+                        <h5 style={{fontFamily:"Montserrat"}}><b>MARKET RESEARCH</b><br/>
+                        <div style={{fontFamily:"Montserrat",display:"flex"}} >
+                          <Research style={{marginRight:"150px"}}/>
+                        <button onClick={to_modules} align="right" style={{backgroundColor:"white",color:"#FF931E",borderRadius:"10px",border:"1px solid gray"}}><b>Continue</b></button>
+                        </div> 
+                          <br/>
+                        </h5>
+                        
+                      </div>
+                     
+                      
                     </div>
                     <br></br>
                    

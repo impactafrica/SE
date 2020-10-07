@@ -20,8 +20,8 @@ export default function WorkSection() {
     <div className={classes.section}>
       <GridContainer justify="center" >
         <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Contact Us</h2>
-          <h4 className={classes.description}>
+          <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Contact Us</h2>
+          <h4 style={{fontFamily:"Montserrat"}} className={classes.description}>
             Reach out to us anytime for any inquiries
           </h4>
           <form>
@@ -57,7 +57,7 @@ export default function WorkSection() {
                 }}
               />
               <GridItem xs={12} sm={12} md={4}>
-                <Button color="primary">Send Message</Button>
+                <Button style={{fontFamily:"Montserrat"}} color="primary">Send Message</Button>
               </GridItem>
             </GridContainer>
           </form>
