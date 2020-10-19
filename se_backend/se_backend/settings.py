@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
+
+LOCAL_APPS = [
+    'modules',
+]
+
+INSTALLED_APPS += LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,9 +81,14 @@ WSGI_APPLICATION = 'se_backend.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'se',
+        'USER': 'postgres',
+        'PASSWORD': 'destiny,123',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        # 'additional settings'
     }
 }
 
