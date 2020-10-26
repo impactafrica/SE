@@ -11,6 +11,7 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SigninPage from "views/LoginPage/SigninPage.js";
+import Home from "views/LoginPage/Home";
 import Modules from "views/Modules/modules";
 import ModulesList from "views/Modules/modules_list";
 import MarketType from "views/Modules/ReadMore/Segmentation/market_type";
@@ -31,17 +32,35 @@ import PersonaItem from "views/Modules/persona_item"
 import Segmenting from "views/Modules/ReadMore/Segmentation/segmenting"
 import BeachheadDef from "views/Modules/ReadMore/Beachhead/beachhead_main"
 import Onboarding from "views/Modules/onboarding"
+import Login from './containers/Login';
+import Signup from './containers/Signup';
+import Activate from './containers/Activate';
+import ResetPassword from './containers/ResetPassword';
+import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
+
+
+import { Provider } from 'react-redux';
+import store from './store';
+
+import Layout from './hocs/Layout';
 
 var hist = createBrowserHistory();
 
 ReactDOM.render(
+  <Provider store={store}>
   <Router history={hist}>
     <Switch>
       <Route path="/landing-page" component={LandingPage} />
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/login-page" component={LoginPage} />
       <Route path="/signin-page" component={SigninPage} />
+      <Route path='/login' component={Login} />
+      <Route path='/signup' component={Signup} />
+      <Route path='/reset_password' component={ResetPassword} />
+      <Route path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
+      <Route path='/activate/:uid/:token' component={Activate} />
       <Route path="/modules" component={Modules} />
+      <Route path="/home" component={Home} />
       <Route path="/modules_list" component={ModulesList} />
       <Route path="/module1" component={ModuleOneLanding} />
       <Route path="/module1_item" component={ModuleOneItem} />
@@ -64,6 +83,7 @@ ReactDOM.render(
       <Route path="/beachhead-def" component={BeachheadDef} />
       <Route path="/" component={LandingPage} />
     </Switch>
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById("root")
 );

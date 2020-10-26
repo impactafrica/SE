@@ -37,16 +37,16 @@ export default function LandingPage(props) {
   return (
     <div>
       <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "primary"
-        }}
-        {...rest}
+        // color="transparent"
+        // routes={dashboardRoutes}
+        // brand="Systematic Entrepreneurship"
+        // rightLinks={<HeaderLinks />}
+        // fixed
+        // changeColorOnScroll={{
+        //   height: 400,
+        //   color: "primary"
+        // }}
+        // {...rest}
       />
       <Parallax filter image={require("assets/img/landing-bg.jpg")}>
         <div className={classes.container}>

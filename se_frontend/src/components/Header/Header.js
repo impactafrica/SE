@@ -1,5 +1,3 @@
-import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
@@ -11,6 +9,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import React, { Fragment } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
@@ -18,140 +19,54 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 import { useHistory } from "react-router-dom";
 import logo from "assets/img/se_logo.png";
 import se_logo from "assets/img/Logo.png";
+import { logout } from '../../actions/auth';
 
-const useStyles = makeStyles(styles);
-
-export default function Header(props) {
-  const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  React.useEffect(() => {
-    if (props.changeColorOnScroll) {
-      window.addEventListener("scroll", headerColorChange);
-    }
-    return function cleanup() {
-      if (props.changeColorOnScroll) {
-        window.removeEventListener("scroll", headerColorChange);
-      }
-    };
-  });
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-  const headerColorChange = () => {
-    const { color, changeColorOnScroll } = props;
-    const windowsScrollTop = window.pageYOffset;
-    if (windowsScrollTop > changeColorOnScroll.height) {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[color]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[changeColorOnScroll.color]);
-    } else {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[color]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[changeColorOnScroll.color]);
-    }
-  };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
-  const appBarClasses = classNames({
-    [classes.appBar]: true,
-    [classes[color]]: color,
-    [classes.absolute]: absolute,
-    [classes.fixed]: fixed
-  });
-  const history = useHistory();
-  const to_modules = () => history.push('/');
-  // const brandComponent = <Button onClick={to_modules} className={classes.title}>{brand}</Button>;
-  const brandComponent = <img onClick={to_modules} src={se_logo} style={{height:"70px"}}/>;
-  return (
-    <AppBar className={appBarClasses}>
-      <Toolbar className={classes.container}>
-        {leftLinks !== undefined ? brandComponent : null}
-        <div className={classes.flex}>
-          {leftLinks !== undefined ? (
-            <Hidden smDown implementation="css">
-              {leftLinks}
-            </Hidden>
-          ) : (
-            brandComponent
-          )}
-        </div>
-        <Hidden smDown implementation="css">
-          {rightLinks}
-        </Hidden>
-        <Hidden mdUp>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-          >
-            <Menu />
-          </IconButton>
-        </Hidden>
-      </Toolbar>
-      <Hidden mdUp implementation="js">
-        <Drawer
-          variant="temporary"
-          anchor={"right"}
-          open={mobileOpen}
-          classes={{
-            paper: classes.drawerPaper
-          }}
-          onClose={handleDrawerToggle}
-        >
-          <div className={classes.appResponsive}>
-            {leftLinks}
-            {rightLinks}
-          </div>
-        </Drawer>
-      </Hidden>
-    </AppBar>
+const navbar = ({ isAuthenticated, logout }) => {
+  const authLinks = (
+      <li className="nav-item">
+          <a className='nav-link' onClick={logout} href='/login'>Logout</a>
+      </li>
   );
-}
 
-Header.defaultProp = {
-  color: "white"
+  const guestLinks = (
+      <Fragment>
+          <li className="nav-item">
+              <NavLink className="nav-link" exact to='/login'>Login</NavLink>
+          </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" exact to='/signup'>Sign Up</NavLink>
+          </li>
+      </Fragment>
+  );
+
+  return (
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <Link className="navbar-brand" to='/'>Auth System</Link>
+          <button 
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+          >
+              <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                  <li className="nav-item">
+                      <NavLink className="nav-link" exact to='/'>Home</NavLink>
+                  </li>
+                  { <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment> }
+              </ul>
+          </div>
+      </nav>
+  );
 };
 
-Header.propTypes = {
-  color: PropTypes.oneOf([
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "transparent",
-    "white",
-    "rose",
-    "dark"
-  ]),
-  rightLinks: PropTypes.node,
-  leftLinks: PropTypes.node,
-  brand: PropTypes.string,
-  fixed: PropTypes.bool,
-  absolute: PropTypes.bool,
-  // this will cause the sidebar to change the color from
-  // props.color (see above) to changeColorOnScroll.color
-  // when the window.pageYOffset is heigher or equal to
-  // changeColorOnScroll.height and then when it is smaller than
-  // changeColorOnScroll.height change it back to
-  // props.color (see above)
-  changeColorOnScroll: PropTypes.shape({
-    height: PropTypes.number.isRequired,
-    color: PropTypes.oneOf([
-      "primary",
-      "info",
-      "success",
-      "warning",
-      "danger",
-      "transparent",
-      "white",
-      "rose",
-      "dark"
-    ]).isRequired
-  })
-};
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout })(navbar);
