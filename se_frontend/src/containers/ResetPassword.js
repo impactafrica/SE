@@ -2,8 +2,22 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reset_password } from '../actions/auth';
+import { makeStyles } from "@material-ui/core/styles";
+
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import image from "assets/img/bg7.jpg";
+import Header from "components/Header/Header.js";
+import Button from "components/CustomButtons/Button.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
+import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
+
+const useStyles = makeStyles(styles);
 
 const ResetPassword = (props) => {
+    const classes = useStyles();
+    
     const [requestSent, setRequestSent] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -23,24 +37,45 @@ const ResetPassword = (props) => {
 
     if (requestSent)
         return <Redirect to='/' />
+
     return (
-        <div className='container mt-5'>
-            <h1>Request Password Reset:</h1>
-            <form onSubmit={e => onSubmit(e)}>
-                <div className='form-group'>
-                    <input 
-                        className='form-control'
-                        type='email'
-                        placeholder='Your Email'
-                        name='email'
-                        value={email}
-                        onChange={e => onChange(e)}
-                        required
-                    />
+        <div>
+      <Header
+        absolute
+        color="transparent"
+        href="/"
+        brand="Systematic Entrepreneurship"
+        rightLinks={<HeaderLinks />}
+      />
+      <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      >
+            <div className={classes.container}>
+            <h3>Request Password Reset:</h3>
+                <form onSubmit={e => onSubmit(e)}>
+                    <div className='form-group'>
+                        <input 
+                            className='form-control'
+                            type='email'
+                            placeholder="Your Email..."
+                            name='email'
+                            value={email}
+                            onChange={e => onChange(e)}
+                            required
+                        />
+                    </div>
+                    <Button className='btn' color="primary" type='submit'>Reset Password</Button>
+                </form>
+            
                 </div>
-                <button className='btn btn-primary' type='submit'>Reset Password</button>
-            </form>
         </div>
+        </div>
+        
     );
 };
 

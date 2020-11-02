@@ -1,7 +1,5 @@
 /*eslint-disable*/
-import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import React,{useEffect} from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -9,13 +7,10 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 import { useHistory } from "react-router-dom";
 
@@ -23,19 +18,113 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+import { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
+
+const navbar = ({ isAuthenticated, logout }) => {
   const classes = useStyles();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
   const history = useHistory();
   const to_modules = () => history.push('/modules_list');
-  const to_home = () => history.push('/landing_page');
-  const to_signin = () => history.push('/signin-page');
+  const home = () => history.push('/');
+  const login = () => history.push('/login');
+  const signup = () => history.push('/signup');
+    
+  const authLinks = (
+      <Fragment>
+         <ListItem className={classes.listItem}>
+              <Button
+                style={{fontFamily:"Montserrat"}}
+                onClick={to_modules}
+                target="_blank"
+                color="transparent"
+                className={classes.navLink}
+              >
+                <b>Modules</b>
+              </Button>
+          </ListItem>
+
+            <ListItem className={classes.listItem}>
+                <Button
+                style={{fontFamily:"Montserrat"}}
+                onClick={to_modules}
+                target="_blank"
+                color="transparent"
+                className={classes.navLink}
+              >
+                <b>Profile</b>
+              </Button>
+            
+            </ListItem>
+
+            <ListItem className={classes.listItem}>
+                <Button
+                style={{fontFamily:"Montserrat"}}
+                onClick={to_modules}
+                target="_blank"
+                color="transparent"
+                className={classes.navLink}
+              >
+                <b>MyProject</b>
+              </Button>
+            
+            </ListItem>
+
+          <ListItem className={classes.listItem}>
+            <Link to="/login">
+              <Button
+                  onClick={logout}
+                  style={{fontFamily:"Montserrat",color:"white"}}
+                  target="_blank"
+                  color="primary"
+                  className={classes.navLink}
+                >
+                  <b>Logout</b>
+                </Button>
+            </Link>
+              
+            </ListItem>        
+      </Fragment>
+    );
+
+    const guestLinks = (
+        <Fragment>
+            <ListItem className={classes.listItem}>
+                <Button
+                  onClick={login}
+                  style={{fontFamily:"Montserrat",color:"white"}}
+                  target="_blank"
+                  color="primary"
+                  className={classes.navLink}
+                >
+                  <b>Login</b>
+                </Button>
+            </ListItem>
+
+            <ListItem className={classes.listItem}>
+                <Button
+                  onClick={signup}
+                  style={{fontFamily:"Montserrat",color:"white"}}
+                  target="_blank"
+                  color="primary"
+                  className={classes.navLink}
+                >
+                  <b>Sign Up</b>
+                </Button>
+            </ListItem>            
+        </Fragment>
+    );
 
   return (
     <List className={classes.list} style={{fontFamily:"Montserrat"}}>
 
       <ListItem className={classes.listItem}>
         <Button
-          onClick={to_home}
+          onClick={home}
           style={{fontFamily:"Montserrat"}}
           target="_blank"
           color="transparent"
@@ -43,109 +132,29 @@ export default function HeaderLinks(props) {
         >
           <b>Home</b>
         </Button>
+        
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button
-          onClick={to_modules}
-          style={{fontFamily:"Montserrat"}}
-          to="/modules_list"
-          target="_blank"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <b>Modules</b>
-        </Button>
-      </ListItem>
 
-      <ListItem className={classes.listItem}>
         <Button
-          onClick={to_modules}
-          style={{fontFamily:"Montserrat"}}
-          to="/modules"
-          target="_blank"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <b>Community</b>
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          onClick={to_modules}
-          style={{fontFamily:"Montserrat"}}
-          to="/modules"
-          target="_blank"
-          color="transparent"
-          className={classes.navLink}
-        >
-          <b>Profile</b>
-        </Button>
-      </ListItem>
-      
-      <ListItem className={classes.listItem}>
-        <Button
-          onClick={to_signin}
-          style={{fontFamily:"Montserrat"}}
-          target="_blank"
-          color="primary"
-          className={classes.navLink}
-        >
-          <b>Sign In</b>
-        </Button>
-      </ListItem>
+        onClick={home}
+        style={{fontFamily:"Montserrat"}}
+        to="/modules"
+        target="_blank"
+        color="transparent"
+        className={classes.navLink}
+      >
+        <b>Blog</b>
+      </Button>
 
-      {/* <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-facebook"
-          title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
-          </Button>
-        </Tooltip>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-tooltip"
-          title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="twitter-tooltip"
-          title="Follow us on twitter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
-          </Button>
-        </Tooltip>
-      </ListItem> */}
+      { <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment> }
     </List>
   );
 }
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { logout })(navbar);

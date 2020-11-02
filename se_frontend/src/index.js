@@ -6,7 +6,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
 // pages for this product
-import Components from "views/Components/Components.js";
+// import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
@@ -32,8 +32,8 @@ import PersonaItem from "views/Modules/persona_item"
 import Segmenting from "views/Modules/ReadMore/Segmentation/segmenting"
 import BeachheadDef from "views/Modules/ReadMore/Beachhead/beachhead_main"
 import Onboarding from "views/Modules/onboarding"
-import Login from './containers/Login';
-import Signup from './containers/Signup';
+import Login from './containers/SigninPage';
+import Signup from './containers/SignUpPage';
 import Activate from './containers/Activate';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
@@ -67,7 +67,7 @@ ReactDOM.render(
       <Route path="/startup_register" component={RegisterStartup} />
       <Route path="/module_item" component={ModuleItem} />
       <Route path="/segment_que" component={Question1} />
-      <Route path="/components" component={Components} />
+      {/* <Route path="/components" component={Components} /> */}
       <Route path="/market_type" component={MarketType} />
       <Route path="/market_types" component={MarketTypes} />
       <Route path="/brainstorming" component={Brainstorming} />

@@ -1,51 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "57b9cebbff51630a4406dd777a9754d1",
+    "revision": "03dcfe7b4a0e7a58a8574c7692aa1870",
     "url": "/index.html"
   },
   {
-    "revision": "c9ac0669630927a3a2d5",
+    "revision": "647d62cbed15638588ad",
     "url": "/static/css/2.82891a32.chunk.css"
   },
   {
-    "revision": "dfabaa1ea29d61e4e11e",
+    "revision": "857e8cc06a44562fded4",
     "url": "/static/css/main.c5a3ee5c.chunk.css"
   },
   {
-    "revision": "c9ac0669630927a3a2d5",
-    "url": "/static/js/2.c889d884.chunk.js"
+    "revision": "647d62cbed15638588ad",
+    "url": "/static/js/2.660f0cca.chunk.js"
   },
   {
-    "revision": "d9cd25e6214c403b4815c70a6537721d",
-    "url": "/static/js/2.c889d884.chunk.js.LICENSE.txt"
+    "revision": "443f5d525a4a98bb96420a45252b4518",
+    "url": "/static/js/2.660f0cca.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "dfabaa1ea29d61e4e11e",
-    "url": "/static/js/main.dfe47204.chunk.js"
+    "revision": "857e8cc06a44562fded4",
+    "url": "/static/js/main.0e38d549.chunk.js"
   },
   {
     "revision": "deaf17d855cbdaf7344d",
     "url": "/static/js/runtime-main.47788c5d.js"
-  },
-  {
-    "revision": "f1d71f777331fd7e3de116edf4ee3b67",
-    "url": "/static/media/avatar.f1d71f77.jpg"
-  },
-  {
-    "revision": "e52419719dd0c4c8b172136f0b625008",
-    "url": "/static/media/bg.e5241971.jpg"
-  },
-  {
-    "revision": "843781834b1db2908f08d921c6460c81",
-    "url": "/static/media/bg2.84378183.jpg"
-  },
-  {
-    "revision": "e76de24b6d8ab5e920bb4d49241ad15f",
-    "url": "/static/media/bg3.e76de24b.jpg"
-  },
-  {
-    "revision": "199e9ec14308832c6a8a49bd96c1fde6",
-    "url": "/static/media/bg4.199e9ec1.jpg"
   },
   {
     "revision": "b08234a2b7e8e4fb2e3c4e713252021c",
@@ -88,10 +68,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/landing-bg.df8fd3ef.jpg"
   },
   {
-    "revision": "08e18cb904f0f3c6dd9e3d4ed72e0eca",
-    "url": "/static/media/landing.08e18cb9.jpg"
-  },
-  {
     "revision": "4575c40bfb8dec6713d2da51c4c4066e",
     "url": "/static/media/mariya-georgieva.4575c40b.jpg"
   },
@@ -128,20 +104,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/profile-bg.baf6b40a.jpg"
   },
   {
-    "revision": "090a5aabae505f67ee0981613d02ee05",
-    "url": "/static/media/profile.090a5aab.jpg"
-  },
-  {
     "revision": "d6d5b22b8cae5a8f2e164b4c8c426e42",
     "url": "/static/media/se_logo.d6d5b22b.png"
   },
   {
     "revision": "10af00c3c342389e1ce7748af6a7fbd2",
     "url": "/static/media/segment.10af00c3.png"
-  },
-  {
-    "revision": "cf8b686b294041d0925f4e745b1fabb9",
-    "url": "/static/media/sign.cf8b686b.jpg"
   },
   {
     "revision": "ae0150c08dbcc95e4f50458e02e5bd5c",

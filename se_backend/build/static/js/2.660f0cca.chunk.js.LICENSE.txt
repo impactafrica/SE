@@ -15,8 +15,6 @@ object-assign
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
-/*! nouislider - 14.5.0 - 5/11/2020 */
-
 /**
  * A better abstraction over CSS.
  *
@@ -85,5 +83,3 @@ object-assign
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-//! moment.js
