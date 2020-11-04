@@ -9,6 +9,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 // @material-ui/icons
+import Header from "components/Header/Header.js";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
@@ -120,37 +121,38 @@ const navbar = ({ isAuthenticated, logout }) => {
     );
 
   return (
-    <List className={classes.list} style={{fontFamily:"Montserrat"}}>
+    // <Header>
+      <List className={classes.list} style={{fontFamily:"Montserrat"}}>
 
-      <ListItem className={classes.listItem}>
-        <Button
+        <ListItem className={classes.listItem}>
+          <Button
+            onClick={home}
+            style={{fontFamily:"Montserrat"}}
+            target="_blank"
+            color="transparent"
+            className={classes.navLink}
+          >
+            <b>Home</b>
+          </Button>
+        </ListItem>
+
+        <ListItem className={classes.listItem}>
+          <Button
           onClick={home}
           style={{fontFamily:"Montserrat"}}
+          to="/modules"
           target="_blank"
           color="transparent"
           className={classes.navLink}
         >
-          <b>Home</b>
+          <b>Blog</b>
         </Button>
+        </ListItem>
         
-      </ListItem>
-
-      <ListItem className={classes.listItem}>
-
-        <Button
-        onClick={home}
-        style={{fontFamily:"Montserrat"}}
-        to="/modules"
-        target="_blank"
-        color="transparent"
-        className={classes.navLink}
-      >
-        <b>Blog</b>
-      </Button>
-
-      </ListItem>
-      { <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment> }
-    </List>
+        { <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment> }
+      </List>
+    // </Header>
+    
   );
 }
 const mapStateToProps = state => ({

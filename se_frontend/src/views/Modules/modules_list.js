@@ -103,8 +103,8 @@ export default function LoginPage(props) {
         <div className={classes.container}>
           <GridContainer justify="left">
             <GridItem style={{color:"black",textAlign:"center",fontFamily:"Montserrat"}} xs={12} sm={12} md={12}>
-              <h3 style={{fontFamily:"Montserrat"}}><b>My project: Done!</b></h3>
-              <h5 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h5>
+              <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>My project: Done!</b></h3>
+              <h4 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h4>
             </GridItem>
 
             <GridItem xs={12} sm={12} md={4}>
@@ -124,7 +124,7 @@ export default function LoginPage(props) {
                       >
                           <img src={idea} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5 style={{fontFamily:"Montserrat"}}><b>IDEATION AND FORMATION </b><br/><LinearProgress /></h5>
+                      <h5 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>IDEATION AND FORMATION </b><br/><LinearProgress /></h5>
                     </div>
                     <br></br>
                     
@@ -150,7 +150,7 @@ export default function LoginPage(props) {
                           <img src={market} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
                       <div style={{fontFamily:"Montserrat",display:"flex"}} >
-                        <h5 style={{fontFamily:"Montserrat"}}><b>MARKET RESEARCH</b><br/>
+                        <h5 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>MARKET RESEARCH</b><br/>
                         <div style={{fontFamily:"Montserrat",display:"flex"}} >
                           <Research style={{marginRight:"150px"}}/>
                         <button onClick={to_modules} align="right" style={{backgroundColor:"white",color:"#FF931E",borderRadius:"10px",border:"1px solid gray"}}><b>Continue</b></button>
@@ -185,7 +185,7 @@ export default function LoginPage(props) {
                       >
                           <img src={mvp} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5 style={{color:"gray"}}><b>MVP DEVELOPMENT</b><br/><MVP /></h5>
+                      <h5 style={{color:"gray",fontFamily:"Montserrat",fontWeight:"600"}}><b>MVP DEVELOPMENT</b><br/><MVP /></h5>
                     </div>
                     <br></br>
                     
@@ -209,7 +209,7 @@ export default function LoginPage(props) {
                       >
                           <img src={customer} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
                       </div>
-                      <h5 style={{color:"gray"}}><b>CUSTOMER VALUE PROPOSITION</b><br/><MVP /></h5>
+                      <h5 style={{color:"gray",fontFamily:"Montserrat",fontWeight:"600"}}><b>CUSTOMER VALUE PROPOSITION</b><br/><MVP /></h5>
                     </div>
                     <br></br>
                     

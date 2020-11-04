@@ -37,9 +37,11 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Let{"'"}s talk Projects</h2>
-          <h5 style={{fontFamily:"Montserrat"}} className={classes.description}>
-          Welcome to SE! We will help you start, execute and launch your project.
+          <h2 style={{fontFamily:"Montserrat",fontWeight: "600"}} className={classes.title}>
+            <b>Let{"'"}s talk Projects</b>
+          </h2>
+          <h5 style={{fontFamily:"Montserrat",fontWeight: "600",color:"#595959"}}>
+          <b>Welcome to SE! We will help you start, execute and launch your project.</b>
           <br></br>
           </h5>
           
@@ -57,10 +59,10 @@ export default function ProductSection() {
               <CardBody>
                 <div style={{backgroundColor:"purple",width:"100%"}}>
                 </div>
-              <h3 style={{fontFamily:"Montserrat"}}><b>Framework </b></h3>
+              <h3 style={{fontFamily:"Montserrat",fontWeight: "600"}}><b>Framework </b></h3>
               </CardBody>
               <CardBody>
-                <p style={{fontFamily:"Montserrat"}}>Systematic approach to your entrepreneurial journey</p>
+                <p style={{fontFamily:"Montserrat"}}><b>Systematic approach to your entrepreneurial journey</b></p>
               </CardBody>
               </Card>
         </GridItem>
@@ -70,7 +72,7 @@ export default function ProductSection() {
                 <img src={arrow} height="80px"  alt="ideation"/>
               </CardHeader>
               <CardBody justify="center">
-                <h3 style={{fontFamily:"Montserrat"}}><b>Curated Content </b></h3>
+                <h3 style={{fontFamily:"Montserrat",fontWeight: "600"}}><b>Curated Content </b></h3>
               </CardBody>
               <CardBody>
                 <p style={{fontFamily:"Montserrat"}}>Content organized for easy obtaining and easy linkage with the stepwise process of SE</p>
@@ -86,7 +88,7 @@ export default function ProductSection() {
 
               </CardHeader>
               <CardBody>
-                <h3 style={{fontFamily:"Montserrat"}}><b>Community</b></h3>
+                <h3 style={{fontFamily:"Montserrat",fontWeight: "600"}}><b>Community</b></h3>
               </CardBody>
               <CardBody>
                 <p style={{fontFamily:"Montserrat"}}>A support system from one colleague to the other throughout the entrepreneurial journey</p>
@@ -100,7 +102,7 @@ export default function ProductSection() {
 
               </CardHeader>
               <CardBody>
-                <h3 style={{fontFamily:"Montserrat"}}><b>Mentorship</b></h3>
+                <h3 style={{fontFamily:"Montserrat",fontWeight: "600"}}><b>Mentorship</b></h3>
               </CardBody>
               <CardBody>
                 <p style={{fontFamily:"Montserrat"}}>A holding hand for both accountability and knowledge sharing</p>

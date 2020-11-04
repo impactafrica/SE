@@ -14,7 +14,9 @@ import {
     USER_LOADED_SUCCESS,
     USER_LOADED_FAIL,
     AUTHENTICATED_FAIL,
-    AUTHENTICATED_SUCCESS
+    AUTHENTICATED_SUCCESS,
+    PROJECT_CREATION_FAIL,
+    PROJECT_CREATION_SUCCESS
 } from './types';
 
 export const checkAuthenticated = () => async dispatch => {
@@ -205,4 +207,41 @@ export const reset_password_confirm = (uid, token, new_password, re_new_password
 
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT });
+};
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+var csrftoken = readCookie('csrftoken');
+
+export const create_project = (project_name, description) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken 
+        }
+    }
+
+    const body = JSON.stringify({ project_name,description }); 
+
+    try {
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/modules/project/`, body, config);
+
+        dispatch({
+            type: PROJECT_CREATION_SUCCESS,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: PROJECT_CREATION_FAIL
+        });
+    }
 };

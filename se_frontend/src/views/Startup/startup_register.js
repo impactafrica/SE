@@ -1,6 +1,9 @@
-import React,{useEffect} from "react";
-// @material-ui/core components
+import React,{useState} from "react";
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { create_project } from '../../actions/auth'
 import { makeStyles } from "@material-ui/core/styles";
+// @material-ui/core components
 import InputAdornment from "@material-ui/core/InputAdornment";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
@@ -21,21 +24,57 @@ import MultipleValueTextInput from 'react-multivalue-text-input';
 
 import { Link } from "react-router-dom";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import { useForm } from "react-hook-form";
+import axios from 'axios';
+import Snackbar from '@material-ui/core/Snackbar';
+import Slide from '@material-ui/core/Slide';
 
 import image from "assets/img/bg7.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  setTimeout(function() {
-    setCardAnimation("");
-  }, 700);
+function TransitionUp(props) {
+  return <Slide {...props} direction="up" />;
+}
+
+const ProjectRegister = ({create_project, isAuthenticated}) => {
   const classes = useStyles();
-  const { ...rest } = props;
-  useEffect(() => {
-    window.scrollTo(0, 0)
+  const [open, setOpen] = React.useState(false);
+  const [transition, setTransition] = React.useState(undefined);
+
+  const handleClick = (Transition) => () => {
+    setTransition(() => Transition);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const [requestSent, setRequestSent] = useState(false);
+  
+  const [formData, setFormData] = useState({
+      project_name: '',
+      description: ''
   });
+
+  const { project_name, description } = formData;
+
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+      e.preventDefault();
+
+      create_project(project_name,description);
+      setRequestSent(true);
+  };
+
+  if (!isAuthenticated)
+        return <Redirect to='/login' />;
+  
+  if (requestSent)
+        return <Redirect to='/modules_list' />      
+
   return (
     <div>
       <Header
@@ -43,7 +82,6 @@ export default function LoginPage(props) {
         color="transparent"
         brand="Systematic Entrepreneurship"
         rightLinks={<HeaderLinks />}
-        {...rest}
       />
       <div
         className={classes.pageHeader}
@@ -53,88 +91,65 @@ export default function LoginPage(props) {
           backgroundPosition: "top center"
         }}
       >
+        
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
-              <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+              <Card >
+                <form onSubmit={e => onSubmit(e)}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Register Your Project</h4>
+                    <h3 style={{fontFamily:"Montserrat"}}>Register Your Project</h3>
                     
                   </CardHeader>
-                  <CardBody>
-                    <CustomInput
-                      labelText="Project Name..."
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
+                  <CardBody style={{fontFamily:"Montserrat"}}>
+                  <div className='form-group'>
+                    <input 
+                        style={{fontSize:"11pt"}}
+                        className='form-control'
+                        type='text'
+                        placeholder='Project Name'
+                        name='project_name'
+                        value={project_name}
+                        onChange={e => onChange(e)}
+                        required 
                     />
-                    <CustomInput
-                      labelText="Company Email..."
-                      id="email"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
+                </div>
+                <div className='form-group'>
+                    <input 
+                        className='form-control'
+                        style={{fontSize:"11pt"}}
+                        type='text'
+                        placeholder='Project description'
+                        name='description'
+                        value={description}
+                        onChange={e => onChange(e)} 
+                        required 
                     />
-                    {/* <CustomInput
-                      labelText="Members"
-                      id="pass"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                            <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off"
-                      }}
-                    /> */}
-                    <br></br>
-                    <br></br>
-                    <div style={{display:"flex",alignItems:'center'}}>
-                    <MultipleValueTextInput
-                      style={{border:"none", borderBottom: "1px solid lightgray",flex: 1,width: "100%"}}
-                      placeholder="Members Email Addresses,Comma Separated"
-                      onItemAdded={(item, allItems) => console.log(`Item added: ${item}`)}
-                      onItemDeleted={(item, allItems) => console.log(`Item removed: ${item}`)}
-                      name="item-input"
-                      border="none"
-                    />
-                    <People style={{position:"right"}}/>
-                    </div>
-                  </CardBody>
-
-                  <CardFooter className={classes.cardFooter}>
-                  <Link to={"/modules_list"} className={classes.link}>
+                </div>
+                <CardFooter style={{alignItems:"center"}} className={classes.cardFooter} >
+                
                     <Button
                       color="primary"
-                      size="lg"
-                      rel="noopener noreferrer"
+                      size="xlg"
+                      onClick={handleClick(TransitionUp)}
+                      style={{fontFamily:"Montserrat"}}
+                      type='submit'
                     >
-                      Get Started
+                      Register
                     </Button>
-                  </Link>
-                  </CardFooter>
+                    
+                    <Snackbar
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={transition}
+                      message="succsess"
+                      key={transition ? transition.name : ''}
+                    />
+                </CardFooter>
+                  <br/>
+                 
+                  </CardBody>
+                  
                 </form>
               </Card>
             </GridItem>
@@ -144,3 +159,9 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { create_project })(ProjectRegister);

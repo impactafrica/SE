@@ -13,6 +13,7 @@ import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import { faPlay} from "@fortawesome/free-solid-svg-icons";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
@@ -33,6 +34,10 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(styles);
 
 export default function TeamSection() {
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  setTimeout(function() {
+    setCardAnimation("");
+  }, 700);
   const classes = useStyles();
   const history = useHistory();
   const to_modules = () => history.push('/module1_item');
@@ -47,100 +52,72 @@ export default function TeamSection() {
       
       <div>
         <GridContainer >
-          <GridItem style={{paddingTop:"20px"}}xs={12} sm={12} md={12}>
-              <Button 
-                onClick={to_module}
-                style = {{backgroundColor:"purple"}}>
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </Button>
-            </GridItem>
-
-          {/* <GridItem xs={12} sm={12} md={12}>
-            <Card plain>
-            <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-              <br/>
-                <img src={research} style={{width:"100%"}}/>
-              </GridItem>
-            </Card>
-          </GridItem> */}
+                 
 
         <GridItem xs={12} sm={12} md={12}>
             <Card plain>
             <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
               <br/>
-            <h4 style={{fontFamily:"Montserrat"}} className={classes.cardTitle}>
-                Welcome to Market Research. Get to engage and find out your target customer.
+            
+              <h4 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>
+                 Welcome to Market Research. Get to engage and find out your target customer.
                  You will go through the following three sections
+              </b></h4>
+              </GridItem>
+            </Card>
+          </GridItem>
+
+          <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
+              <Card xs={4} sm={4} md={3} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat',fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
+                <div style={{color:"#ff9933",textAlign:"right"}}>
+                  <p><b>1/4{' '}</b></p>
+                </div>
+                <div style={{paddingLeft:"16px"}}>
+                  <p><b>Market Segmentation</b></p>
+                </div>
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                  </div>
+              </Card>
+              <Card xs={4} sm={4} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
+                <div style={{color:"#ff9933",textAlign:"right"}}>
+                  <p><b>2/4{' '}</b></p>
+                </div>
+                
+                <div style={{paddingLeft:"16px",color:"gray"}}>
+                  <p><b>Beachhead Market</b></p>
+                </div>
                 <br/>
-              </h4>
-              </GridItem>
-            </Card>
-          </GridItem>
-
-          <GridItem xs={12} sm={12} md={4}>
-            <Card onClick={to_modules} color="primary" plain>
-            <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="primary" style={{borderRadius:"50%",width:"160px",height:"160px",fontFamily:"Montserrat"}}>
-              Market Segmentation
-            </Button>
-              </GridItem>
-            </Card>
-          </GridItem>
-
-          <GridItem xs={12} sm={12} md={4}>
-            <Card color="primary" plain>
-            <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px",fontFamily:"Montserrat"}}>
-              Beachhead Market
-            </Button>
-              </GridItem>
-            </Card>
-          </GridItem>
-
-          <GridItem xs={12} sm={12} md={4}>
-            <Card color="primary" plain>
-            <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="gray" style={{borderRadius:"50%",width:"150px",height:"150px",fontFamily:"Montserrat"}}>
-              Persona
-            </Button>
-              </GridItem>
-            </Card>
-          </GridItem>
-
-          {/* <GridItem xs={12} sm={12} md={4}>
-            <Card onClick={to_modules} color="primary" plain>
-            <GridItem xs={12} sm={12} md={6}  className={classes.itemGrid}>
-            <Button color="white" style={{borderRadius:"60%"}}>
-              <img src={team3} alt="..." style={{height:"50px"}} />
-            </Button>
-                <h4>Persona</h4>
-              </GridItem>
-            </Card>
-          </GridItem> */}
-          
-          {/* <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={4} className={classes.itemGrid}>
-                <img src={team4} style={{backgroundColor:"purple"}} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Beachhead Market
-                <br />
-              </h4>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={4} className={classes.itemGrid}>
-                <img src={team3} style={{backgroundColor:"purple"}} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Persona
-                <br />
-              </h4>
+                  <br/><br/>
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                  </div>
+              </Card>
+              <Card xs={3} sm={3} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
+                <div style={{color:"#ff9933",textAlign:"right"}}>
+                  <p><b>3/4{' '}</b></p>
+                </div>
+               
+                <div style={{paddingLeft:"16px",color:"gray"}}>
+                  <p><b>Persona</b></p>
+                </div>
+                <br/>
+                  <br/>
+                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                  </div>
+              </Card>
               
-            </Card>
-          </GridItem> */}
+
+              </GridItem>
+              <GridItem style={{paddingTop:"20px",alignItems:"center"}} xs={12} sm={12} md={12}>
+              <Button 
+                onClick={to_module}
+                style = {{backgroundColor:"purple",borderRadius: "25px",fontFamily:"Montserrat"}}>
+                Back 
+              </Button>
+            </GridItem>
+
           
           
         </GridContainer>

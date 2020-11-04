@@ -83,7 +83,7 @@ const LandingPage = ({ isAuthenticated }) => {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container} style={{width:"100%"}}>
           <ProductSection/>
-          <WorkSection/>
+          <WorkSection style={{backgroundColor:"gray"}}/>
         </div>
       </div>
     </div>

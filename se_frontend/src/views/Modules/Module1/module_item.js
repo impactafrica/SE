@@ -15,9 +15,9 @@ import ReactPlayer from "react-player";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
+
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
-
 
 import { Link } from "react-router-dom";
 
@@ -63,6 +63,7 @@ export default function Module_Item(props) {
             <Button color="primary">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
+            
             <Button onClick={to_modules} color="white">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>

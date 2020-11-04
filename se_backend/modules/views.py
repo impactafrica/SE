@@ -4,10 +4,16 @@ from rest_framework import status, viewsets
 
 from .models import *
 from .serializers import *
+from django.views.generic.edit import CreateView
+from modules.models import Project
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class ProjectCreate(CreateView):
+    model = Project
+    fields = ['project_name',]
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()

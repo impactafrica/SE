@@ -96,11 +96,11 @@ export default function LoginPage(props) {
       >
         <div className={classes.container}>
         <Card color="primary" className={classes[cardAnimaton]}>
-          <div style={{textAlign:"center"}}>
+          <div style={{textAlign:"center",fontFamily:"Montserrat",fontWeight:"600"}} >
           {/* <img src={logo} style={{marginRight:"auto",marginLeft:"auto",width:"50%",display:"block"}} justify="center" alt="ideation"/> */}
           <br></br>
-          <h3><b>Welcome to SE! We will help you start, execute and launch your project</b></h3>
-          <h4>Here are the steps will you will undertake:</h4>
+          <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>Welcome to SE! We will help you start, execute and launch your project</b></h3>
+          <h4 style={{fontFamily:"Montserrat",fontWeight:"600"}}>Here are the steps will you will undertake:</h4>
           <br></br>
           <br></br>
           </div>
@@ -116,10 +116,10 @@ export default function LoginPage(props) {
                   <CardBody>
                     <div style={{backgroundColor:"purple",width:"100%"}}>
                     </div>
-                  <h3><b>1. Read the content </b></h3>
+                  <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>1. Read the content </b></h3>
                   </CardBody>
                   <CardBody>
-                   <p>You will take a few minutes to read about a concept about entrepreneurship </p>
+                   <p style={{fontFamily:"Montserrat",fontWeight:"400"}}>You will take a few minutes to read about a concept about entrepreneurship </p>
                   </CardBody>
                   </Card>
             </GridItem>
@@ -129,10 +129,10 @@ export default function LoginPage(props) {
                     <img src={idea} height="80px"  alt="ideation"/>
                   </CardHeader>
                   <CardBody justify="center">
-                    <h3><b>2. Take the assessment </b></h3>
+                    <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>2. Take the assessment </b></h3>
                   </CardBody>
                   <CardBody>
-                    <p>Spend a short time answering the given questions about your project </p>
+                    <p style={{fontFamily:"Montserrat",fontWeight:"400"}}>Spend a short time answering the given questions about your project </p>
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                   </CardFooter>
@@ -145,16 +145,16 @@ export default function LoginPage(props) {
 
                   </CardHeader>
                   <CardBody>
-                    <h3><b>3. Get your report</b></h3>
+                    <h3  style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>3. Get your report</b></h3>
                   </CardBody>
                   <CardBody>
-                   <p>You will receive a personalized report per module to see how you are doing so far</p>
+                   <p style={{fontFamily:"Montserrat",fontWeight:"400"}}>You will receive a personalized report per module to see how you are doing so far</p>
                   </CardBody>
               </Card>
             </GridItem>
             <div style={{margin:"auto",display:"block",paddingBottom:"10px"}} >
               <Link to={"/startup_register"} className={classes.link}>
-                <Button color="primary">Register your project</Button>
+                <Button  style={{fontFamily:"Montserrat",fontWeight:"600"}} color="primary">Register your project</Button>
               </Link>
             </div>
           </GridContainer>

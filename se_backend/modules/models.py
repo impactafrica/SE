@@ -1,24 +1,24 @@
 from django.db import models
 import uuid
-
+from crum import get_current_user  
+import crum      
+# As model field:
+from django.contrib.auth import get_user_model as user_model
+User = user_model()
 
 # Create your models here.
-class User(models.Model):
-    user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    full_name=models.CharField(max_length=200)
-    email=models.EmailField(max_length=200)
-    password=models.CharField(max_length=200)
-    status=models.CharField(max_length=200)
-    time_created=models.DateTimeField(auto_now_add=True)
-    time_status_change=models.DateTimeField(auto_now_add=True)
-
 class Project(models.Model):
     project_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user_id=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     project_name=models.CharField(max_length=200)
     description=models.CharField(max_length=500)
-    status=models.CharField(max_length=200)
+    status=models.CharField(max_length=200,default="Created",editable=False)
     time_created=models.DateTimeField(auto_now_add=True)
+    userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
+
+    def save(self, *args, **kwargs):
+        userid = crum.get_current_user()
+        self.userid = userid.id
+        super(Project, self).save(*args, **kwargs)
 
 class Module(models.Model):
     module_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -36,6 +36,12 @@ class Question(models.Model):
 class Answer(models.Model):
     answer_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     question_id=models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
-    project_id=models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
+    # project_id=models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
     answer_string=models.CharField(max_length=200)
-    time_answered=models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
+    userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
+
+    def save(self, *args, **kwargs):
+        userid = crum.get_current_user()
+        self.userid = userid.id
+        super(Answer, self).save(*args, **kwargs)

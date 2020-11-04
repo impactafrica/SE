@@ -48,42 +48,44 @@ var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-  <Router history={hist}>
-    <Switch>
-      <Route path="/landing-page" component={LandingPage} />
-      <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login-page" component={LoginPage} />
-      <Route path="/signin-page" component={SigninPage} />
-      <Route path='/login' component={Login} />
-      <Route path='/signup' component={Signup} />
-      <Route path='/reset_password' component={ResetPassword} />
-      <Route path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
-      <Route path='/activate/:uid/:token' component={Activate} />
-      <Route path="/modules" component={Modules} />
-      <Route path="/home" component={Home} />
-      <Route path="/modules_list" component={ModulesList} />
-      <Route path="/module1" component={ModuleOneLanding} />
-      <Route path="/module1_item" component={ModuleOneItem} />
-      <Route path="/startup_register" component={RegisterStartup} />
-      <Route path="/module_item" component={ModuleItem} />
-      <Route path="/segment_que" component={Question1} />
-      {/* <Route path="/components" component={Components} /> */}
-      <Route path="/market_type" component={MarketType} />
-      <Route path="/market_types" component={MarketTypes} />
-      <Route path="/brainstorming" component={Brainstorming} />
-      <Route path="/narrowing" component={Narrowing} />
-      <Route path="/primary-research" component={PrimaryResearch} />
-      <Route path="/choosing-beachhead" component={ChoosingBeachhead} />
-      <Route path="/targeted-market" component={TargetedMarket} />
-      <Route path="/prepare-process" component={PrepareProcess} />
-      <Route path="/beachhead_item" component={BeachheadItem} />
-      <Route path="/persona_item" component={PersonaItem} />
-      <Route path="/segmenting" component={Segmenting} />
-      <Route path="/onboarding" component={Onboarding} />
-      <Route path="/beachhead-def" component={BeachheadDef} />
-      <Route path="/" component={LandingPage} />
-    </Switch>
-  </Router>
+    <Router history={hist}>
+      {/* <Layout> */}
+        <Switch>
+          <Route path="/landing-page" component={LandingPage} />
+          <Route path="/profile-page" component={ProfilePage} />
+          <Route path="/login-page" component={LoginPage} />
+          <Route path="/signin-page" component={SigninPage} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Signup} />
+          <Route path='/reset_password' component={ResetPassword} />
+          <Route path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
+          <Route path='/activate/:uid/:token' component={Activate} />
+          <Route path="/modules" component={Modules} />
+          <Route path="/home" component={Home} />
+          <Route path="/modules_list" component={ModulesList} />
+          <Route path="/module1" component={ModuleOneLanding} />
+          <Route path="/module1_item" component={ModuleOneItem} />
+          <Route path="/startup_register" component={RegisterStartup} />
+          <Route path="/module_item" component={ModuleItem} />
+          <Route path="/segment_que" component={Question1} />
+          {/* <Route path="/components" component={Components} /> */}
+          <Route path="/market_type" component={MarketType} />
+          <Route path="/market_types" component={MarketTypes} />
+          <Route path="/brainstorming" component={Brainstorming} />
+          <Route path="/narrowing" component={Narrowing} />
+          <Route path="/primary-research" component={PrimaryResearch} />
+          <Route path="/choosing-beachhead" component={ChoosingBeachhead} />
+          <Route path="/targeted-market" component={TargetedMarket} />
+          <Route path="/prepare-process" component={PrepareProcess} />
+          <Route path="/beachhead_item" component={BeachheadItem} />
+          <Route path="/persona_item" component={PersonaItem} />
+          <Route path="/segmenting" component={Segmenting} />
+          <Route path="/onboarding" component={Onboarding} />
+          <Route path="/beachhead-def" component={BeachheadDef} />
+          <Route path="/" component={LandingPage} />
+        </Switch>
+      {/* </Layout> */}
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
