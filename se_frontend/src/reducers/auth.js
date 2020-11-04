@@ -9,7 +9,9 @@ import {
     USER_LOADED_SUCCESS,
     USER_LOADED_FAIL,
     PROJECT_CREATION_FAIL,
-    PROJECT_CREATION_SUCCESS
+    PROJECT_CREATION_SUCCESS,
+    FETCH_MODULE_SUCCESS,
+    FETCH_MODULE_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -64,6 +66,16 @@ export default function(state = initialState, action) {
                 user: payload
             }
         case PROJECT_CREATION_FAIL:
+            return {
+                ...state,
+                user: payload
+            }
+        case FETCH_MODULE_SUCCESS:
+            return {
+                ...state,
+                user: payload
+            }
+        case FETCH_MODULE_FAIL:
             return {
                 ...state,
                 user: payload

@@ -72,8 +72,12 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
   if (!isAuthenticated)
         return <Redirect to='/login' />;
   
-  if (requestSent)
-        return <Redirect to='/modules_list' />      
+  if (requestSent){
+        const handleClick = (Transition) => () => {
+          setTransition(() => Transition);
+          setOpen(true);
+        };
+      return <Redirect to='/modules_list' /> }     
 
   return (
     <div>

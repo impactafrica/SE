@@ -16,7 +16,9 @@ import {
     AUTHENTICATED_FAIL,
     AUTHENTICATED_SUCCESS,
     PROJECT_CREATION_FAIL,
-    PROJECT_CREATION_SUCCESS
+    PROJECT_CREATION_SUCCESS,
+    FETCH_MODULE_SUCCESS,
+    FETCH_MODULE_FAIL
 } from './types';
 
 export const checkAuthenticated = () => async dispatch => {
@@ -242,6 +244,27 @@ export const create_project = (project_name, description) => async dispatch => {
     } catch (err) {
         dispatch({
             type: PROJECT_CREATION_FAIL
+        });
+    }
+};
+
+export const fetch_modules = () => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/modules/modules/`, config);
+
+        dispatch({
+            type: FETCH_MODULE_SUCCESS,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: FETCH_MODULE_FAIL
         });
     }
 };

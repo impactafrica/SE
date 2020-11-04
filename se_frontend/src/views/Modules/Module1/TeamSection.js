@@ -70,9 +70,9 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
               <Card xs={4} sm={4} md={3} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat',fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
-                  <p><b>1/4{' '}</b></p>
+                  <p><b>1/3{' '}</b></p>
                 </div>
-                <div style={{paddingLeft:"16px"}}>
+                <div style={{paddingLeft:"10px"}}>
                   <p><b>Market Segmentation</b></p>
                 </div>
                   <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
@@ -81,10 +81,10 @@ export default function TeamSection() {
               </Card>
               <Card xs={4} sm={4} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
-                  <p><b>2/4{' '}</b></p>
+                  <p><b>2/3{' '}</b></p>
                 </div>
                 
-                <div style={{paddingLeft:"16px",color:"gray"}}>
+                <div style={{paddingLeft:"10px",color:"gray"}}>
                   <p><b>Beachhead Market</b></p>
                 </div>
                 <br/>
@@ -95,10 +95,10 @@ export default function TeamSection() {
               </Card>
               <Card xs={3} sm={3} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
-                  <p><b>3/4{' '}</b></p>
+                  <p><b>3/3{' '}</b></p>
                 </div>
                
-                <div style={{paddingLeft:"16px",color:"gray"}}>
+                <div style={{paddingLeft:"10px",color:"gray"}}>
                   <p><b>Persona</b></p>
                 </div>
                 <br/>
