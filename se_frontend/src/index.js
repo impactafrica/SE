@@ -14,6 +14,8 @@ import SigninPage from "views/LoginPage/SigninPage.js";
 import Home from "views/LoginPage/Home";
 import Modules from "views/Modules/modules";
 import ModulesList from "views/Modules/modules_list";
+import TopicList from "views/Modules/topic_page";
+import SubTopicList from "views/Modules/subtopic";
 import MarketType from "views/Modules/ReadMore/Segmentation/market_type";
 import ModuleItem from "views/Modules/module_item";
 import ModuleOneLanding from "views/Modules/Module1/landing";
@@ -63,6 +65,8 @@ ReactDOM.render(
           <Route path="/modules" component={Modules} />
           <Route path="/home" component={Home} />
           <Route path="/modules_list" component={ModulesList} />
+          <Route path="/topic_list" component={TopicList} />
+          <Route path="/subtopic_list" component={SubTopicList} />
           <Route path="/module1" component={ModuleOneLanding} />
           <Route path="/module1_item" component={ModuleOneItem} />
           <Route path="/startup_register" component={RegisterStartup} />

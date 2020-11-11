@@ -12,6 +12,16 @@ class ModuleSerializer(serializers.ModelSerializer):
         model = Module
         fields = '__all__'
 
+class TopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Topics
+        fields = '__all__'
+
+class SubTopicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubTopics
+        fields = '__all__'
+
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question

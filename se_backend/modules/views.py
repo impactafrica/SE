@@ -23,6 +23,14 @@ class ModuleViewSet(viewsets.ModelViewSet):
     queryset = Module.objects.all()
     serializer_class = ModuleSerializer
 
+class TopicViewSet(viewsets.ModelViewSet):
+    queryset = Topics.objects.all()
+    serializer_class = TopicSerializer
+
+class SubTopicViewSet(viewsets.ModelViewSet):
+    queryset = SubTopics.objects.all()
+    serializer_class = SubTopicSerializer
+
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer

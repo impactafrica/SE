@@ -35,7 +35,7 @@ export default function Module_Item(props) {
   const dashboardRoutes = [];
   const history = useHistory();
   const to_modules = () => history.push('/segment_que');
-  const to_module = () => history.push('/module1_item');
+  const to_module = () => history.push('/subtopic_list');
   useEffect(() => {
     window.scrollTo(0, 0)
   });

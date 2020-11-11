@@ -95,7 +95,7 @@ const Modules = () => {
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
   const history = useHistory();
-  const to_modules = () => history.push('/module1');
+  const to_modules = () => history.push('/topic_list');
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -122,8 +122,9 @@ const Modules = () => {
 
             { Object.values(planets).map((postData) => {
               console.log(postData);
+
               return(
-              <GridItem xs={12} sm={12} md={4} key={postData.id}>
+              <GridItem xs={12} sm={12} md={4} key={postData.module_id}>
                 <Card style={{background:"white"}} onClick={to_modules} className={classes[cardAnimaton]}>
                   <CardBody>
                     <div style={{display:"flex"}}>
