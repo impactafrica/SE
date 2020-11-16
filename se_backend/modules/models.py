@@ -15,6 +15,9 @@ class Project(models.Model):
     time_created=models.DateTimeField(auto_now_add=True)
     userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
 
+    def __str__(self):
+        return self.project_name
+
     def save(self, *args, **kwargs):
         userid = crum.get_current_user()
         self.userid = userid.id
@@ -41,7 +44,7 @@ class Module(models.Model):
 class Topics(models.Model):
     topic_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     topic_name = models.CharField(max_length=200)
-    module_id = models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
+    module = models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     topic_number = models.IntegerField()
     topic_description = models.TextField(max_length=400)
 
@@ -51,7 +54,7 @@ class Topics(models.Model):
 class SubTopics(models.Model):
     subtopic_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subtopic_name = models.CharField(max_length=200)
-    topic_id = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
+    topic = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
     subtopic_number = models.IntegerField()
     subtopic_description = models.TextField(max_length=400)
 
@@ -60,7 +63,7 @@ class SubTopics(models.Model):
 
 class Content(models.Model):
     content_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    subtopic_id = models.ForeignKey(SubTopics,on_delete=models.SET_NULL,null=True)
+    subtopic = models.ForeignKey(SubTopics,on_delete=models.SET_NULL,null=True)
     title_text = models.CharField(max_length=400)
     title_intro = models.TextField(max_length=4400)
     content_section = models.TextField(max_length=4400)
@@ -68,15 +71,18 @@ class Content(models.Model):
 
 class Question(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    module_id=models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
+    module=models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
     question=models.CharField(max_length=200)
-    question_status=models.CharField(max_length=200)
+    question_status=models.CharField(max_length=200,default="Created",editable=False)
+
+    def __str__(self):
+        return self.question
 
 class Answer(models.Model):
     answer_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    question_id=models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
-    project_id=models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
+    question=models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
+    project=models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
     answer_string=models.TextField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
