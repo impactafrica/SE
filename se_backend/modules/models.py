@@ -73,7 +73,7 @@ class Question(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     module=models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
-    question=models.CharField(max_length=200)
+    question = models.CharField(max_length=200)
     question_status=models.CharField(max_length=200,default="Created",editable=False)
 
     def __str__(self):

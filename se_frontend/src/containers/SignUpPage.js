@@ -71,13 +71,6 @@ const Signup = ({ signup, isAuthenticated }) => {
       
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        href="/"
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-      />
       <div
         className={classes.pageHeader}
         style={{

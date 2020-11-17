@@ -22,6 +22,11 @@ class SubTopicSerializer(serializers.ModelSerializer):
         model = SubTopics
         fields = '__all__'
 
+class ContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Content
+        fields = '__all__'
+
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question

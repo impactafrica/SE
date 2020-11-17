@@ -41,23 +41,9 @@ export default function Module_Item(props) {
   });
   return (
     <div>
-      <Header
-        color="primary"
-        routes={dashboardRoutes}
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        {...rest}
-      />
         <div className={classes.container}>
           <GridContainer width="90%">
-          <GridItem xs={12} sm={12} md={12}>
-            <Button 
-              onClick={to_module}
-              style = {{backgroundColor:"purple"}}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </Button>
-          </GridItem>
+          
           
           <GridItem xs={12} sm={12} md={12}>
             <Button color="primary">
@@ -76,9 +62,19 @@ export default function Module_Item(props) {
             <Button color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faQuestion} />
+            </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faBookReader} />
+            </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faQuestion} />
+            </Button>
+            
           </GridItem>
          
-          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black",fontFamily:"Montserrat"}}><b>Market Types</b></h3></GridItem>
+          <GridItem className={classes[cardAnimaton]}><h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}><b>Market Types</b></h3></GridItem>
 
             <GridItem xs={12} sm={12} md={12}>
               <Card color="primary" className={classes[cardAnimaton]}>
@@ -91,24 +87,11 @@ export default function Module_Item(props) {
                 </CardBody>
               </Card>
             </GridItem>
+
             <GridItem xs={12} sm={12} md={12} >
               <Card style={{backgroundColor:"black",borderRadius:"25px",color:"white",fontFamily:"Montserrat"}} className={classes[cardAnimaton]}>
                   <CardBody style={{}}>
-                  
-                  <b style={{color:"#FF931E"}}>B2C (Business to Customer):</b><br></br> These are businesses that sell directly to their end users
-                    <br />
-                <br />
-                <b style={{color:"#FF931E"}}>B2B (Business to Business):</b><br></br> These are businesses that sell to other businesses.
-                   <br />
-                <br />
-                <b style={{color:"#FF931E"}}>B2M (Business to Many):</b><br></br> Business to many is simply a collective term for businesses that
-                    operate on both b2b and b2c models. These businesses sell to both businesses and directly to consumers concurrently
-                    <br></br>
-                <br></br>
-
-
-                <br></br>
-                <b style={{color:"#FF931E"}}>B2B2C (Business to Business to Customer):</b>
+                        
                 <div
                   style={{
                     display: "flex",
@@ -121,7 +104,31 @@ export default function Module_Item(props) {
                   />
                 </div>
                 <br></br>
-                {' '}
+                </CardBody>
+              </Card>
+            </GridItem>
+            
+            
+            {/* #9A32CD */}
+            <GridItem xs={12} sm={12} md={12}>
+              <Card style={{}} color="primary" className={classes[cardAnimaton]}>
+                  <CardBody>
+                    <h5 style={{fontFamily:"Montserrat",fontWeight:"600",color:"black"}}>
+                    <b style={{color:"#FF931E"}}>B2C (Business to Customer):</b>
+                    <br></br> These are businesses that sell directly to their end users
+                    <br />
+                    <br />
+                    <b style={{color:"#FF931E"}}>B2B (Business to Business):</b>
+                    <br></br> These are businesses that sell to other businesses.
+                      <br />
+                    <br />
+                    <b style={{color:"#FF931E"}}>B2M (Business to Many):</b><br></br> Business to many is simply a collective term for businesses that
+                        operate on both b2b and b2c models. These businesses sell to both businesses and directly to consumers concurrently
+                        <br></br>
+                    <br></br>
+                    <br></br>
+                    <b style={{color:"#FF931E"}}>B2B2C (Business to Business to Customer):</b>
+                    {' '}
                 <Link to="https://www.forbes.com/sites/forbescommunicationscouncil/2018/05/18/the-challenges-of-b2b2c-marketing-in-major-corporations/#16b4149a776a">
                   <b>B2B2C</b>
                 </Link>
@@ -135,17 +142,31 @@ export default function Module_Item(props) {
                     generation and more often than not, a very slow sales pipeline, b2b offers a middle ground to both challenges.
                      Eventually, the net effect of partnering with an established distribution channel allows you to slowly build a
                       loyal customer base.
-                    
+                        </h5>
                 </CardBody>
               </Card>
-              <Button onClick={to_modules} color="primary">
+            </GridItem>
+
+            
+
+            <GridItem xs={12} sm={12} md={12} >
+            <div style={{ display: "flex" }}>
+              <Button style={{ marginLeft: "auto" }} onClick={to_modules} color="primary">
                 Next
               </Button>
+              
+              </div>
+              <Button 
+                onClick={to_module}
+                color="primary"
+                style = {{marginRight: "auto" }}>
+                Back
+            </Button>
+              
             </GridItem>
+            
           </GridContainer>
-          <GridContainer>
           
-        </GridContainer>
         </div>
       </div>
     // </div>

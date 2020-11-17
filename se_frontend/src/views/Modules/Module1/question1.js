@@ -56,13 +56,7 @@ export default function Module_Item(props) {
           {/* <GridItem className={classes[cardAnimaton]}>
             <h3 style={{color:"black"}}><b>Your project Kuzah</b></h3>
           </GridItem> */}
-          <GridItem xs={12} sm={12} md={12}>
-            <Button 
-              onClick={to_module}
-              style = {{backgroundColor:"purple"}}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </Button>
-          </GridItem>
+          
 
           <GridItem xs={12} sm={12} md={12}>
             <Button onClick={to_modules} color="white">
@@ -79,6 +73,15 @@ export default function Module_Item(props) {
             </Button>
             <Button color="white">
               <FontAwesomeIcon icon={faBookReader} />
+            </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faQuestion} />
+            </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faBookReader} />
+            </Button>
+            <Button color="white">
+              <FontAwesomeIcon icon={faQuestion} />
             </Button>
           </GridItem>
          
@@ -98,12 +101,21 @@ export default function Module_Item(props) {
                     variant="outlined"
                   />
               </Card>
+              <div style={{ display: "flex" }}>
+              <Button style={{ marginLeft: "auto" }} onClick={to_modules} color="primary">
+                Next
+              </Button>
+              </div>
+              <Button 
+              onClick={to_module}
+              style = {{backgroundColor:"purple"}}>
+              {/* <FontAwesomeIcon icon={faArrowLeft} /> */}
+              Back
+            </Button>
             </GridItem>
           
           </GridContainer>
-          <GridContainer>
-          
-        </GridContainer>
+         
         </div>
       </div>
     // </div>

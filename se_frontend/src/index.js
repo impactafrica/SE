@@ -51,7 +51,7 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hist}>
-      {/* <Layout> */}
+      <Layout>
         <Switch>
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/profile-page" component={ProfilePage} />
@@ -88,7 +88,7 @@ ReactDOM.render(
           <Route path="/beachhead-def" component={BeachheadDef} />
           <Route path="/" component={LandingPage} />
         </Switch>
-      {/* </Layout> */}
+      </Layout>
     </Router>
   </Provider>,
   document.getElementById("root")

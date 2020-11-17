@@ -103,13 +103,6 @@ const SubTopics = () => {
 
   return (
     <div>
-      <Header
-        absolute
-        color="primary"
-        href="/"
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-      />
         <div className={classes.container}>
           <GridContainer justify="left" width="60%">
         

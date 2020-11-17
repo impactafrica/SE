@@ -55,16 +55,7 @@ const LandingPage = ({ isAuthenticated }) => {
 
   return (
     <div>
-      <Header
-        color="transparent"
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "primary"
-        }}
-      />
+     
       <Parallax filter image={require("assets/img/landing-bg.jpg")}>
         <div className={classes.container}>
           <GridContainer>

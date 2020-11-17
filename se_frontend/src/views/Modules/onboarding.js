@@ -74,18 +74,7 @@ export default function LoginPage(props) {
   });
   return (
     <div>
-      <Header
-        color="primary"
-        routes={dashboardRoutes}
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        // changeColorOnScroll={{
-        //   height: 400,
-        //   color: "primary"
-        // }}
-        {...rest}
-      />
+      
       <div
         className={classes.pageHeader}
         style={{

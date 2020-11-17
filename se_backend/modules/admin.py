@@ -22,6 +22,12 @@ class SubTopicA(admin.ModelAdmin):
     def get_topic(self, obj):
         return obj.topic.topic_name
 
+class ContentA(admin.ModelAdmin):
+    list_display = ('title_text','get_subtopic')
+    list_filter = ('subtopic',)
+    def get_subtopic(self, obj):
+        return obj.subtopic.subtopic_name
+
 class ProjectA(admin.ModelAdmin):
     list_display = ('project_name', 'description')
     readonly_fields = ('project_name','description',)
@@ -58,6 +64,7 @@ admin.site.register(SubTopics,SubTopicA)
 admin.site.register(Question)
 admin.site.register(Answer,AnswersA)
 admin.site.unregister(Group)
+admin.site.register(Content,ContentA)
 
 admin.site.site_header = "SE Admin Page"
 admin.site.index_title = "SE Admin Page"

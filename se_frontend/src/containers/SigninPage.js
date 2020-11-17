@@ -61,13 +61,13 @@ const Login = ({ login, isAuthenticated }) => {
   
   return (
     <div>
-      <Header
+      {/* <Header
         absolute
         color="transparent"
         href="/"
         brand="Systematic Entrepreneurship"
         rightLinks={<HeaderLinks />}
-      />
+      /> */}
       <div
         className={classes.pageHeader}
         style={{

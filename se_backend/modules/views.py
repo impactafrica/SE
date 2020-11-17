@@ -31,6 +31,10 @@ class SubTopicViewSet(viewsets.ModelViewSet):
     queryset = SubTopics.objects.all()
     serializer_class = SubTopicSerializer
 
+class ContentViewSet(viewsets.ModelViewSet):
+    queryset = Content.objects.all()
+    serializer_class = ContentSerializer
+
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer

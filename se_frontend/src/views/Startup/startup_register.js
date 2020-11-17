@@ -81,12 +81,7 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
 
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-      />
+      
       <div
         className={classes.pageHeader}
         style={{
