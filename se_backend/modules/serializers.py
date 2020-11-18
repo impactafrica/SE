@@ -28,6 +28,7 @@ class ContentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class QuestionSerializer(serializers.ModelSerializer):
+    content = serializers.CharField(required=False)
     class Meta:
         model = Question
         fields = '__all__'

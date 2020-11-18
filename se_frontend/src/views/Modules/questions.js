@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,13 +25,33 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Module_Item(props) {
+const Question = (props) => {
+  const [hasError, setErrors] = useState(false);
+  const [planets, setPlanets] = useState({});
+
+  async function fetchData() {
+    const settings = {
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'multipart/form-data',
+      }
+  };
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/questions/`,settings);
+    res
+      .json()
+      .then(res => setPlanets(res))
+      .catch(err => setErrors(err));
+  }
+  const { ...rest } = props;
+  useEffect(() => {
+    fetchData() ;
+  },[])
+
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
   const dashboardRoutes = [];
   const history = useHistory();
   const to_modules = () => history.push('/content');
@@ -40,23 +60,11 @@ export default function Module_Item(props) {
   useEffect(() => {
     window.scrollTo(0, 0)
   });
+
   return (
     <div>
-      <Header
-        color="primary"
-        routes={dashboardRoutes}
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        {...rest}
-      />
         <div className={classes.container}>
           <GridContainer width="90%">
-
-          {/* <GridItem className={classes[cardAnimaton]}>
-            <h3 style={{color:"black"}}><b>Your project Kuzah</b></h3>
-          </GridItem> */}
-          
 
           <GridItem xs={12} sm={12} md={12}>
             <Button onClick={to_modules} color="white">
@@ -85,9 +93,14 @@ export default function Module_Item(props) {
             </Button>
           </GridItem>
          
+          { Object.values(planets).map((postData) => {
+              console.log(postData);
+            return(
+              <GridItem xs={12} sm={12} md={12}>
+
           <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
-          <h3 style={{color:"black",fontFamily:"Montserrat"}}><b>Market Types</b></h3>
-          <h5 style={{color:"black",fontFamily:"Montserrat"}}><b>List 8 possible market segments</b></h5>
+          <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}><b>{postData.content}</b></h3>
+          <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{postData.question}</b></h5>
             
             </GridItem>
 
@@ -95,7 +108,7 @@ export default function Module_Item(props) {
               <Card color="primary" className={classes[cardAnimaton]}>
                   <TextField
                     id="outlined-multiline-static"
-                    label="Press ENTER after each segment"
+                    label="Separate your answers with a comma"
                     multiline
                     rows={5}
                     variant="outlined"
@@ -109,10 +122,12 @@ export default function Module_Item(props) {
               <Button 
               onClick={to_module}
               style = {{backgroundColor:"purple"}}>
-              {/* <FontAwesomeIcon icon={faArrowLeft} /> */}
               Back
             </Button>
             </GridItem>
+            </GridItem>
+             );
+            })}
           
           </GridContainer>
          
@@ -121,3 +136,4 @@ export default function Module_Item(props) {
     // </div>
   );
 }
+export default Question;

@@ -69,11 +69,15 @@ class Content(models.Model):
     content_section = models.TextField(max_length=4400)
     media_section = models.CharField(max_length=400)
 
+    def __str__(self):
+        return self.title_text
+
 class Question(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    module=models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
+    module = models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
-    question = models.CharField(max_length=200,null=True)
+    content = models.ForeignKey(Content,on_delete=models.SET_NULL,null=True)
+    question = models.JSONField(max_length=200,null=True)
     question_status=models.CharField(max_length=200,default="Created",editable=False)
 
     def __str__(self):
@@ -83,7 +87,7 @@ class Answer(models.Model):
     answer_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     question = models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
     project = models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
-    answer_string = models.TextField(max_length=200,null=True)
+    answer_string = models.JSONField(max_length=200,null=True)
     created = models.DateTimeField(auto_now_add=True)
     userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
 

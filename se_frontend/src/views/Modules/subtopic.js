@@ -95,7 +95,7 @@ const SubTopics = () => {
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
   const history = useHistory();
-  const to_modules = () => history.push('/market_types');
+  const to_modules = () => history.push('/content');
   const to_module = () => history.push('/topic_list');
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -159,8 +159,6 @@ const SubTopics = () => {
                 Back 
               </Button>
             </GridItem>
-
-            
             
           </GridContainer>
         </div>

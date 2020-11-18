@@ -21,6 +21,20 @@ import {
     FETCH_MODULE_FAIL
 } from './types';
 
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+var csrftoken = readCookie('csrftoken');
+
 export const checkAuthenticated = () => async dispatch => {
     if (typeof window == 'undefined') {
         dispatch({
@@ -31,7 +45,8 @@ export const checkAuthenticated = () => async dispatch => {
         const config = {
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "X-CSRFToken": csrftoken
             }
         };
     
@@ -67,7 +82,8 @@ export const load_user = () => async dispatch => {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `JWT ${localStorage.getItem('access')}`,
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                "X-CSRFToken": csrftoken
             }
         };
 
@@ -93,7 +109,8 @@ export const load_user = () => async dispatch => {
 export const login = (email, password) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken
         }
     };
 
@@ -118,7 +135,8 @@ export const login = (email, password) => async dispatch => {
 export const signup = ({ name, email, password, re_password }) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken 
         }
     }
 
@@ -141,7 +159,8 @@ export const signup = ({ name, email, password, re_password }) => async dispatch
 export const verify = (uid, token) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken 
         }
     }
 
@@ -164,7 +183,8 @@ export const verify = (uid, token) => async dispatch => {
 export const reset_password = (email) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken
         }
     }
 
@@ -187,7 +207,8 @@ export const reset_password = (email) => async dispatch => {
 export const reset_password_confirm = (uid, token, new_password, re_new_password) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken
         }
     }
 
@@ -211,18 +232,6 @@ export const logout = () => dispatch => {
     dispatch({ type: LOGOUT });
 };
 
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-
-var csrftoken = readCookie('csrftoken');
 
 export const create_project = (project_name, description) => async dispatch => {
     const config = {

@@ -15,6 +15,7 @@ import ReactPlayer from "react-player";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
+import DOMPurify from 'dompurify';
 
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
@@ -54,7 +55,7 @@ const Content = (props) => {
   const classes = useStyles();
   const dashboardRoutes = [];
   const history = useHistory();
-  const to_modules = () => history.push('/segment_que');
+  const to_modules = () => history.push('/questions');
   const to_module = () => history.push('/subtopic_list');
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -97,6 +98,7 @@ const Content = (props) => {
 
           { Object.values(planets).map((postData) => {
               console.log(postData);
+              const sanitizer = DOMPurify.sanitize;
             return(
               <GridItem xs={12} sm={12} md={12}>
 
@@ -139,7 +141,9 @@ const Content = (props) => {
               <Card style={{}} color="primary" className={classes[cardAnimaton]}>
                   <CardBody>
                   <h5 style={{fontFamily:"Montserrat",fontWeight:"600",color:"black"}}
-                    dangerouslySetInnerHTML={{__html: postData.content_section}}>
+                  
+                    dangerouslySetInnerHTML={{__html: sanitizer(postData.content_section)}}
+                    >
                    </h5>
                     
                 </CardBody>

@@ -21,6 +21,7 @@ import ModuleItem from "views/Modules/module_item";
 import ModuleOneLanding from "views/Modules/Module1/landing";
 import ModuleOneItem from "views/Modules/Module1/modules";
 import Content from "views/Modules/content";
+import Questions from "views/Modules/questions";
 import Question1 from "views/Modules/Module1/question1";
 import RegisterStartup from "views/Startup/startup_register";
 import Brainstorming from "views/Modules/ReadMore/Segmentation/brainstorming"
@@ -75,6 +76,7 @@ ReactDOM.render(
           {/* <Route path="/components" component={Components} /> */}
           <Route path="/market_type" component={MarketType} />
           <Route path="/content" component={Content} />
+          <Route path="/questions" component={Questions} />
           <Route path="/brainstorming" component={Brainstorming} />
           <Route path="/narrowing" component={Narrowing} />
           <Route path="/primary-research" component={PrimaryResearch} />
