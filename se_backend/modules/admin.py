@@ -62,7 +62,7 @@ admin.site.register(Module,ModuleA)
 admin.site.register(Topics,TopicA)
 admin.site.register(SubTopics,SubTopicA)
 admin.site.register(Question)
-admin.site.register(Answer,AnswersA)
+admin.site.register(Answer)
 admin.site.unregister(Group)
 admin.site.register(Content,ContentA)
 

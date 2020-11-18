@@ -73,7 +73,7 @@ class Question(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     module=models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
-    question = models.CharField(max_length=200)
+    question = models.CharField(max_length=200,null=True)
     question_status=models.CharField(max_length=200,default="Created",editable=False)
 
     def __str__(self):
@@ -81,9 +81,9 @@ class Question(models.Model):
 
 class Answer(models.Model):
     answer_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    question=models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
-    project=models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
-    answer_string=models.TextField(max_length=200)
+    question = models.ForeignKey(Question,on_delete=models.SET_NULL,null=True)
+    project = models.ForeignKey(Project,on_delete=models.SET_NULL,null=True)
+    answer_string = models.TextField(max_length=200,null=True)
     created = models.DateTimeField(auto_now_add=True)
     userid = models.CharField(max_length=45,null=False, blank=True, editable=False, default=crum.get_current_user())
 
