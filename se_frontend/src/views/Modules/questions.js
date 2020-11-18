@@ -55,7 +55,7 @@ const Question = (props) => {
   const dashboardRoutes = [];
   const history = useHistory();
   const to_modules = () => history.push('/content');
-  const to_module = () => history.push('/module1_item');
+  const to_module = () => history.push('/content');
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -114,16 +114,20 @@ const Question = (props) => {
                     variant="outlined"
                   />
               </Card>
-              <div style={{ display: "flex" }}>
-              <Button style={{ marginLeft: "auto" }} onClick={to_modules} color="primary">
+              <div style={{  }}>
+              <Button style={{float: "right"}} onClick={to_modules} color="primary">
                 Next
               </Button>
-              </div>
               <Button 
-              onClick={to_module}
-              style = {{backgroundColor:"purple"}}>
-              Back
+                onClick={to_module}
+                color="primary"
+                style={{float: "left"}}
+                >
+                Back
             </Button>
+              
+              </div>
+              
             </GridItem>
             </GridItem>
              );

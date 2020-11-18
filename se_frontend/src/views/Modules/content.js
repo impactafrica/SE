@@ -154,18 +154,20 @@ const Content = (props) => {
             })}
 
          <GridItem xs={12} sm={12} md={12} >
-            <div style={{ display: "flex" }}>
-              <Button style={{ marginLeft: "auto" }} onClick={to_modules} color="primary">
+            <div style={{  }}>
+              <Button style={{float: "right"}} onClick={to_modules} color="primary">
                 Next
               </Button>
-              
-              </div>
               <Button 
                 onClick={to_module}
                 color="primary"
-                style = {{marginRight: "auto" }}>
+                style={{float: "left"}}
+                >
                 Back
             </Button>
+              
+              </div>
+              
               
             </GridItem>
             
