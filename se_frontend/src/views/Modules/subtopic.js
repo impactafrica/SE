@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect,useState,useContext } from 'react';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
@@ -26,6 +26,10 @@ import { faLock} from "@fortawesome/free-solid-svg-icons";
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+
+//import contexts here
+import {topicContext} from '../../context/topiccontext'
+import {subTopicContext} from '../../context/subtopiccontext'
 
 import image from "assets/img/bg7.jpg";
 import segment from "assets/img/segment.png";
@@ -67,6 +71,8 @@ CircularProgressWithLabel.propTypes = {
 const SubTopics = () => {
     const [hasError, setErrors] = useState(false);
     const [planets, setPlanets] = useState({});
+    const {topicId, setTopicId} = useContext(topicContext)
+    const {subtopicId, setsubTopicId} = useContext(subTopicContext)
   
     async function fetchData() {
       const settings = {
@@ -94,8 +100,17 @@ const SubTopics = () => {
   const dashboardRoutes = [];
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
+
+  // const [subtopicID, setsubtopicID] = useState();
+
   const history = useHistory();
-  const to_modules = () => history.push('/content');
+  
+  function to_modules(subtopicID) {
+    console.log(subtopicID);
+    setTopicId(subtopicID);
+    history.push('/content');
+  }
+
   const to_module = () => history.push('/topic_list');
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -133,21 +148,31 @@ const SubTopics = () => {
           
             <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
 
-            { Object.values(planets).map((postData) => {
-              console.log(postData);
-            return(
-              <Card xs={4} sm={4} md={4} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat',fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
-                <div style={{color:"#ff9933",textAlign:"right"}}>
-                  <p><b>{postData.subtopic_number}{' '}</b></p>
-                </div>
-                <div style={{paddingLeft:"16px"}}>
-                  <p><b>{postData.subtopic_name}</b></p>
-                </div>
-                <br/><br/>
-                  <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
-                    <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+            {Object.values(planets).map((postData) => {
+            if(postData.topic===topicId){
+              return(
+                <Card xs={4} sm={4} md={4} onClick={() => to_modules(postData.subtopic_id)}
+                  key={postData.subtopic_id}
+                  style={{position: "relative",marginRight:"3px", 
+                  border: "2px solid purple",fontFamily: 'Montserrat',fontWeight:"600"}}
+                  color="primary" className={classes[cardAnimaton]}
+                >
+
+                  <div style={{color:"#ff9933",textAlign:"right"}}>
+                    <p><b>{postData.subtopic_number}{' '}</b></p>
                   </div>
-              </Card>);
+
+                  <div style={{paddingLeft:"16px"}}>
+                    <p><b>{postData.subtopic_name}</b></p>
+                  </div>
+
+                  <br/><br/>
+                    <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                      <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
+                    </div>
+                </Card>
+              );
+            }
             })}
               
               </GridItem>

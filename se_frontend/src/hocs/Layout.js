@@ -26,10 +26,8 @@ const Layout = (props) => {
                 brand="Systematic Entrepreneurship"
                 rightLinks={<Navbar />}
                 fixed
-                // color="transparent"
+                {...rest}
                 href="/"
-                // fixed
-                // brand="Systematic Entrepreneurship"
                 // changeColorOnScroll={{
                 //     height: 100,
                 //     color: "primary"

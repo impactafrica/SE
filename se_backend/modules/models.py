@@ -64,6 +64,7 @@ class SubTopics(models.Model):
 class Content(models.Model):
     content_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     subtopic = models.ForeignKey(SubTopics,on_delete=models.SET_NULL,null=True)
+    content_number = models.IntegerField()
     title_text = models.CharField(max_length=400)
     title_intro = models.TextField(max_length=4400)
     content_section = models.TextField(max_length=4400)
@@ -77,7 +78,8 @@ class Question(models.Model):
     module = models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
     content = models.ForeignKey(Content,on_delete=models.SET_NULL,null=True)
-    question = models.JSONField(max_length=200,null=True)
+    question = models.JSONField(max_length=200,null=True, blank=True)
+    question_type = models.IntegerField() #one will indicate open-ended, 2 will indicate multiple choice
     question_status=models.CharField(max_length=200,default="Created",editable=False)
 
     def __str__(self):

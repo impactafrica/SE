@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -30,6 +30,9 @@ import research from "assets/img/pic.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
+//import contexts here
+import {moduleContext} from '../../context/modulecontext'
+import {topicContext} from '../../context/topiccontext'
 
 import { useHistory } from "react-router-dom";
 
@@ -38,7 +41,10 @@ const useStyles = makeStyles(styles);
 const Topics = () => {
     const [hasError, setErrors] = useState(false);
     const [planets, setPlanets] = useState({});
-  
+    const {moduleId, setModuleId} = useContext(moduleContext)
+    const {topicId, setTopicId} = useContext(topicContext)
+
+    console.log("this is the current moduleid",moduleId);
     async function fetchData() {
       const settings = {
         headers: {
@@ -63,7 +69,13 @@ const Topics = () => {
   }, 700);
   const classes = useStyles();
   const history = useHistory();
-  const to_modules = () => history.push('/subtopic_list');
+
+  function to_modules(myTopicID) {
+    console.log(myTopicID);
+    setTopicId(myTopicID);
+    history.push('/subtopic_list');
+  }
+
   const to_module = () => history.push('/modules_list');
   
    return (
@@ -79,11 +91,14 @@ const Topics = () => {
               </b></h4>
           </GridItem>
           <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
-          { Object.values(planets).map((postData) => {
-              console.log(postData);
-            return(
+            
+            {Object.values(planets).map((postData) => {
+              console.log("this is the new module id", moduleId)
+              if(postData.module===moduleId){
                 
-                    <Card xs={4} sm={4} md={3} onClick={to_modules} 
+                return(
+                    <Card xs={4} sm={4} md={3} onClick={() => to_modules(postData.topic_id)}
+                        key={postData.topic_id}
                         style = {{position: "relative",marginRight:"3px",
                                 border: "2px solid purple",
                                 fontFamily: 'Montserrat',
@@ -97,13 +112,21 @@ const Topics = () => {
                             <p><b>{postData.topic_name}</b></p>
                         </div>
                         <br/><br/>
-                        <div style={{backgroundColor:"white",color:"#ff9933",width:"100%",position: "absolute",borderRadius: "25px",bottom: "0",paddingLeft:"20px",display:"flex"}} >
+                        <div 
+                          style={{backgroundColor:"white",color:"#ff9933",
+                                 width:"100%",position: "absolute",
+                                 borderRadius: "25px",bottom: "0",
+                                 paddingLeft:"20px",display:"flex"
+                                }} 
+                        >
                             <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
                         </div>
                     </Card> 
-                );
-                })}
-            </GridItem>
+              );
+              }
+            })}
+          </GridItem>
+
             <GridItem style={{paddingTop:"20px",alignItems:"center"}} xs={12} sm={12} md={12}>
               <Button 
                 onClick={to_module}

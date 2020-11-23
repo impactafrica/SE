@@ -1,4 +1,4 @@
-import React,{useEffect,useState,useContext} from "react";
+import React,{useEffect,useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -22,9 +22,6 @@ import { useHistory } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-//import contexts here
-import {subTopicContext} from '../../context/subtopiccontext'
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const useStyles = makeStyles(styles);
@@ -32,7 +29,6 @@ const useStyles = makeStyles(styles);
 const Content = (props) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
-  const {subtopicId, setsubTopicId} = useContext(subTopicContext)
 
   async function fetchData() {
     const settings = {
@@ -73,34 +69,29 @@ const Content = (props) => {
               <Button color="primary">
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
+              
               <Button onClick={to_modules} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
+
               <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
+              
+              <Button onClick={to_modules} color="white">
+                <FontAwesomeIcon icon={faQuestion} />
+              </Button>
             </GridItem>
+
+            {/* section with content */}
          
           {Object.values(planets).map((postData) => {
             const sanitizer = DOMPurify.sanitize;
-            if(postData.subtopic===subtopicId){
-            console.log(postData.subtopic)
+
+            if(postData.content_number===1) {
+  
             return(
+
               <GridItem xs={12} sm={12} md={12}>
                 <GridItem className={classes[cardAnimaton]}>
                   <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}>
@@ -151,7 +142,7 @@ const Content = (props) => {
             </GridItem>
           </GridItem>
         );
-         }
+        }
         })}
 
          <GridItem xs={12} sm={12} md={12} >

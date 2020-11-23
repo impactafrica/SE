@@ -21,6 +21,7 @@ import ModuleItem from "views/Modules/module_item";
 import ModuleOneLanding from "views/Modules/Module1/landing";
 import ModuleOneItem from "views/Modules/Module1/modules";
 import Content from "views/Modules/content";
+import ContentQue from "views/Modules/content_question";
 import Questions from "views/Modules/questions";
 import Question1 from "views/Modules/Module1/question1";
 import RegisterStartup from "views/Startup/startup_register";
@@ -40,7 +41,9 @@ import Signup from './containers/SignUpPage';
 import Activate from './containers/Activate';
 import ResetPassword from './containers/ResetPassword';
 import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
-
+import ModuleProvider from './context/modulecontext'
+import TopicProvider from './context/topiccontext'
+import SubTopicProvider from './context/subtopiccontext'
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -51,6 +54,9 @@ var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
+    <ModuleProvider>
+      <TopicProvider>
+        <SubTopicProvider>
     <Router history={hist}>
       <Layout>
         <Switch>
@@ -76,6 +82,7 @@ ReactDOM.render(
           {/* <Route path="/components" component={Components} /> */}
           <Route path="/market_type" component={MarketType} />
           <Route path="/content" component={Content} />
+          <Route path="/contentque" component={ContentQue} />
           <Route path="/questions" component={Questions} />
           <Route path="/brainstorming" component={Brainstorming} />
           <Route path="/narrowing" component={Narrowing} />
@@ -92,6 +99,9 @@ ReactDOM.render(
         </Switch>
       </Layout>
     </Router>
+    </SubTopicProvider>
+    </TopicProvider>
+    </ModuleProvider>
   </Provider>,
   document.getElementById("root")
 );

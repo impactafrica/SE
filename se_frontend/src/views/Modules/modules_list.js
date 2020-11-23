@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';  
@@ -35,6 +35,9 @@ import market from "assets/img/marketseg.png";
 import mvp from "assets/img/stats.png";
 import customer from "assets/img/customer.png";
 
+//We will import our contexts here
+import {moduleContext} from '../../context/modulecontext'
+
 const useStyles = makeStyles(styles);
 
 function CircularProgressWithLabel(props) {
@@ -67,6 +70,7 @@ CircularProgressWithLabel.propTypes = {
 const Modules = () => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
+  const {moduleId, setModuleId} = useContext(moduleContext)
 
   async function fetchData() {
     const settings = {
@@ -82,6 +86,12 @@ const Modules = () => {
       .catch(err => setErrors(err));
   }
 
+  function to_modules(myModuleID) {
+    console.log(myModuleID);
+    setModuleId(myModuleID);
+    history.push('/topic_list');
+  }
+
   useEffect(() => {
     fetchData() ;
   },[])
@@ -95,7 +105,6 @@ const Modules = () => {
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
   const history = useHistory();
-  const to_modules = () => history.push('/topic_list');
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -104,7 +113,6 @@ const Modules = () => {
   
   return (
     <div> 
-     
       <div>
         <div className={classes.container}>
           <GridContainer justify="left">
@@ -113,12 +121,16 @@ const Modules = () => {
               <h4 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h4>
             </GridItem>
 
-            { Object.values(planets).map((postData) => {
+            {Object.values(planets).map((postData) => {
+              
               console.log(postData);
+              console.log("this is the new module id", moduleId)
 
               return(
               <GridItem xs={12} sm={12} md={4} key={postData.module_id}>
-                <Card style={{background:"white"}} onClick={to_modules} className={classes[cardAnimaton]}>
+                <Card style={{background:"white"}} onClick={() => to_modules(postData.module_id)}
+                  key={postData.subtopic_id}
+                  className={classes[cardAnimaton]}>
                   <CardBody>
                     <div style={{display:"flex"}}>
                       <div 

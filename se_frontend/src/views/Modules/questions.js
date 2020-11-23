@@ -17,7 +17,12 @@ import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
-import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { Fragment } from 'react';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 import { Link } from "react-router-dom";
 
@@ -46,6 +51,13 @@ const Question = (props) => {
   useEffect(() => {
     fetchData() ;
   },[])
+
+
+  const [value, setValue] = React.useState('yes');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
@@ -94,18 +106,10 @@ const Question = (props) => {
           </GridItem>
          
           { Object.values(planets).map((postData) => {
-              console.log(postData);
-            return(
-              <GridItem xs={12} sm={12} md={12}>
-
-          <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
-          <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}><b>{postData.content}</b></h3>
-          <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{postData.question}</b></h5>
-            
-            </GridItem>
-
-            <GridItem xs={12} sm={12} md={12}>
-              <Card color="primary" className={classes[cardAnimaton]}>
+              const question = JSON.parse(postData.question)
+                          
+              const open_ended = (
+                <Card color="primary" className={classes[cardAnimaton]}>
                   <TextField
                     id="outlined-multiline-static"
                     label="Separate your answers with a comma"
@@ -113,25 +117,54 @@ const Question = (props) => {
                     rows={5}
                     variant="outlined"
                   />
-              </Card>
-              <div style={{  }}>
-              <Button style={{float: "right"}} onClick={to_modules} color="primary">
-                Next
-              </Button>
-              <Button 
-                onClick={to_module}
-                color="primary"
-                style={{float: "left"}}
-                >
-                Back
-            </Button>
+                </Card>
+              );
+
+              const multiple_choice = (
+                <GridItem xs={12} sm={12} md={12}>
+                  <Card color="primary" className={classes[cardAnimaton]}>
+                    <FormControl style={{paddingLeft:"5px"}} component="fieldset">
+                      <RadioGroup row aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+                        <FormControlLabel value="yes" style={{color:"black"}} control={<Radio />} label={question.Option1} />
+                        <FormControlLabel value="no" style={{color:"black"}} control={<Radio />} label={question.Option2} />
+                      </RadioGroup>
+                    </FormControl>
+                  </Card>
+                </GridItem>
+              );
               
-              </div>
-              
-            </GridItem>
+            return(
+              <GridItem xs={12} sm={12} md={12}>
+
+                <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
+                  <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}><b>{postData.content}</b></h3>
+                  <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{question.Question}</b></h5> 
+                </GridItem>
+
+              <GridItem xs={12} sm={12} md={12}>
+                {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> }
+              </GridItem>
+
             </GridItem>
              );
             })}
+
+            <GridItem>
+              <div style={{  }}>
+                <Button style={{float: "right"}} onClick={to_modules} color="primary">
+                  Next
+                </Button>
+                <Button 
+                  onClick={to_module}
+                  color="primary"
+                  style={{float: "left"}}
+                  >
+                  Back
+                </Button>
+                
+                </div>
+              
+            </GridItem>
           
           </GridContainer>
          
