@@ -59,8 +59,10 @@ const Content = (props) => {
   const classes = useStyles();
   const dashboardRoutes = [];
   const history = useHistory();
+
   const to_modules = () => history.push('/questions');
   const to_module = () => history.push('/subtopic_list');
+  
   useEffect(() => {
     window.scrollTo(0, 0)
   });
@@ -98,8 +100,11 @@ const Content = (props) => {
          
           {Object.values(planets).map((postData) => {
             const sanitizer = DOMPurify.sanitize;
+            console.log("fetched the current subtopic id,content page",subtopicId);
+
             if(postData.subtopic===subtopicId){
-            console.log(postData.subtopic)
+            console.log("this is my subtopic",postData.subtopic)
+
             return(
               <GridItem xs={12} sm={12} md={12}>
                 <GridItem className={classes[cardAnimaton]}>
@@ -149,26 +154,30 @@ const Content = (props) => {
                   </CardBody>
               </Card>
             </GridItem>
+
+            <GridItem xs={12} sm={12} md={12} >
+              <div style={{  }}>
+                <Button style={{float: "right"}} onClick={to_modules} color="primary">
+                  Next
+                </Button>
+
+                <Button 
+                  onClick={to_module}
+                  color="primary"
+                  style={{float: "left"}}
+                  >
+                  Back
+                </Button>
+              </div>
+              </GridItem>
           </GridItem>
+
+
         );
          }
         })}
 
-         <GridItem xs={12} sm={12} md={12} >
-            <div style={{  }}>
-              <Button style={{float: "right"}} onClick={to_modules} color="primary">
-                Next
-              </Button>
-
-              <Button 
-                onClick={to_module}
-                color="primary"
-                style={{float: "left"}}
-                >
-                Back
-              </Button>
-            </div>
-          </GridItem>
+        
         </GridContainer>
       </div>
     </div>

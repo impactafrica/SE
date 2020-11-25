@@ -6,6 +6,12 @@ import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
+// Importing toastify module 
+import {toast} from 'react-toastify';  
+  
+// Import toastify css file 
+import 'react-toastify/dist/ReactToastify.css';  
+
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -64,10 +70,25 @@ const Signup = ({ signup, isAuthenticated }) => {
     window.scrollTo(0, 0)
   });
 
+  // function MyToast(){ 
+  //   // function which is called when  
+  //   // button is clicked 
+  //   const notify = ()=>{  
+  //       // Calling toast method by passing string 
+  //       toast('Hello Geeks')  
+  //   } }
+
     if (isAuthenticated)
         return <Redirect to='/' />;
-    if (accountCreated)
-        return <Redirect to='login' />;
+    if(accountCreated){
+        return (
+        toast('Hello Geeks',{position: toast.POSITION.BOTTOM_LEFT}),  
+        <Redirect to='login' />);
+      }
+    // if(!accountCreated)
+    //     return(
+    //       toast('Error')
+    //     );
       
   return (
     <div>

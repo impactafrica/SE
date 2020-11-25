@@ -1,6 +1,7 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect,useState,useContext} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import axios from 'axios';
 
 // core components
 import Header from "components/Header/Header.js";
@@ -25,6 +26,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import { Link } from "react-router-dom";
+import {subTopicContext} from '../../context/subtopiccontext'
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -33,7 +35,14 @@ const useStyles = makeStyles(styles);
 const Question = (props) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
+  const {subtopicId, setsubTopicId} = useContext(subTopicContext)
+  const [projectId, setProjectId] = useState({});
+  const [answer_string, setAnswerString] = useState({});
 
+  //index position for the content and que buttons
+  const [index, setIndex] = useState(0);
+
+  //fetch our questions
   async function fetchData() {
     const settings = {
       headers: {
@@ -53,6 +62,24 @@ const Question = (props) => {
   },[])
 
 
+  //post the answers received
+  
+
+  const to_modules = () => {
+    // const config = {
+    //   headers: {
+    //       'Content-Type': 'application/json',
+    //   }
+    // }  
+    // const body = JSON.stringify({ answer_string,questionid,projectid }); 
+  
+    // const res = axios.post(`${process.env.REACT_APP_API_URL}/modules/answers/`, body, config);
+    history.push('/subtopic_list');
+    // index= index+2
+    // console.log("this is the current tab",index)
+    // setIndex(index)
+  }
+
   const [value, setValue] = React.useState('yes');
 
   const handleChange = (event) => {
@@ -66,8 +93,12 @@ const Question = (props) => {
   const classes = useStyles();
   const dashboardRoutes = [];
   const history = useHistory();
-  const to_modules = () => history.push('/content');
+
   const to_module = () => history.push('/content');
+  const to_subtopic = () => {
+
+    history.push('/content');
+  }
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -79,41 +110,43 @@ const Question = (props) => {
           <GridContainer width="90%">
 
           <GridItem xs={12} sm={12} md={12}>
-            <Button onClick={to_modules} color="white">
+            <Button index={1} onClick={to_module} color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
-            <Button color="primary">
+            <Button index={2} onClick={to_subtopic} color="primary">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
-            <Button color="white">
+            <Button index={3} color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
-            <Button color="white">
+            <Button index={4} color="white">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
-            <Button color="white">
+            <Button index={5} color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
-            <Button color="white">
+            <Button index={6} color="white">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
-            <Button color="white">
+            <Button index={7} color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
-            <Button color="white">
+            <Button index={8} color="white">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
           </GridItem>
          
+
           { Object.values(planets).map((postData) => {
               const question = JSON.parse(postData.question)
-                          
+
               const open_ended = (
                 <Card color="primary" className={classes[cardAnimaton]}>
                   <TextField
                     id="outlined-multiline-static"
                     label="Separate your answers with a comma"
                     multiline
+                    // value={answer_string}
                     rows={5}
                     variant="outlined"
                   />
@@ -132,7 +165,10 @@ const Question = (props) => {
                   </Card>
                 </GridItem>
               );
-              
+            
+            if(postData.subtopic===subtopicId){
+              console.log("question fetched",subtopicId);
+            
             return(
               <GridItem xs={12} sm={12} md={12}>
 
@@ -142,13 +178,36 @@ const Question = (props) => {
                 </GridItem>
 
               <GridItem xs={12} sm={12} md={12}>
-                {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> }
+                <form>
+                  {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> }
+                  
+                  {/* <div style={{  }}>
+                  <Button style={{float: "right"}} type='submit' onClick={to_modules} color="primary">
+                    Submit
+                  </Button>
+                  <Button 
+                    onClick={to_module}
+                    color="primary"
+                    style={{float: "left"}}
+                    >
+                    Back
+                  </Button>
+                  
+                  </div> */}
+                </form>
               </GridItem>
 
+              <GridItem>
+                
+              </GridItem>
             </GridItem>
              );
+            }
+            else
+            {
+              // return();
+            }
             })}
-
             <GridItem>
               <div style={{  }}>
                 <Button style={{float: "right"}} onClick={to_modules} color="primary">
@@ -165,7 +224,7 @@ const Question = (props) => {
                 </div>
               
             </GridItem>
-          
+
           </GridContainer>
          
         </div>

@@ -101,13 +101,11 @@ const SubTopics = () => {
   const [progress1] = React.useState(100);
   const [progress2] = React.useState(10);
 
-  // const [subtopicID, setsubtopicID] = useState();
-
   const history = useHistory();
   
   function to_modules(subtopicID) {
-    console.log(subtopicID);
-    setTopicId(subtopicID);
+    console.log("this is the current subtopic",subtopicID);
+    setsubTopicId(subtopicID);
     history.push('/content');
   }
 
@@ -149,7 +147,8 @@ const SubTopics = () => {
             <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
 
             {Object.values(planets).map((postData) => {
-            if(postData.topic===topicId){
+              if(postData.topic===topicId){
+
               return(
                 <Card xs={4} sm={4} md={4} onClick={() => to_modules(postData.subtopic_id)}
                   key={postData.subtopic_id}

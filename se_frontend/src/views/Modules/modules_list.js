@@ -87,7 +87,7 @@ const Modules = () => {
   }
 
   function to_modules(myModuleID) {
-    console.log(myModuleID);
+    console.log("module selected module page",myModuleID);
     setModuleId(myModuleID);
     history.push('/topic_list');
   }
@@ -122,9 +122,6 @@ const Modules = () => {
             </GridItem>
 
             {Object.values(planets).map((postData) => {
-              
-              console.log(postData);
-              console.log("this is the new module id", moduleId)
 
               return(
               <GridItem xs={12} sm={12} md={4} key={postData.module_id}>

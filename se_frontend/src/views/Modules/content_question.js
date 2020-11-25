@@ -29,6 +29,7 @@ const useStyles = makeStyles(styles);
 const Content = (props) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
+  const [index, setIndex] = useState(0);
 
   async function fetchData() {
     const settings = {
@@ -66,19 +67,19 @@ const Content = (props) => {
         <div className={classes.container}>
           <GridContainer width="90%">
             <GridItem xs={12} sm={12} md={12}>
-              <Button color="primary">
+              <Button index={index} color="primary">
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
               
-              <Button onClick={to_modules} color="white">
+              <Button index={1} onClick={to_modules} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
 
-              <Button color="white">
+              <Button index={2} color="white">
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
               
-              <Button onClick={to_modules} color="white">
+              <Button index={3} onClick={to_modules} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
             </GridItem>

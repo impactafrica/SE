@@ -44,7 +44,6 @@ const Topics = () => {
     const {moduleId, setModuleId} = useContext(moduleContext)
     const {topicId, setTopicId} = useContext(topicContext)
 
-    console.log("this is the current moduleid",moduleId);
     async function fetchData() {
       const settings = {
         headers: {
@@ -71,7 +70,7 @@ const Topics = () => {
   const history = useHistory();
 
   function to_modules(myTopicID) {
-    console.log(myTopicID);
+    console.log("topic selected topic page",myTopicID);
     setTopicId(myTopicID);
     history.push('/subtopic_list');
   }
@@ -93,7 +92,6 @@ const Topics = () => {
           <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
             
             {Object.values(planets).map((postData) => {
-              console.log("this is the new module id", moduleId)
               if(postData.module===moduleId){
                 
                 return(
