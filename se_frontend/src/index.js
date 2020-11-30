@@ -9,6 +9,8 @@ import "assets/scss/material-kit-react.scss?v=1.9.0";
 // import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
+import ProfileEdit from "views/ProfilePage/ProfileEdit.js";
+import ProjectPage from "views/Startup/ProjectPage";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SigninPage from "views/LoginPage/SigninPage.js";
 import Home from "views/LoginPage/Home";
@@ -21,7 +23,7 @@ import ModuleItem from "views/Modules/module_item";
 import ModuleOneLanding from "views/Modules/Module1/landing";
 import ModuleOneItem from "views/Modules/Module1/modules";
 import Content from "views/Modules/content";
-import ContentQue from "views/Modules/content_question";
+import ContentQue from "views/Modules/curated_content";
 import Questions from "views/Modules/questions";
 import Question1 from "views/Modules/Module1/question1";
 import RegisterStartup from "views/Startup/startup_register";
@@ -62,6 +64,8 @@ ReactDOM.render(
         <Switch>
           <Route path="/landing-page" component={LandingPage} />
           <Route path="/profile-page" component={ProfilePage} />
+          <Route path="/project-page" component={ProjectPage} />
+          <Route path="/profile-edit" component={ProfileEdit} />
           <Route path="/login-page" component={LoginPage} />
           <Route path="/signin-page" component={SigninPage} />
           <Route path='/login' component={Login} />

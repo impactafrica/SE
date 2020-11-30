@@ -24,7 +24,6 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import { faFlag} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useHistory } from "react-router-dom";
 
@@ -43,27 +42,15 @@ export default function ProfilePage(props) {
   const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
   const history = useHistory();
-  const to_edit = () => history.push('/profile-edit');
-  const to_project = () => history.push('/project-page');
-
+  const to_profile = () => history.push('/profile-page');
   return (
     <div>
-      {/* <Header
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white"
-        }}
-        {...rest}
-      /> */}
+      
       <div style={{paddingTop:"250px", backgroundImage: "url(" + Background + ")", filter:"blur(2px)"}} small filter />
       <div className={classNames(classes.main)}>
         <div>
           <div className={classes.container}>
-            <GridContainer justify="center">
+          <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
                 <div className={classes.profile}>
                   <div>
@@ -76,31 +63,18 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
+            
             <br/>
             
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
-                <Card>
-                  <CardHeader color="primary" style={{display:"flex"}} >
-                    <h3 style={{fontFamily:"Montserrat", paddingRight:"40px"}}>My Account Details</h3>
-                    <Button color="transparent" onClick={to_edit}>
-                      <FontAwesomeIcon icon={faEdit} />
-                    </Button>
-                  </CardHeader>
-                  <CardBody >
-                  <div style={{fontFamily:"Montserrat"}}>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Name:</b> Christine Gatwiri</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Phone Number:</b> 0734827352</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Email:</b> gatwiri@impactafrica.network</h3>
-                  </div>
-                  </CardBody>
-                </Card>
+                
                 <br/>
                 <Card>
-                  <CardHeader  style={{display:"flex",backgroundColor:"#FF931E",color:"white"}} className={classes.cardHeader}>
-                    <h3 style={{fontFamily:"Montserrat", paddingRight:"60px"}}><b>My Projects - 1</b></h3>
-                    <Button color="transparent" onClick={to_project}>
-                    <FontAwesomeIcon icon={faFlag} />
+                  <CardHeader style={{display:"flex",backgroundColor:"#FF931E",color:"white"}} className={classes.cardHeader}>
+                    <h3 style={{fontFamily:"Montserrat", paddingRight:"60px"}}>My Projects</h3>
+                    <Button color="transparent">
+                      <FontAwesomeIcon icon={faEdit} />
                     </Button>
                   </CardHeader>
                   <CardBody>
@@ -108,8 +82,34 @@ export default function ProfilePage(props) {
                     <h3 style={{fontFamily:"Montserrat"}}><b>Project:</b> Done!International</h3>
                     <h3 style={{fontFamily:"Montserrat"}}><b>Description:</b> Allow Kenyans in diaspora to manage their projects</h3>
                     <h3 style={{fontFamily:"Montserrat"}}><b>Progress:</b> 20%</h3>
+                    <h3 style={{fontFamily:"Montserrat"}}><b>Current Module:</b> Market Research</h3>
+                    <h3 style={{fontFamily:"Montserrat"}}><b>Number of Reports:</b> 3</h3>
+                    
                   </div>
+
                   </CardBody>
+                  <CardFooter style={{alignItems:"center"}} className={classes.cardFooter} >
+                   
+                    <Button
+                      color="primary"
+                      size="xlg"
+                      onClick={to_profile}
+                      style={{fontFamily:"Montserrat"}}
+                      type='submit'
+                    >
+                      My profile
+                    </Button>
+                    <Button
+                        color="primary"
+                        size="xlg"
+                        onClick={to_profile}
+                        style={{fontFamily:"Montserrat"}}
+                        type='submit'
+                      >
+                        View Reports
+                      </Button>
+                    
+                </CardFooter>
                 </Card>
               </GridItem>
               

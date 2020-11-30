@@ -75,6 +75,9 @@ const Content = (props) => {
               <Button color="primary">
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
+              <Button color="white">
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
               <Button onClick={to_modules} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>

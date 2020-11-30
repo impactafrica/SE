@@ -31,6 +31,8 @@ const navbar = ({ isAuthenticated, logout }) => {
   });
   const history = useHistory();
   const to_modules = () => history.push('/modules_list');
+  const to_profile = () => history.push('/profile-page');
+  const to_project = () => history.push('/project-page');
   const home = () => history.push('/');
   const login = () => history.push('/login');
   const signup = () => history.push('/signup');
@@ -52,7 +54,7 @@ const navbar = ({ isAuthenticated, logout }) => {
             <ListItem className={classes.listItem}>
                 <Button
                 style={{fontFamily:"Montserrat"}}
-                onClick={to_modules}
+                onClick={to_profile}
                 target="_blank"
                 color="transparent"
                 className={classes.navLink}
@@ -65,7 +67,7 @@ const navbar = ({ isAuthenticated, logout }) => {
             <ListItem className={classes.listItem}>
                 <Button
                 style={{fontFamily:"Montserrat"}}
-                onClick={to_modules}
+                onClick={to_project}
                 target="_blank"
                 color="transparent"
                 className={classes.navLink}
