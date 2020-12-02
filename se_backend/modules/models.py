@@ -51,19 +51,19 @@ class Topics(models.Model):
     def __str__(self):
         return self.topic_name
 
-class SubTopics(models.Model):
-    subtopic_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    subtopic_name = models.CharField(max_length=200)
-    topic = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
-    subtopic_number = models.IntegerField()
-    subtopic_description = models.TextField(max_length=400)
+# class SubTopics(models.Model):
+#     subtopic_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+#     subtopic_name = models.CharField(max_length=200)
+#     topic = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
+#     subtopic_number = models.IntegerField()
+#     subtopic_description = models.TextField(max_length=400)
 
-    def __str__(self):
-        return self.subtopic_name
+#     def __str__(self):
+#         return self.subtopic_name
 
 class Content(models.Model):
     content_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    subtopic = models.ForeignKey(SubTopics,on_delete=models.SET_NULL,null=True)
+    topic = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
     content_number = models.IntegerField()
     title_text = models.CharField(max_length=400)
     title_intro = models.TextField(max_length=4400)
@@ -77,7 +77,7 @@ class Question(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     module = models.ForeignKey(Module,on_delete=models.SET_NULL,null=True)
     question_number=models.IntegerField()
-    subtopic = models.ForeignKey(SubTopics,on_delete=models.SET_NULL,null=True)
+    topic = models.ForeignKey(Topics,on_delete=models.SET_NULL,null=True)
     question = models.JSONField(max_length=200,null=True, blank=True)
     question_type = models.IntegerField() #one will indicate open-ended, 2 will indicate multiple choice
     question_status=models.CharField(max_length=200,default="Created",editable=False)

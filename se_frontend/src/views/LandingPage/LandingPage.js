@@ -28,7 +28,7 @@ const useStyles = makeStyles(styles);
 const LandingPage = ({ isAuthenticated }) => {
   const classes = useStyles();
   const member = (
-    <Link to={"/onboarding"} className={classes.link}>
+    <Link to={"/current-project"} className={classes.link}>
       <Button
         color="primary"
         size="xlg"

@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {useContext,useState,useEffect} from 'react'
+
 import {
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
@@ -20,6 +22,8 @@ import {
     FETCH_MODULE_SUCCESS,
     FETCH_MODULE_FAIL
 } from './types';
+
+import {userContext} from 'context/usercontext'
 
 
 function readCookie(name) {
@@ -89,11 +93,27 @@ export const load_user = () => async dispatch => {
 
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_URL}/auth/users/me/`, config);
+            
+            const {userId, setuserId} = useContext(userContext);
+            const [planets, setPlanets] = useState({});
+            const [hasError, setErrors] = useState(false);
+
+            res
+            .json()
+            .then(res => setPlanets(res))
+            .catch(err => setErrors(err));
+            
+            
+            console.log(planets["id"]);
+            setuserId(JSON.stringify(planets["id"]));
+            
 
             dispatch({
                 type: USER_LOADED_SUCCESS,
-                payload: res.data
+                payload: res.data,
             });
+
+            
         } catch (err) {
             dispatch({
                 type: USER_LOADED_FAIL
@@ -116,8 +136,10 @@ export const login = (email, password) => async dispatch => {
 
     const body = JSON.stringify({ email, password });
 
+
     try {
         const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/jwt/create/`, body, config);
+        
 
         dispatch({
             type: LOGIN_SUCCESS,

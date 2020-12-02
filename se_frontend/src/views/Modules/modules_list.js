@@ -27,7 +27,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import { useHistory } from "react-router-dom";
-
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import HomeIcon from '@material-ui/icons/Home';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import GrainIcon from '@material-ui/icons/Grain';
 
 import image from "assets/img/bg7.jpg";
 import idea from "assets/img/brain.png";
@@ -70,7 +73,10 @@ CircularProgressWithLabel.propTypes = {
 const Modules = () => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
-  const {moduleId, setModuleId} = useContext(moduleContext)
+  const {moduleId, setModuleId} = useContext(moduleContext);
+  const {moduleName, setModuleName} = useContext(moduleContext);
+  const {moduleNumber, setModuleNumber} = useContext(moduleContext);
+  const {moduleDescription, setmoduleDescription} = useContext(moduleContext);
 
   async function fetchData() {
     const settings = {
@@ -85,10 +91,15 @@ const Modules = () => {
       .then(res => setPlanets(res))
       .catch(err => setErrors(err));
   }
+  
+  const to_home = () => history.push('/');
+  const to_projects = () => history.push('/current-project');
 
-  function to_modules(myModuleID) {
-    console.log("module selected module page",myModuleID);
+  function to_modules(myModuleID,myModuleName,myModuleDescription) {
+    console.log("module selected module page",myModuleDescription);
     setModuleId(myModuleID);
+    setModuleName(myModuleName);
+    setmoduleDescription(myModuleDescription);
     history.push('/topic_list');
   }
 
@@ -116,8 +127,32 @@ const Modules = () => {
       <div>
         <div className={classes.container}>
           <GridContainer justify="left">
+            <GridItem xs={12} sm={12} md={12}>
+              <Breadcrumbs separator="›" aria-label="breadcrumb" 
+                style={{fontSize:"15px",color:"purple"}}>
+                <Link onClick={to_home}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Home</b>
+                </Link>
+                <Link onClick={to_projects}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Projects</b>
+                </Link>
+               
+                <p
+                    style={{color:"#3d3d3d",fontFamily:"Montserrat",paddingTop:"6px"}}
+                  >
+                    <b>Modules</b>
+                  </p>
+              </Breadcrumbs>
+            </GridItem>
+            <br/>
+            <br/>
+            <hr style={{width:"100%",height:"5px"}}/>
+            <br/>
+            
             <GridItem style={{color:"black",textAlign:"center",fontFamily:"Montserrat"}} xs={12} sm={12} md={12}>
-              <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>SE Modules</b></h3>
+              {/* <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>SE Modules</b></h3> */}
               <h4 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h4>
             </GridItem>
 
@@ -125,9 +160,11 @@ const Modules = () => {
 
               return(
               <GridItem xs={12} sm={12} md={4} key={postData.module_id}>
-                <Card style={{background:"white"}} onClick={() => to_modules(postData.module_id)}
+                <Card style={{background:"white"}} 
+                  onClick={() => to_modules(postData.module_id,postData.module_name,postData.module_description)}
                   key={postData.subtopic_id}
-                  className={classes[cardAnimaton]}>
+                  className={classes[cardAnimaton]}
+                >
                   <CardBody>
                     <div style={{display:"flex"}}>
                       <div 

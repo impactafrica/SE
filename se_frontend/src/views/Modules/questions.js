@@ -26,21 +26,38 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 import { Link } from "react-router-dom";
-import {subTopicContext} from '../../context/subtopiccontext'
+import {topicContext} from '../../context/topiccontext'
+import {projectContext} from '../../context/projectcontext'
+import {questionContext} from '../../context/questioncontext'
+
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 
 const useStyles = makeStyles(styles);
 
 const Question = (props) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
-  const {subtopicId, setsubTopicId} = useContext(subTopicContext)
-  const [projectId, setProjectId] = useState({});
-  const [answer_string, setAnswerString] = useState({});
+  const {topicId, setTopicId} = useContext(topicContext)
+  const {projectId, setprojectId} = useContext(topicContext)
+  const {questionId, setQuestionId} = useContext(questionContext)
 
   //index position for the content and que buttons
   const [index, setIndex] = useState(0);
+
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+  var csrftoken = readCookie('csrftoken');
 
   //fetch our questions
   async function fetchData() {
@@ -48,6 +65,8 @@ const Question = (props) => {
       headers: {
           Accept: 'application/json',
           'Content-Type': 'multipart/form-data',
+          "X-CSRFToken": csrftoken
+
       }
   };
     const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/questions/`,settings);
@@ -63,22 +82,43 @@ const Question = (props) => {
 
 
   //post the answers received
+  const [requestSent, setRequestSent] = useState(false);
   
+  const [formData, setFormData] = useState({
+      answer_string: '',
+      project: '',
+      question: ''
+      
+  });
 
-  const to_modules = () => {
-    // const config = {
-    //   headers: {
-    //       'Content-Type': 'application/json',
-    //   }
-    // }  
-    // const body = JSON.stringify({ answer_string,questionid,projectid }); 
-  
-    // const res = axios.post(`${process.env.REACT_APP_API_URL}/modules/answers/`, body, config);
-    history.push('/subtopic_list');
-    // index= index+2
-    // console.log("this is the current tab",index)
-    // setIndex(index)
-  }
+  const { answer_string, project,question } = formData;
+
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+      e.preventDefault();
+
+      create_project(answer_string,project,question);
+      setRequestSent(true);
+  };
+
+  const create_project = (answer_string,question, project) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    const body = JSON.stringify({ answer_string,question,project }); 
+
+    try {
+        const res = axios.post(`${process.env.REACT_APP_API_URL}/modules/answers/`, body, config);
+        console.log("answer received",answer_string);
+       
+    } catch (err) {
+        
+    }
+};
 
   const [value, setValue] = React.useState('yes');
 
@@ -94,12 +134,13 @@ const Question = (props) => {
   const dashboardRoutes = [];
   const history = useHistory();
 
-  const to_module = () => history.push('/content');
-  const to_subtopic = () => {
+  const to_content = () => history.push('/content');
+  const to_intro= () => history.push('/content_one');
+  const to_topics= () => history.push('/topic_list');
+  const to_home = () => history.push('/');
+  const to_modules = () => history.push('/modules_list');
+  const to_projects = () => history.push('/current-project');
 
-    history.push('/content');
-  }
-  
   useEffect(() => {
     window.scrollTo(0, 0)
   });
@@ -108,14 +149,63 @@ const Question = (props) => {
     <div>
         <div className={classes.container}>
           <GridContainer width="90%">
-
           <GridItem xs={12} sm={12} md={12}>
-            <Button index={1} onClick={to_module} color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button index={2} onClick={to_subtopic} color="primary">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
+              <Breadcrumbs separator="›" aria-label="breadcrumb" 
+                style={{fontSize:"15px",paddingLeft:"10px"}}>
+                <Link onClick={to_home}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Home</b>
+                </Link>
+                <Link onClick={to_projects}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Projects</b>
+                </Link>
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_modules}
+                  className={classes.link}
+                >
+                  
+                  <b>Modules</b>
+                </Link>
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_topics}
+                  className={classes.link}
+                >
+                  <b>Market Research</b>
+                </Link>
+                
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_intro}
+                  className={classes.link}
+                >
+                  <b>Market Segmentation</b>
+                </Link>
+                
+                <p
+                    style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"6px",fontFamily:"Montserrat"}}
+                  >
+                    <b>Market Types</b>
+                  </p>
+              </Breadcrumbs>
+            </GridItem>
+            <br/>
+            <br/>
+            <hr style={{width:"100%",height:"5px"}}/>
+            <br/>
+
+          {/* <GridItem xs={12} sm={12} md={12}>
+              <Button color="white" onClick={to_intro}>
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
+              <Button color="white" onClick={to_content}>
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
+              <Button color="primary">
+                <FontAwesomeIcon icon={faQuestion} />
+              </Button>
             <Button index={3} color="white">
               <FontAwesomeIcon icon={faBookReader} />
             </Button>
@@ -134,11 +224,12 @@ const Question = (props) => {
             <Button index={8} color="white">
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
-          </GridItem>
-         
+          </GridItem> */}
 
-          { Object.values(planets).map((postData) => {
-              const question = JSON.parse(postData.question)
+          
+            {Object.values(planets).map((postData) => {
+              const question = JSON.parse(postData.question);
+              setQuestionId(postData.question_id);
 
               const open_ended = (
                 <Card color="primary" className={classes[cardAnimaton]}>
@@ -146,7 +237,8 @@ const Question = (props) => {
                     id="outlined-multiline-static"
                     label="Separate your answers with a comma"
                     multiline
-                    // value={answer_string}
+                    name = "answer_string"
+                    value={answer_string}
                     rows={5}
                     variant="outlined"
                   />
@@ -166,10 +258,14 @@ const Question = (props) => {
                 </GridItem>
               );
             
-            if(postData.subtopic===subtopicId){
-              console.log("question fetched",subtopicId);
+            if(postData.topic===topicId){
+              if(postData.question_number===1){
+
+              
+              console.log("topic fetched",topicId);
             
             return(
+              
               <GridItem xs={12} sm={12} md={12}>
 
                 <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
@@ -177,44 +273,37 @@ const Question = (props) => {
                   <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{question.Question}</b></h5> 
                 </GridItem>
 
-              <GridItem xs={12} sm={12} md={12}>
-                <form>
+                <GridItem xs={12} sm={12} md={12}>
+                <form onSubmit={e => onSubmit(e)}>
                   {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> }
-                  
-                  {/* <div style={{  }}>
-                  <Button style={{float: "right"}} type='submit' onClick={to_modules} color="primary">
-                    Submit
-                  </Button>
-                  <Button 
-                    onClick={to_module}
-                    color="primary"
-                    style={{float: "left"}}
-                    >
-                    Back
-                  </Button>
-                  
-                  </div> */}
+                  <div style={{  }}>
+                    <Button style={{float: "right"}} type='submit' 
+                      onClick={create_project(answer_string,questionId,projectId)} color="primary">
+                      Submit
+                    </Button>
+                    <Button 
+                      color="primary"
+                      style={{float: "left"}}
+                      >
+                      Back
+                    </Button>
+                </div>
                 </form>
-              </GridItem>
+                </GridItem>
 
-              <GridItem>
-                
-              </GridItem>
             </GridItem>
+          
              );
-            }
-            else
-            {
-              // return();
-            }
+            }}
             })}
-            <GridItem>
+              
+            {/* <GridItem>
               <div style={{  }}>
                 <Button style={{float: "right"}} onClick={to_modules} color="primary">
                   Next
                 </Button>
                 <Button 
-                  onClick={to_module}
+                  onClick={to_content}
                   color="primary"
                   style={{float: "left"}}
                   >
@@ -223,7 +312,7 @@ const Question = (props) => {
                 
                 </div>
               
-            </GridItem>
+            </GridItem> */}
 
           </GridContainer>
          

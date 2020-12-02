@@ -11,6 +11,8 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import ProfileEdit from "views/ProfilePage/ProfileEdit.js";
 import ProjectPage from "views/Startup/ProjectPage";
+import ProjectEdit from "views/Startup/ProjectEdit";
+import CurrentProject from "views/Startup/CurrentProject";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SigninPage from "views/LoginPage/SigninPage.js";
 import Home from "views/LoginPage/Home";
@@ -23,6 +25,7 @@ import ModuleItem from "views/Modules/module_item";
 import ModuleOneLanding from "views/Modules/Module1/landing";
 import ModuleOneItem from "views/Modules/Module1/modules";
 import Content from "views/Modules/content";
+import ContentOne from "views/Modules/content_one";
 import ContentQue from "views/Modules/curated_content";
 import Questions from "views/Modules/questions";
 import Question1 from "views/Modules/Module1/question1";
@@ -46,6 +49,9 @@ import ResetPasswordConfirm from './containers/ResetPasswordConfirm';
 import ModuleProvider from './context/modulecontext'
 import TopicProvider from './context/topiccontext'
 import SubTopicProvider from './context/subtopiccontext'
+import ProjectProvider from './context/projectcontext'
+import QuestionProvider from './context/questioncontext'
+import UserProvider from './context/usercontext'
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -56,56 +62,63 @@ var hist = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <ModuleProvider>
-      <TopicProvider>
-        <SubTopicProvider>
-    <Router history={hist}>
-      <Layout>
-        <Switch>
-          <Route path="/landing-page" component={LandingPage} />
-          <Route path="/profile-page" component={ProfilePage} />
-          <Route path="/project-page" component={ProjectPage} />
-          <Route path="/profile-edit" component={ProfileEdit} />
-          <Route path="/login-page" component={LoginPage} />
-          <Route path="/signin-page" component={SigninPage} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/reset_password' component={ResetPassword} />
-          <Route path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
-          <Route path='/activate/:uid/:token' component={Activate} />
-          <Route path="/modules" component={Modules} />
-          <Route path="/home" component={Home} />
-          <Route path="/modules_list" component={ModulesList} />
-          <Route path="/topic_list" component={TopicList} />
-          <Route path="/subtopic_list" component={SubTopicList} />
-          <Route path="/module1" component={ModuleOneLanding} />
-          <Route path="/module1_item" component={ModuleOneItem} />
-          <Route path="/startup_register" component={RegisterStartup} />
-          <Route path="/module_item" component={ModuleItem} />
-          <Route path="/segment_que" component={Question1} />
-          {/* <Route path="/components" component={Components} /> */}
-          <Route path="/market_type" component={MarketType} />
-          <Route path="/content" component={Content} />
-          <Route path="/contentque" component={ContentQue} />
-          <Route path="/questions" component={Questions} />
-          <Route path="/brainstorming" component={Brainstorming} />
-          <Route path="/narrowing" component={Narrowing} />
-          <Route path="/primary-research" component={PrimaryResearch} />
-          <Route path="/choosing-beachhead" component={ChoosingBeachhead} />
-          <Route path="/targeted-market" component={TargetedMarket} />
-          <Route path="/prepare-process" component={PrepareProcess} />
-          <Route path="/beachhead_item" component={BeachheadItem} />
-          <Route path="/persona_item" component={PersonaItem} />
-          <Route path="/segmenting" component={Segmenting} />
-          <Route path="/onboarding" component={Onboarding} />
-          <Route path="/beachhead-def" component={BeachheadDef} />
-          <Route path="/" component={LandingPage} />
-        </Switch>
-      </Layout>
-    </Router>
-    </SubTopicProvider>
-    </TopicProvider>
-    </ModuleProvider>
+    <UserProvider>
+    <ProjectProvider>
+      <ModuleProvider>
+        <TopicProvider>
+          <QuestionProvider>
+            <Router history={hist}>
+              <Layout>
+                <Switch>
+                  <Route path="/landing-page" component={LandingPage} />
+                  <Route path="/profile-page" component={ProfilePage} />
+                  <Route path="/project-page" component={ProjectPage} />
+                  <Route path="/project-edit" component={ProjectEdit} />
+                  <Route path="/current-project" component={CurrentProject} />
+                  <Route path="/profile-edit" component={ProfileEdit} />
+                  <Route path="/login-page" component={LoginPage} />
+                  <Route path="/signin-page" component={SigninPage} />
+                  <Route path='/login' component={Login} />
+                  <Route path='/signup' component={Signup} />
+                  <Route path='/reset_password' component={ResetPassword} />
+                  <Route path='/password/reset/confirm/:uid/:token' component={ResetPasswordConfirm} />
+                  <Route path='/activate/:uid/:token' component={Activate} />
+                  <Route path="/modules" component={Modules} />
+                  <Route path="/home" component={Home} />
+                  <Route path="/modules_list" component={ModulesList} />
+                  <Route path="/topic_list" component={TopicList} />
+                  <Route path="/subtopic_list" component={SubTopicList} />
+                  <Route path="/module1" component={ModuleOneLanding} />
+                  <Route path="/module1_item" component={ModuleOneItem} />
+                  <Route path="/startup_register" component={RegisterStartup} />
+                  <Route path="/module_item" component={ModuleItem} />
+                  <Route path="/segment_que" component={Question1} />
+                  {/* <Route path="/components" component={Components} /> */}
+                  <Route path="/market_type" component={MarketType} />
+                  <Route path="/content" component={Content} />
+                  <Route path="/content_one" component={ContentOne} />
+                  <Route path="/contentque" component={ContentQue} />
+                  <Route path="/questions" component={Questions} />
+                  <Route path="/brainstorming" component={Brainstorming} />
+                  <Route path="/narrowing" component={Narrowing} />
+                  <Route path="/primary-research" component={PrimaryResearch} />
+                  <Route path="/choosing-beachhead" component={ChoosingBeachhead} />
+                  <Route path="/targeted-market" component={TargetedMarket} />
+                  <Route path="/prepare-process" component={PrepareProcess} />
+                  <Route path="/beachhead_item" component={BeachheadItem} />
+                  <Route path="/persona_item" component={PersonaItem} />
+                  <Route path="/segmenting" component={Segmenting} />
+                  <Route path="/onboarding" component={Onboarding} />
+                  <Route path="/beachhead-def" component={BeachheadDef} />
+                  <Route path="/" component={LandingPage} />
+                </Switch>
+              </Layout>
+            </Router>
+          </QuestionProvider>
+        </TopicProvider>
+      </ModuleProvider>
+    </ProjectProvider>
+    </UserProvider>
   </Provider>,
   document.getElementById("root")
 );

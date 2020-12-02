@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useContext} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -24,8 +24,10 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
 
+//import user context
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import {userContext} from 'context/usercontext'
 
 import image from "assets/img/bg7.jpg";
 
@@ -56,18 +58,38 @@ const Login = ({ login, isAuthenticated }) => {
     window.scrollTo(0, 0)
   });
 
-  if (isAuthenticated)
-      return <Redirect to='/onboarding' />;
+  const {userId, setuserId} = useContext(userContext);
+  const [planets, setPlanets] = useState({});
+  const [hasError, setErrors] = useState(false);
   
+  async function fetchData() {
+      const settings = {
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'multipart/form-data',
+        }
+    };
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/users/me/`,settings);
+      res
+        .json()
+        .then(res => setPlanets(res))
+        .catch(err => setErrors(err));
+    }
+    useEffect(() => {
+      fetchData() ;
+    },[])
+
+  function fetch_user(){
+    console.log(planets["id"]);
+    setuserId(JSON.stringify(planets["id"]));
+  }
+  
+  if (isAuthenticated){
+    return <Redirect to='/current-project' />;
+  }
+      
   return (
     <div>
-      {/* <Header
-        absolute
-        color="transparent"
-        href="/"
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-      /> */}
       <div
         className={classes.pageHeader}
         style={{
@@ -117,6 +139,7 @@ const Login = ({ login, isAuthenticated }) => {
                       color="primary"
                       size="xlg"
                       type='submit'
+                      onClick={fetch_user}
                       style={{fontFamily:"Montserrat"}}
                     >
                       Login

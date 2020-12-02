@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useContext} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -17,7 +17,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import profile from "assets/img/twixy.jpg";
+import profile_pic from 'assets/img/avatar.jpg'
 import Background from "assets/img/profile-bg.jpg";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
@@ -26,6 +26,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useHistory } from "react-router-dom";
+import {userContext} from 'context/usercontext'
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 
@@ -41,8 +42,31 @@ export default function ProfilePage(props) {
   );
   const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
+  const [projects, setProjects] = useState({});
+  const [hasError, setErrors] = useState(false);
+  const user = useContext(userContext);
+
+  //fetch our projects
+  async function fetchData() {
+    const settings = {
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'multipart/form-data',
+      }
+  };
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/project/`,settings);
+    res
+      .json()
+      .then(res => setProjects(res))
+      .catch(err => setErrors(err));
+  }
+  useEffect(() => {
+    fetchData() ;
+  },[])
+
   const history = useHistory();
   const to_profile = () => history.push('/profile-page');
+  const to_project = () => history.push('/project-edit');
   return (
     <div>
       
@@ -54,10 +78,10 @@ export default function ProfilePage(props) {
               <GridItem xs={12} sm={12} md={6}>
                 <div className={classes.profile}>
                   <div>
-                    <img src={profile} alt="..." className={imageClasses} />
+                    <img src={profile_pic} alt="..." className={imageClasses} />
                   </div>
                   <div className={classes.name}>
-                    <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>Christine Gatwiri</b></h3>
+                    <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>My Projects</b></h3>
                     
                   </div>
                 </div>
@@ -70,47 +94,52 @@ export default function ProfilePage(props) {
               <GridItem xs={12} sm={12} md={6}>
                 
                 <br/>
-                <Card>
-                  <CardHeader style={{display:"flex",backgroundColor:"#FF931E",color:"white"}} className={classes.cardHeader}>
-                    <h3 style={{fontFamily:"Montserrat", paddingRight:"60px"}}>My Projects</h3>
-                    <Button color="transparent">
-                      <FontAwesomeIcon icon={faEdit} />
-                    </Button>
-                  </CardHeader>
-                  <CardBody>
-                  <div>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Project:</b> Done!International</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Description:</b> Allow Kenyans in diaspora to manage their projects</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Progress:</b> 20%</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Current Module:</b> Market Research</h3>
-                    <h3 style={{fontFamily:"Montserrat"}}><b>Number of Reports:</b> 3</h3>
-                    
-                  </div>
+                {/* fetch projects */}
+                {Object.values(projects).map((projectData) => {
+                      console.log("the current user is: ",user.userId);
+                      if(projectData.userid===user.userId)
+                      {
+                        return(
+                          <GridItem>
+                          <Card>
+                            <CardHeader style={{display:"flex",backgroundColor:"#FF931E",color:"black"}} className={classes.cardHeader}>
+                              <h3 style={{fontFamily:"Montserrat",fontWeight:"600", paddingRight:"60px"}}>{projectData.project_name}</h3>
+                            </CardHeader>
+                            <CardBody>
+                            <div>
+                              {/* <h3 style={{fontFamily:"Montserrat"}}><b>Project:</b> Done!International</h3> */}
+                              <h3 style={{fontFamily:"Montserrat"}}><b style={{fontWeight:"600"}}>Description:</b> {projectData.description}</h3>
+                              <h3 style={{fontFamily:"Montserrat"}}><b style={{fontWeight:"600"}}>Progress:</b> 20%</h3>
+                              <h3 style={{fontFamily:"Montserrat"}}><b style={{fontWeight:"600"}}>Current Module:</b> Market Research</h3>                              
+                            </div>
 
-                  </CardBody>
-                  <CardFooter style={{alignItems:"center"}} className={classes.cardFooter} >
-                   
-                    <Button
-                      color="primary"
-                      size="xlg"
-                      onClick={to_profile}
-                      style={{fontFamily:"Montserrat"}}
-                      type='submit'
-                    >
-                      My profile
-                    </Button>
-                    <Button
-                        color="primary"
+                            </CardBody>
+                            <CardFooter style={{alignItems:"center"}} className={classes.cardFooter} >
+                            
+                              
+                              <Button
+                                  size="xlg"
+                                  onClick={to_project}
+                                  style={{fontFamily:"Montserrat",fontWeight:"600",backgroundColor:"#FF931E",color:"black"}}
+                                  type='submit'
+                                >
+                                  Edit Project
+                                </Button>
+                              
+                          </CardFooter>
+                          </Card>
+                          <br/>
+                          <br/>
+                          </GridItem>
+                      );}})}
+                      <Button
                         size="xlg"
                         onClick={to_profile}
-                        style={{fontFamily:"Montserrat"}}
+                        style={{fontFamily:"Montserrat",fontWeight:"600",backgroundColor:"#FF931E",color:"black"}}
                         type='submit'
                       >
-                        View Reports
+                        My profile
                       </Button>
-                    
-                </CardFooter>
-                </Card>
               </GridItem>
               
             </GridContainer>

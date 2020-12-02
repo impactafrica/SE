@@ -16,14 +16,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import DOMPurify from 'dompurify';
-
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import HomeIcon from '@material-ui/icons/Home';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import GrainIcon from '@material-ui/icons/Grain';
+import { Link } from "react-router-dom";
+import Typography from '@material-ui/core/Typography';
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 
 //import contexts here
-import {subTopicContext} from '../../context/subtopiccontext'
+import {topicContext} from '../../context/topiccontext'
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -32,7 +36,7 @@ const useStyles = makeStyles(styles);
 const Content = (props) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
-  const {subtopicId, setsubTopicId} = useContext(subTopicContext)
+  const {topicId, setTopicId} = useContext(topicContext)
 
   async function fetchData() {
     const settings = {
@@ -60,8 +64,13 @@ const Content = (props) => {
   const dashboardRoutes = [];
   const history = useHistory();
 
-  const to_modules = () => history.push('/questions');
-  const to_module = () => history.push('/subtopic_list');
+  const to_questions = () => history.push('/questions');
+  const to_topics= () => history.push('/topic_list');
+  const to_intro= () => history.push('/content_one');
+  const to_home = () => history.push('/');
+  const to_modules = () => history.push('/modules_list');
+  const to_projects = () => history.push('/current-project');
+
   
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -71,14 +80,60 @@ const Content = (props) => {
     <div>
         <div className={classes.container}>
           <GridContainer width="90%">
-            <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={12}>
+              <Breadcrumbs separator="›" aria-label="breadcrumb" 
+                style={{fontSize:"15px",paddingLeft:"10px"}}>
+                <Link onClick={to_home}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Home</b>
+                </Link>
+                <Link onClick={to_projects}
+                  style={{color:"purple",fontFamily:"Montserrat"}} >
+                  <b>Projects</b>
+                </Link>
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_modules}
+                  className={classes.link}
+                >
+                  <b>Modules</b>
+                </Link>
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_topics}
+                  className={classes.link}
+                >
+                  <b>Market Research</b>
+                </Link>
+                
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_intro}
+                  className={classes.link}
+                >
+                  <b>Market Segmentation</b>
+                </Link>
+                
+                <p
+                    style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"6px",fontFamily:"Montserrat"}}
+                  >
+                    <b>Market Types</b>
+                  </p>
+              </Breadcrumbs>
+            </GridItem>
+
+            <br/>
+            <br/>
+            <hr style={{width:"100%",height:"5px"}}/>
+            <br/>
+            {/* <GridItem xs={12} sm={12} md={12}>
+              <Button color="white" onClick={to_intro}>
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
               <Button color="primary">
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
-              <Button color="white">
-                <FontAwesomeIcon icon={faBookReader} />
-              </Button>
-              <Button onClick={to_modules} color="white">
+              <Button onClick={to_questions} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
               <Button color="white">
@@ -100,13 +155,15 @@ const Content = (props) => {
               <FontAwesomeIcon icon={faQuestion} />
             </Button>
             </GridItem>
-         
+          */}
           {Object.values(planets).map((postData) => {
             const sanitizer = DOMPurify.sanitize;
-            console.log("fetched the current subtopic id,content page",subtopicId);
+            console.log("fetched the current subtopic id,content page",topicId);
 
-            if(postData.subtopic===subtopicId){
-            console.log("this is my subtopic",postData.subtopic)
+            if(postData.topic===topicId){
+            console.log("this is my topic",postData.topic)
+            if(postData.content_number===2){
+
 
             return(
               <GridItem xs={12} sm={12} md={12}>
@@ -160,12 +217,12 @@ const Content = (props) => {
 
             <GridItem xs={12} sm={12} md={12} >
               <div style={{  }}>
-                <Button style={{float: "right"}} onClick={to_modules} color="primary">
+                <Button style={{float: "right"}} onClick={to_questions} color="primary">
                   Next
                 </Button>
 
                 <Button 
-                  onClick={to_module}
+                  onClick={to_topics}
                   color="primary"
                   style={{float: "left"}}
                   >
@@ -177,7 +234,8 @@ const Content = (props) => {
 
 
         );
-         }
+        }
+        }
         })}
 
         

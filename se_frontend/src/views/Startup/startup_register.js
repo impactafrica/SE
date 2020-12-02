@@ -77,7 +77,7 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
           setTransition(() => Transition);
           setOpen(true);
         };
-      return <Redirect to='/modules_list' /> }     
+      return <Redirect to='/current-project' /> }     
 
   return (
     <div>

@@ -17,7 +17,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import profile from "assets/img/twixy.jpg";
+import profile from "assets/img/avatar.jpg";
 import Background from "assets/img/profile-bg.jpg";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
@@ -44,17 +44,7 @@ export default function ProfilePage(props) {
   const to_profile = () => history.push('/profile-page');
   return (
     <div>
-      {/* <Header
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white"
-        }}
-        {...rest}
-      /> */}
+      
       <div style={{paddingTop:"250px", backgroundImage: "url(" + Background + ")", filter:"blur(2px)"}} small filter />
       <div className={classNames(classes.main)}>
         <div>
@@ -65,9 +55,9 @@ export default function ProfilePage(props) {
                   <div>
                     <img src={profile} alt="..." className={imageClasses} />
                   </div>
+                  <br/>
                   <div className={classes.name}>
                     <h3 style={{fontFamily:"Montserrat",fontWeight:"600",color:"purple"}}><b>Change Profile Photo</b></h3>
-                    
                   </div>
                 </div>
               </GridItem>
