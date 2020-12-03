@@ -97,14 +97,7 @@ const Topics = () => {
          <GridContainer justify="left">
           <GridItem xs={12} sm={12} md={12}>
                 <Breadcrumbs separator="›" aria-label="breadcrumb" style={{fontSize:"15px"}}>
-                  <Link onClick={to_home}
-                    style={{color:"purple",fontFamily:"Montserrat"}} >
-                    <b>Home</b>
-                  </Link>
-                  <Link onClick={to_projects}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Projects</b>
-                </Link>
+                 
                   <Link
                     style={{color:"purple",fontFamily:"Montserrat"}}
                     onClick={to_modules}

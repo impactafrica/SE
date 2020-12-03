@@ -62,7 +62,6 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
-            <br/>
             
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
@@ -84,17 +83,7 @@ export default function ProfilePage(props) {
                         required 
                     />
                 </div>
-                <div className='form-group'>
-                    <input 
-                        style={{fontSize:"11pt"}}
-                        className='form-control'
-                        type='text'
-                        placeholder='Phone Number'
-                        name='project_name'
-                        
-                        required 
-                    />
-                </div>
+                
                 <div className='form-group'>
                     <input 
                         style={{fontSize:"11pt"}}

@@ -60,7 +60,6 @@ export default function ProfilePage(props) {
                 </div>
               </GridItem>
             </GridContainer>
-            <br/>
             
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>

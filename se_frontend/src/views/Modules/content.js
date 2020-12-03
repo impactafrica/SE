@@ -83,14 +83,7 @@ const Content = (props) => {
           <GridItem xs={12} sm={12} md={12}>
               <Breadcrumbs separator="›" aria-label="breadcrumb" 
                 style={{fontSize:"15px",paddingLeft:"10px"}}>
-                <Link onClick={to_home}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Home</b>
-                </Link>
-                <Link onClick={to_projects}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Projects</b>
-                </Link>
+                
                 <Link
                   style={{color:"purple",fontFamily:"Montserrat"}}
                   onClick={to_modules}
@@ -126,7 +119,7 @@ const Content = (props) => {
             <br/>
             <hr style={{width:"100%",height:"5px"}}/>
             <br/>
-            {/* <GridItem xs={12} sm={12} md={12}>
+            <GridItem xs={12} sm={12} md={12}>
               <Button color="white" onClick={to_intro}>
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
@@ -136,26 +129,8 @@ const Content = (props) => {
               <Button onClick={to_questions} color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
-              <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
             </GridItem>
-          */}
+         
           {Object.values(planets).map((postData) => {
             const sanitizer = DOMPurify.sanitize;
             console.log("fetched the current subtopic id,content page",topicId);

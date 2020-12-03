@@ -2,6 +2,8 @@ import React,{useEffect,useState,useContext} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import axios from 'axios';
+import { connect } from 'react-redux';
+import {post_answer} from '../../actions/auth'
 
 // core components
 import Header from "components/Header/Header.js";
@@ -30,17 +32,18 @@ import {topicContext} from '../../context/topiccontext'
 import {projectContext} from '../../context/projectcontext'
 import {questionContext} from '../../context/questioncontext'
 
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 
 const useStyles = makeStyles(styles);
 
-const Question = (props) => {
+const Question = ({isAuthenticated, post_answer}) => {
   const [hasError, setErrors] = useState(false);
   const [planets, setPlanets] = useState({});
+  const [currentQue, setCurrentQue] = useState('');
+
   const {topicId, setTopicId} = useContext(topicContext)
-  const {projectId, setprojectId} = useContext(topicContext)
+  const {projectId, setprojectId} = useContext(projectContext)
   const {questionId, setQuestionId} = useContext(questionContext)
 
   //index position for the content and que buttons
@@ -75,51 +78,32 @@ const Question = (props) => {
       .then(res => setPlanets(res))
       .catch(err => setErrors(err));
   }
-  const { ...rest } = props;
   useEffect(() => {
     fetchData() ;
   },[])
 
-
   //post the answers received
   const [requestSent, setRequestSent] = useState(false);
-  
+
+  var fetched_question = {};
+
   const [formData, setFormData] = useState({
-      answer_string: '',
-      project: '',
-      question: ''
-      
+    answer_string: '',
+    question: fetched_question,
+    project: projectId  
   });
 
-  const { answer_string, project,question } = formData;
+  const {answer_string,question,project } = formData;
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-      e.preventDefault();
-
-      create_project(answer_string,project,question);
-      setRequestSent(true);
-  };
-
-  const create_project = (answer_string,question, project) => {
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }
-
-    const body = JSON.stringify({ answer_string,question,project }); 
-
-    try {
-        const res = axios.post(`${process.env.REACT_APP_API_URL}/modules/answers/`, body, config);
-        console.log("answer received",answer_string);
-       
-    } catch (err) {
-        
-    }
-};
-
+    const onSubmit = e => {
+        e.preventDefault();
+        post_answer(answer_string,question,project);
+        setRequestSent(true);
+    };
+ 
+  
   const [value, setValue] = React.useState('yes');
 
   const handleChange = (event) => {
@@ -141,6 +125,8 @@ const Question = (props) => {
   const to_modules = () => history.push('/modules_list');
   const to_projects = () => history.push('/current-project');
 
+ 
+
   useEffect(() => {
     window.scrollTo(0, 0)
   });
@@ -152,14 +138,7 @@ const Question = (props) => {
           <GridItem xs={12} sm={12} md={12}>
               <Breadcrumbs separator="›" aria-label="breadcrumb" 
                 style={{fontSize:"15px",paddingLeft:"10px"}}>
-                <Link onClick={to_home}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Home</b>
-                </Link>
-                <Link onClick={to_projects}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Projects</b>
-                </Link>
+                
                 <Link
                   style={{color:"purple",fontFamily:"Montserrat"}}
                   onClick={to_modules}
@@ -196,7 +175,7 @@ const Question = (props) => {
             <hr style={{width:"100%",height:"5px"}}/>
             <br/>
 
-          {/* <GridItem xs={12} sm={12} md={12}>
+          <GridItem xs={12} sm={12} md={12}>
               <Button color="white" onClick={to_intro}>
                 <FontAwesomeIcon icon={faBookReader} />
               </Button>
@@ -206,79 +185,89 @@ const Question = (props) => {
               <Button color="primary">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
-            <Button index={3} color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button index={4} color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button index={5} color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button index={6} color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-            <Button index={7} color="white">
-              <FontAwesomeIcon icon={faBookReader} />
-            </Button>
-            <Button index={8} color="white">
-              <FontAwesomeIcon icon={faQuestion} />
-            </Button>
-          </GridItem> */}
-
+          </GridItem>
           
             {Object.values(planets).map((postData) => {
-              const question = JSON.parse(postData.question);
-              setQuestionId(postData.question_id);
+              const questionJSON = JSON.parse(postData.question);
+              
 
-              const open_ended = (
-                <Card color="primary" className={classes[cardAnimaton]}>
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Separate your answers with a comma"
-                    multiline
-                    name = "answer_string"
-                    value={answer_string}
-                    rows={5}
-                    variant="outlined"
-                  />
-                </Card>
-              );
+              // const open_ended = (
+              //   <Card color="primary" className={classes[cardAnimaton]}>
+              //     <input
+              //       id="outlined-multiline-static"
+              //       label="Separate your answers with a comma"
+              //       multiline
+              //       name = "answer_string"
+              //       value={answer_string}
+              //       rows={5}
+              //       variant="outlined"
+              //     />
+              //   </Card>
+              // );
 
-              const multiple_choice = (
-                <GridItem xs={12} sm={12} md={12}>
-                  <Card color="primary" className={classes[cardAnimaton]}>
-                    <FormControl style={{paddingLeft:"5px"}} component="fieldset">
-                      <RadioGroup row aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-                        <FormControlLabel value="yes" style={{color:"black"}} control={<Radio />} label={question.Option1} />
-                        <FormControlLabel value="no" style={{color:"black"}} control={<Radio />} label={question.Option2} />
-                      </RadioGroup>
-                    </FormControl>
-                  </Card>
-                </GridItem>
-              );
+              // const multiple_choice = (
+              //   <GridItem xs={12} sm={12} md={12}>
+              //     <Card color="primary" className={classes[cardAnimaton]}>
+              //       <FormControl style={{paddingLeft:"5px"}} component="fieldset">
+              //         <RadioGroup row aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+              //           <FormControlLabel value="yes" style={{color:"black"}} control={<Radio />} label={question.Option1} />
+              //           <FormControlLabel value="no" style={{color:"black"}} control={<Radio />} label={question.Option2} />
+              //         </RadioGroup>
+              //       </FormControl>
+              //     </Card>
+              //   </GridItem>
+              // );
             
             if(postData.topic===topicId){
               if(postData.question_number===1){
-
-              
-              console.log("topic fetched",topicId);
-            
+                console.log("the topicid above the question",topicId)
+                fetched_question = postData.question_id;
+                console.log(fetched_question);
+                console.log("the topicid below the question",topicId)
+ 
             return(
               
               <GridItem xs={12} sm={12} md={12}>
 
                 <GridItem className={classes[cardAnimaton]} style={{fontFamily:"Montserrat"}}>
-                  <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}><b>{postData.content}</b></h3>
-                  <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{question.Question}</b></h5> 
+                  <h5 style={{color:"black",fontFamily:"Montserrat",fontWeight:"400"}}><b>{questionJSON.Question}</b></h5> 
                 </GridItem>
+                
+              </GridItem>
+
+              );
+
+            }}
+            })}
 
                 <GridItem xs={12} sm={12} md={12}>
                 <form onSubmit={e => onSubmit(e)}>
-                  {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> }
+                  {/* {<Fragment>{ postData.question_type === 2? multiple_choice : open_ended }</Fragment> } */}
+
+                  <Card color="primary" className={classes[cardAnimaton]}>
+                    <input
+                      name = "answer_string"
+                      type = "text"
+                      value = {answer_string}
+                      onChange={e => onChange(e)}
+                    />
+                    <input 
+                      name = "question"
+                      type = "hidden"
+                      value = {question}
+                      onChange={e => onChange(e)}
+                    />
+                    <input 
+                      name = "project"
+                      type = "hidden"
+                      value = {project}
+                      onChange={e => onChange(e)}
+                    />
+                  </Card>
+
                   <div style={{  }}>
                     <Button style={{float: "right"}} type='submit' 
-                      onClick={create_project(answer_string,questionId,projectId)} color="primary">
+                      color="primary">
                       Submit
                     </Button>
                     <Button 
@@ -287,15 +276,10 @@ const Question = (props) => {
                       >
                       Back
                     </Button>
-                </div>
+                  </div>
                 </form>
-                </GridItem>
-
-            </GridItem>
-          
-             );
-            }}
-            })}
+                </GridItem>          
+            
               
             {/* <GridItem>
               <div style={{  }}>
@@ -321,4 +305,9 @@ const Question = (props) => {
     // </div>
   );
 }
-export default Question;
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, {post_answer})(Question);

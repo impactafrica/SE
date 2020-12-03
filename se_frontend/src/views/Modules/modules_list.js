@@ -130,15 +130,7 @@ const Modules = () => {
             <GridItem xs={12} sm={12} md={12}>
               <Breadcrumbs separator="›" aria-label="breadcrumb" 
                 style={{fontSize:"15px",color:"purple"}}>
-                <Link onClick={to_home}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Home</b>
-                </Link>
-                <Link onClick={to_projects}
-                  style={{color:"purple",fontFamily:"Montserrat"}} >
-                  <b>Projects</b>
-                </Link>
-               
+                
                 <p
                     style={{color:"#3d3d3d",fontFamily:"Montserrat",paddingTop:"6px"}}
                   >

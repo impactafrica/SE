@@ -19,8 +19,8 @@ import {
     AUTHENTICATED_SUCCESS,
     PROJECT_CREATION_FAIL,
     PROJECT_CREATION_SUCCESS,
-    FETCH_MODULE_SUCCESS,
-    FETCH_MODULE_FAIL
+    POST_ANSWER_SUCCESS,
+    POST_ANSWER_FAIL
 } from './types';
 
 import {userContext} from 'context/usercontext'
@@ -254,7 +254,6 @@ export const logout = () => dispatch => {
     dispatch({ type: LOGOUT });
 };
 
-
 export const create_project = (project_name, description) => async dispatch => {
     const config = {
         headers: {
@@ -279,23 +278,30 @@ export const create_project = (project_name, description) => async dispatch => {
     }
 };
 
-export const fetch_modules = () => async dispatch => {
+export const post_answer = (answer_string,question,project) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
+            "X-CSRFToken": csrftoken 
         }
     }
 
+    const body = JSON.stringify({ answer_string,question,project }); 
+
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/modules/modules/`, config);
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/modules/answers/`, body, config);
 
         dispatch({
-            type: FETCH_MODULE_SUCCESS,
+            type: POST_ANSWER_SUCCESS,
             payload: res.data
         });
     } catch (err) {
         dispatch({
-            type: FETCH_MODULE_FAIL
+            type: POST_ANSWER_FAIL
         });
     }
 };
+
+
+
+
