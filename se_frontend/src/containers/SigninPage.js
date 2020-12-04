@@ -85,7 +85,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
   
   if (isAuthenticated){
-    return <Redirect to='/current-project' />;
+    return <Redirect to='/modules_list' />;
   }
       
   return (

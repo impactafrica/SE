@@ -148,6 +148,39 @@ const Modules = () => {
               <h4 style={{fontFamily:"Montserrat",fontWeight:"400"}}>Welcome to the modules! We will undergo one module at a time</h4>
             </GridItem>
 
+            <GridItem xs={12} sm={12} md={4} >
+                <Card style={{background:"white"}} 
+                  
+                  className={classes[cardAnimaton]}
+                >
+                  <CardBody>
+                    <div style={{display:"flex"}}>
+                      <div 
+                          style={{width: "70px",
+                                  height: "70px",
+                                  borderRadius: "50%",
+                                  alignItems:"center",
+                                  display:"table-cell",
+                                  verticalAlign:"middle",
+                                  marginRight:"3px",
+                                  textAlign:"center",
+                                  background: "purple"}}
+                      >
+                        <img src={idea} width="50%" style={{paddingTop:"15px"}} alt="ideation"/>
+                          {/* <img src= {postData.image} width="50%" style={{paddingTop:"15px"}} alt="ideation"/> */}
+                      </div>
+                      <h5 style={{fontFamily:"Montserrat",fontWeight:"600",paddingTop:"20px",paddingLeft:"40px"}}>
+                        <b>Ideation and formation</b>
+                      <br/></h5>
+                      
+                    </div>
+                    <LinearProgress />
+                    <br></br>
+                    
+                  </CardBody>                  
+                </Card>
+            </GridItem>
+
             {Object.values(planets).map((postData) => {
 
               return(
