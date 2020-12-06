@@ -1,0 +1,223 @@
+import React,{useEffect,useState,useContext} from "react";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+
+// core components
+import Header from "components/Header/DashboardHeader";
+import HeaderLinks from "components/Header/DashboardHeaderLinks";
+import Footer from "components/Footer/Footer.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import Button from "components/CustomButtons/Button.js";
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import ReactPlayer from "react-player";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faBookReader } from "@fortawesome/free-solid-svg-icons";
+import DOMPurify from 'dompurify';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import HomeIcon from '@material-ui/icons/Home';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import GrainIcon from '@material-ui/icons/Grain';
+import { Link } from "react-router-dom";
+import Typography from '@material-ui/core/Typography';
+import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
+
+
+//import contexts here
+import {topicContext} from '../../context/topiccontext'
+
+import styles from "assets/jss/material-kit-react/views/loginPage.js";
+
+const useStyles = makeStyles(styles);
+
+const Content = (props) => {
+  const [hasError, setErrors] = useState(false);
+  const [planets, setPlanets] = useState({});
+  const {topicId, setTopicId} = useContext(topicContext)
+
+  async function fetchData() {
+    const settings = {
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'multipart/form-data',
+      }
+  };
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/content/`,settings);
+    res
+      .json()
+      .then(res => setPlanets(res))
+      .catch(err => setErrors(err));
+  }
+  const { ...rest } = props;
+  useEffect(() => {
+    fetchData() ;
+  },[])
+
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  setTimeout(function() {
+    setCardAnimation("");
+  }, 700);
+  const classes = useStyles();
+  const dashboardRoutes = [];
+  const history = useHistory();
+
+  const to_questions = () => history.push('/questions');
+  const to_topics= () => history.push('/topic_list');
+  const to_intro= () => history.push('/content_one');
+  const to_home = () => history.push('/');
+  const to_modules = () => history.push('/modules_list');
+  const to_projects = () => history.push('/current-project');
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  });
+
+  return (
+    <div>
+        <div className={classes.container}>
+          <GridContainer width="90%">
+          <GridItem xs={12} sm={12} md={12}>
+              <Breadcrumbs separator="›" aria-label="breadcrumb" 
+                style={{fontSize:"15px",paddingLeft:"10px"}}>
+                
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_modules}
+                  className={classes.link}
+                >
+                  <b>Modules</b>
+                </Link>
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_topics}
+                  className={classes.link}
+                >
+                  <b>Market Research</b>
+                </Link>
+                
+                <Link
+                  style={{color:"purple",fontFamily:"Montserrat"}}
+                  onClick={to_intro}
+                  className={classes.link}
+                >
+                  <b>Market Segmentation</b>
+                </Link>
+                
+                <p
+                    style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"6px",fontFamily:"Montserrat"}}
+                  >
+                    <b>Market Types</b>
+                  </p>
+              </Breadcrumbs>
+            </GridItem>
+
+            <br/>
+            <br/>
+            <hr style={{width:"100%",height:"5px"}}/>
+            <br/>
+            <GridItem xs={12} sm={12} md={12}>
+              <Button color="white" onClick={to_intro}>
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
+              <Button color="primary">
+                <FontAwesomeIcon icon={faBookReader} />
+              </Button>
+              <Button onClick={to_questions} color="white">
+                <FontAwesomeIcon icon={faQuestion} />
+              </Button>
+            </GridItem>
+         
+          {Object.values(planets).map((postData) => {
+            const sanitizer = DOMPurify.sanitize;
+            console.log("fetched the current subtopic id,content page",topicId);
+
+            if(postData.topic===topicId){
+            console.log("this is my topic",postData.topic)
+            if(postData.content_number===2){
+
+
+            return(
+              <GridItem xs={12} sm={12} md={12}>
+                <GridItem className={classes[cardAnimaton]}>
+                  <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}>
+                    <b>{postData.title_text}</b>
+                  </h3>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={12}>
+                  <Card color="primary" className={classes[cardAnimaton]}>
+                      <CardBody>
+                        <h5 style={{fontFamily:"Montserrat",fontWeight:"600"}}>
+                        {postData.title_intro}
+                        </h5>
+                    </CardBody>
+                  </Card>
+                </GridItem>
+
+            <GridItem xs={12} sm={12} md={12} >
+              <Card style={{backgroundColor:"black",borderRadius:"25px",color:"white",fontFamily:"Montserrat"}} className={classes[cardAnimaton]}>
+                  <CardBody style={{}}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
+                      <ReactPlayer
+                        url={postData.media_section}
+                      />
+                    </div>
+                    <br></br>
+                  </CardBody>
+              </Card>
+            </GridItem>
+            
+            
+            {/* #9A32CD  */}
+            <GridItem xs={12} sm={12} md={12}>
+              <Card style={{}} color="primary" className={classes[cardAnimaton]}>
+                  <CardBody>
+                    <h5 style={{fontFamily:"Montserrat",fontWeight:"600",color:"black"}}
+                      dangerouslySetInnerHTML={{__html: sanitizer(postData.content_section)}}
+                    >
+                    </h5>
+                  </CardBody>
+              </Card>
+            </GridItem>
+
+            <GridItem xs={12} sm={12} md={12} >
+              <div style={{  }}>
+                <Button style={{float: "right"}} onClick={to_questions} color="primary">
+                  Next
+                </Button>
+
+                <Button 
+                  onClick={to_topics}
+                  color="primary"
+                  style={{float: "left"}}
+                  >
+                  Back
+                </Button>
+              </div>
+              </GridItem>
+          </GridItem>
+
+
+        );
+        }
+        }
+        })}
+
+        
+        </GridContainer>
+      </div>
+    </div>
+  );
+}
+
+export default Content;

@@ -55,7 +55,7 @@ export default function LandingPage(props) {
         {...rest}
       />
       
-      <div className={classNames(classes.main)}>
+      <div>
         <div className={classes.container} style={{width:"100%"}}>
           <TeamSection />
         </div>

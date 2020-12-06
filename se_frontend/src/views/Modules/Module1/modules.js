@@ -100,21 +100,13 @@ export default function LoginPage(props) {
       > */}
         <div className={classes.container}>
           <GridContainer justify="left" width="60%">
-          
-
-          {/* <GridItem xs={12} sm={12} md={12}>
-            <Card plain>
-            <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
-            <img src={segment}  width="100%" />
-              </GridItem>
-            </Card>
-          </GridItem> */}
+        
           
           <GridItem xs={12} sm={12} md={12} style={{fontFamily:"Montserrat"}}>
             <Card plain>
             <GridItem xs={12} sm={12} md={12} className={classes.itemGrid}>
-            <h3  style={{fontFamily:"Montserrat"}}><b>Welcome to Market Segmentation!</b></h3>
-            <h4  style={{fontFamily:"Montserrat",fontWeight: "400"}} className={classes.cardTitle}>
+            <h3 style={{fontFamily:"Montserrat",fontWeight:"600"}}><b>Welcome to Market Segmentation!</b></h3>
+            <h4 style={{fontFamily:"Montserrat",fontWeight: "600"}}>
                   
                    Market segmentation is the process
                    of dividing  your target market into approachable groups. 
@@ -122,10 +114,11 @@ export default function LoginPage(props) {
                   such as demographics, priorities, 
                   needs, common interests and behaviour.
                 <br/>
-              </h4>
+            </h4>
               <Link
                     color="primary"
                     to={"/segmenting"}
+                    style={{fontFamily:"Montserrat",fontWeight:"600"}}
                   >
                     <b>Read More...</b>
                   </Link>
@@ -135,7 +128,7 @@ export default function LoginPage(props) {
           </GridItem>
           
             <GridItem xs={12} sm={12} md={12} style={{display:"flex"}}>
-              <Card xs={4} sm={4} md={3} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat, sans-serif'}} color="primary" className={classes[cardAnimaton]}>
+              <Card xs={4} sm={4} md={3} onClick={to_modules} style={{position: "relative",marginRight:"3px", border: "2px solid purple",fontFamily: 'Montserrat',fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>1/4{' '}</b></p>
                 </div>
@@ -146,7 +139,7 @@ export default function LoginPage(props) {
                     <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
                   </div>
               </Card>
-              <Card xs={4} sm={4} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+              <Card xs={4} sm={4} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>2/4{' '}</b></p>
                 </div>
@@ -160,7 +153,7 @@ export default function LoginPage(props) {
                     <div><b>3 Steps{'  '}</b><FontAwesomeIcon icon={faPlay}/></div>
                   </div>
               </Card>
-              <Card xs={3} sm={3} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+              <Card xs={3} sm={3} md={3} style={{position: "relative",marginRight:"3px",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                 <div style={{color:"#ff9933",textAlign:"right"}}>
                   <p><b>3/4{' '}</b></p>
                 </div>
@@ -179,7 +172,7 @@ export default function LoginPage(props) {
               </GridItem>
               <GridItem xs={5} sm={5} md={4} style={{display:"flex"}}>
               
-                <Card style={{position: "relative",fontFamily:"Montserrat"}} color="primary" className={classes[cardAnimaton]}>
+                <Card style={{position: "relative",fontFamily:"Montserrat",fontWeight:"600"}} color="primary" className={classes[cardAnimaton]}>
                   <div style={{color:"#ff9933",textAlign:"right"}}>
                     <p><b>4/4{' '}</b></p>
                   </div>

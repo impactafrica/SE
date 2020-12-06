@@ -4,10 +4,6 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
-
-// @material-ui/icons
-
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -23,50 +19,54 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import WorkSection from "./Sections/WorkSection.js";
-
-const dashboardRoutes = [];
+import { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+const LandingPage = ({ isAuthenticated }) => {
   const classes = useStyles();
-  const { ...rest } = props;
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  });
-  return (
-    <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="Systematic Entrepreneurship"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 400,
-          color: "primary"
-        }}
-        {...rest}
-      />
-      <Parallax filter image={require("assets/img/landing-bg.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h3 style={{fontFamily:"Montserrat"}} className={classes.title}>Start, Execute and Launch Your Project!</h3>
-              
-              <br />
-              <br/>
-              <br />
-              <br/>
-              <Link to={"/login-page"} className={classes.link}>
+  const member = (
+    <Link to={"/current-project"} className={classes.link}>
+      <Button
+        color="primary"
+        size="xlg"
+        rel="noopener noreferrer"
+      >
+        Continue
+      </Button>
+    </Link>
+  );
+
+  const guest = (
+    <Fragment>
+        <Link to={"/signup"} className={classes.link}>
               <Button
                 color="primary"
-                size="lg"
+                size="xlg"
                 rel="noopener noreferrer"
               >
                 Sign Up
               </Button>
           </Link>
+    </Fragment>
+  );
+
+  return (
+    <div>
+     
+      <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+        <div className={classes.container}>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={6}>
+              <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Start, Execute and Launch Your Project!</h2>
+              
+              <br />
+              <br/>
+              <br />
+              <br/>
+              { <Fragment>{ isAuthenticated ? member : guest }</Fragment> }
             </GridItem>
           </GridContainer>
         </div>
@@ -74,9 +74,16 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container} style={{width:"100%"}}>
           <ProductSection/>
-          <WorkSection/>
+          <WorkSection style={{backgroundColor:"gray"}}/>
         </div>
       </div>
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps)(LandingPage);
+

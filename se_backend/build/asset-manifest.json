@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c5a3ee5c.chunk.css",
+    "main.js": "/static/js/main.453a0da3.chunk.js",
+    "main.js.map": "/static/js/main.453a0da3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.47788c5d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.47788c5d.js.map",
+    "static/css/2.0c608829.chunk.css": "/static/css/2.0c608829.chunk.css",
+    "static/js/2.52390ad0.chunk.js": "/static/js/2.52390ad0.chunk.js",
+    "static/js/2.52390ad0.chunk.js.map": "/static/js/2.52390ad0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a26a83d947bcb1974e392530ef128b0e.js": "/precache-manifest.a26a83d947bcb1974e392530ef128b0e.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.0c608829.chunk.css.map": "/static/css/2.0c608829.chunk.css.map",
+    "static/css/main.c5a3ee5c.chunk.css.map": "/static/css/main.c5a3ee5c.chunk.css.map",
+    "static/js/2.52390ad0.chunk.js.LICENSE.txt": "/static/js/2.52390ad0.chunk.js.LICENSE.txt",
+    "static/media/avatar.jpg": "/static/media/avatar.7b125989.jpg",
+    "static/media/bg7.jpg": "/static/media/bg7.b08234a2.jpg",
+    "static/media/brain.png": "/static/media/brain.178e9ef8.png",
+    "static/media/customer.png": "/static/media/customer.7f426db8.png",
+    "static/media/george.jpg": "/static/media/george.4de909d6.jpg",
+    "static/media/idea.png": "/static/media/idea.fe5a92d7.png",
+    "static/media/landing-bg.jpg": "/static/media/landing-bg.df8fd3ef.jpg",
+    "static/media/market.png": "/static/media/market.139dfa9a.png",
+    "static/media/marketseg.png": "/static/media/marketseg.ea25deca.png",
+    "static/media/michael.png": "/static/media/michael.466740d1.png",
+    "static/media/mungai.jpg": "/static/media/mungai.dac8a3f3.jpg",
+    "static/media/mvp.png": "/static/media/mvp.4d70dada.png",
+    "static/media/pic.png": "/static/media/pic.df2301c5.png",
+    "static/media/profile-bg.jpg": "/static/media/profile-bg.baf6b40a.jpg",
+    "static/media/se_logo.png": "/static/media/se_logo.d6d5b22b.png",
+    "static/media/segment.png": "/static/media/segment.10af00c3.png",
+    "static/media/twixy.jpg": "/static/media/twixy.e2263d0c.jpg",
+    "static/media/value.png": "/static/media/value.0ceede5a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47788c5d.js",
+    "static/css/2.0c608829.chunk.css",
+    "static/js/2.52390ad0.chunk.js",
+    "static/css/main.c5a3ee5c.chunk.css",
+    "static/js/main.453a0da3.chunk.js"
+  ]
+}
