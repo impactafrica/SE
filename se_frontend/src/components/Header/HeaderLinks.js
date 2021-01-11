@@ -1,7 +1,8 @@
 /*eslint-disable*/
-import React,{useEffect} from "react";
+import React,{useEffect,useContext,useState} from "react";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,21 +15,35 @@ import Header from "components/Header/Header.js";
 // core components
 import Button from "components/CustomButtons/Button.js";
 import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
 
 import { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { logout } from '../../actions/auth';
+import {userContext} from 'context/usercontext'
 
-const navbar = ({ isAuthenticated, logout }) => {
+const navbar = () => {
+
   const classes = useStyles();
   useEffect(() => {
     window.scrollTo(0, 0)
   });
+
+  //check whether user is authenticated
+  const {authenticated,setAuthenticated} = useContext(userContext); 
+  const [currentUser, setCurrentUser] = useState({});
+
+  //function to logout user
+  function logout()
+  {
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
+    setAuthenticated(false);
+    return <Redirect to='/login' />;
+  }
+
   const history = useHistory();
   const to_modules = () => history.push('/modules_list');
   const to_profile = () => history.push('/profile-page');
@@ -36,7 +51,13 @@ const navbar = ({ isAuthenticated, logout }) => {
   const home = () => history.push('/');
   const login = () => history.push('/login');
   const signup = () => history.push('/signup');
+
+  if (!authenticated){
+    console.log("authenticated?",authenticated)
+    console.log("you are not authenticated");
+  }
     
+  //if authenticated show the following on the navbar
   const authLinks = (
       <Fragment>
          <ListItem className={classes.listItem}>
@@ -78,7 +99,8 @@ const navbar = ({ isAuthenticated, logout }) => {
             </ListItem>
 
           <ListItem className={classes.listItem}>
-            <Link to="/login">
+            <Link
+                to="/login">
               <Button
                   onClick={logout}
                   style={{fontFamily:"Montserrat",color:"white"}}
@@ -88,12 +110,12 @@ const navbar = ({ isAuthenticated, logout }) => {
                 >
                   <b>Logout</b>
                 </Button>
-            </Link>
-              
+              </Link>
             </ListItem>        
       </Fragment>
     );
 
+    //if not authenticated show the following on the navbar
     const guestLinks = (
         <Fragment>
             <ListItem className={classes.listItem}>
@@ -123,7 +145,6 @@ const navbar = ({ isAuthenticated, logout }) => {
     );
 
   return (
-    // <Header>
       <List className={classes.list} style={{fontFamily:"Montserrat"}}>
 
         <ListItem className={classes.listItem}>
@@ -151,14 +172,12 @@ const navbar = ({ isAuthenticated, logout }) => {
         </Button>
         </ListItem>
         
-        { <Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment> }
+        {/* check whether user is authenticated */}
+        { <Fragment>{ authenticated ? authLinks : guestLinks }</Fragment> }
       </List>
-    // </Header>
     
   );
 }
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-});
 
-export default connect(mapStateToProps, { logout })(navbar);
+
+export default navbar;

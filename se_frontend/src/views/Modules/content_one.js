@@ -3,8 +3,6 @@ import React,{useEffect,useState,useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import Header from "components/Header/DashboardHeader";
-import HeaderLinks from "components/Header/DashboardHeaderLinks";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -15,6 +13,7 @@ import ReactPlayer from "react-player";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import DOMPurify from 'dompurify';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import HomeIcon from '@material-ui/icons/Home';
@@ -29,6 +28,7 @@ import { useHistory } from "react-router-dom";
 //import contexts here
 import {moduleContext} from '../../context/modulecontext'
 import {topicContext} from '../../context/topiccontext'
+import {userContext} from '../../context/usercontext'
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
@@ -42,12 +42,14 @@ const Content = (props) => {
   const {moduleName, setModuleName} = useContext(moduleContext);
   const {moduleNumber, setModuleNumber} = useContext(moduleContext);
   const {moduleDescription, setmoduleDescription} = useContext(moduleContext);
-
+  const {accessToken, setAccessToken} = useContext(userContext);
+  
   async function fetchData() {
     const settings = {
       headers: {
           Accept: 'application/json',
           'Content-Type': 'multipart/form-data',
+          'Authorization' : "JWT " + accessToken,
       }
   };
     const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/content/`,settings);
@@ -125,6 +127,7 @@ const Content = (props) => {
               <Button color="white">
                 <FontAwesomeIcon icon={faQuestion} />
               </Button>
+
               
             </GridItem>
          
@@ -139,7 +142,9 @@ const Content = (props) => {
 
             return(
               <GridItem xs={12} sm={12} md={12}>
-                <GridItem className={classes[cardAnimaton]}>
+               <br/>
+               <br/>
+                <GridItem styles={{textAlign:"left"}} className={classes[cardAnimaton]}>
                   <h3 style={{color:"black",fontFamily:"Montserrat",fontWeight:"600"}}>
                     <b>{postData.title_text}</b>
                   </h3>

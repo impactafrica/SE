@@ -38,6 +38,7 @@ import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 //import contexts here
 import {moduleContext} from '../../context/modulecontext'
 import {topicContext} from '../../context/topiccontext'
+import {userContext} from '../../context/usercontext'
 
 import { useHistory } from "react-router-dom";
 
@@ -51,12 +52,15 @@ const Topics = () => {
     const {moduleDescription, setmoduleDescription} = useContext(moduleContext);
     const {topicId, setTopicId} = useContext(topicContext)
     const {topicName, setTopicName} = useContext(topicContext)
+    const {accessToken, setAccessToken} = useContext(userContext);
+
 
     async function fetchData() {
       const settings = {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'multipart/form-data',
+            'Authorization' : "JWT " + accessToken,
         }
     };
       const res = await fetch(`${process.env.REACT_APP_API_URL}/modules/topics/`,settings);

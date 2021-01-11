@@ -1,7 +1,6 @@
-import React,{useState} from "react";
+import React,{useState,useContext} from "react";
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { create_project } from '../../actions/auth'
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/core components
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -30,29 +29,40 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Slide from '@material-ui/core/Slide';
 
 import image from "assets/img/bg7.jpg";
+import {userContext} from 'context/usercontext'
 
 const useStyles = makeStyles(styles);
 
-function TransitionUp(props) {
-  return <Slide {...props} direction="up" />;
-}
 
-const ProjectRegister = ({create_project, isAuthenticated}) => {
+const ProjectRegister = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [transition, setTransition] = React.useState(undefined);
+  const {accessToken, setAccessToken} = useContext(userContext);
 
-  const handleClick = (Transition) => () => {
-    setTransition(() => Transition);
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  //function to create a new project
+  function create_project(project_name,description )
+  {
+    
+    const config = {
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization' : "JWT " + accessToken,
+      }
+    }
+
+    const body = JSON.stringify({ project_name,description }); 
+    const url = `${process.env.REACT_APP_API_URL}/modules/project/`;
+
+    axios.post(url, body, config)
+        .then(response =>
+          console.log("project created successfully",response))
+        .catch(errors =>
+          console.log("error was found during project creation!",errors))
+  }
 
   const [requestSent, setRequestSent] = useState(false);
   
+  //declare and set form variables to null
   const [formData, setFormData] = useState({
       project_name: '',
       description: ''
@@ -62,6 +72,7 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
+  //pass form variables to function
   const onSubmit = e => {
       e.preventDefault();
 
@@ -69,15 +80,11 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
       setRequestSent(true);
   };
 
-  if (!isAuthenticated)
-        return <Redirect to='/login' />;
+  // if (!isAuthenticated)
+  //       return <Redirect to='/login' />;
   
-  if (requestSent){
-        const handleClick = (Transition) => () => {
-          setTransition(() => Transition);
-          setOpen(true);
-        };
-      return <Redirect to='/modules_list' /> }     
+  if (requestSent)
+  { return <Redirect to='/modules_list' /> }     
 
   return (
     <div>
@@ -130,20 +137,12 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
                     <Button
                       color="primary"
                       size="xlg"
-                      onClick={handleClick(TransitionUp)}
                       style={{fontFamily:"Montserrat"}}
                       type='submit'
                     >
                       Register
                     </Button>
-                    
-                    <Snackbar
-                      open={open}
-                      onClose={handleClose}
-                      TransitionComponent={transition}
-                      message="succsess"
-                      key={transition ? transition.name : ''}
-                    />
+                  
                 </CardFooter>
                   <br/>
                  
@@ -159,8 +158,5 @@ const ProjectRegister = ({create_project, isAuthenticated}) => {
   );
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
-});
 
-export default connect(mapStateToProps, { create_project })(ProjectRegister);
+export default ProjectRegister;

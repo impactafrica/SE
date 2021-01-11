@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reset_password_confirm } from '../actions/auth';
-import Header from 'components/Header/DashboardHeader';
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import Header from 'components/Header/Header';
 
 const ResetPasswordConfirm = (props) => {
     const [requestSent, setRequestSent] = useState(false);

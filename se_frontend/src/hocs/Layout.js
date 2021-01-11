@@ -6,37 +6,23 @@ import Header from "components/Header/Header.js";
 import { checkAuthenticated, load_user } from '../actions/auth';
 
 const Layout = (props) => {
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await props.checkAuthenticated();
-                await props.load_user();
-            } catch (err) {
-
-            }
-        }
-
-        fetchData();
-    }, []);
     const { ...rest } = props;
     return (
         <div>
             <Header
-                color="primary"
+                color="transparent"
                 brand="Systematic Entrepreneurship"
                 rightLinks={<Navbar />}
                 fixed
+                changeColorOnScroll={{
+                height: 400,
+                color: "primary"
+                }}
                 {...rest}
-                href="/"
-                // changeColorOnScroll={{
-                //     height: 100,
-                //     color: "primary"
-                //   }}
-                // rightLinks={<Navbar />}
             />
             {props.children}
         </div>
     );
 };
 
-export default connect(null, { checkAuthenticated, load_user })(Layout);
+export default Layout;

@@ -60,7 +60,7 @@ const LandingPage = ({ isAuthenticated }) => {
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Start, Execute and Launch Your Project!</h2>
+              <h2 style={{fontFamily:"Montserrat"}} className={classes.title}>Start, Execute, Launch Your Project!</h2>
               
               <br />
               <br/>
