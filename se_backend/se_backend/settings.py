@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_currentuser.middleware.ThreadLocalUserMiddleware',
+    # 'django_currentuser.middleware.ThreadLocalUserMiddleware',
     'crum.CurrentRequestUserMiddleware',
 ]
 
@@ -83,6 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'se_backend.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -91,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'se',
         'USER': 'postgres',
-        'PASSWORD': 'destiny,123',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '5432',
         # 'additional settings'

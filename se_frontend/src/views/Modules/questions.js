@@ -34,6 +34,9 @@ import {questionContext} from '../../context/questioncontext'
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import AppsIcon from '@material-ui/icons/Apps';
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
 
 const useStyles = makeStyles(styles);
 
@@ -145,14 +148,14 @@ const Question = ({isAuthenticated, post_answer}) => {
                   className={classes.link}
                 >
                   
-                  <b>Modules</b>
+                  <b><AppsIcon/>Modules</b>
                 </Link>
                 <Link
                   style={{color:"purple",fontFamily:"Montserrat"}}
                   onClick={to_topics}
                   className={classes.link}
                 >
-                  <b>Market Research</b>
+                  <b><CalendarViewDayIcon/>Market Research</b>
                 </Link>
                 
                 <Link
@@ -160,13 +163,13 @@ const Question = ({isAuthenticated, post_answer}) => {
                   onClick={to_intro}
                   className={classes.link}
                 >
-                  <b>Market Segmentation</b>
+                  <b><FormatAlignJustifyIcon/>Market Segmentation</b>
                 </Link>
                 
                 <p
                     style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"6px",fontFamily:"Montserrat"}}
                   >
-                    <b>Market Types</b>
+                    <b><FormatAlignJustifyIcon/>Market Types</b>
                   </p>
               </Breadcrumbs>
             </GridItem>

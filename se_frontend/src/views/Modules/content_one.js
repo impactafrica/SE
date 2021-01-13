@@ -17,9 +17,10 @@ import { faQuestion } from "@fortawesome/free-solid-svg-icons";
 import { faBookReader } from "@fortawesome/free-solid-svg-icons";
 import DOMPurify from 'dompurify';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
-import HomeIcon from '@material-ui/icons/Home';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
-import GrainIcon from '@material-ui/icons/Grain';
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import AppsIcon from '@material-ui/icons/Apps';
+import FormatAlignJustifyIcon from '@material-ui/icons/FormatAlignJustify';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
@@ -94,20 +95,20 @@ const Content = (props) => {
                   className={classes.link}
                 >
                   
-                  <b>Modules</b>
+                  <b><AppsIcon style={{ color:"#3d3d3d", margin:"5px"}}/>Modules</b>
                 </Link>
                 <Link
                   style={{color:"purple",fontFamily:"Montserrat"}}
                   onClick={to_topics}
                   className={classes.link}
                 >
-                  <b>{moduleName}</b>
+                  <b><CalendarViewDayIcon style={{ color:"#3d3d3d", margin:"5px"}}/>{moduleName}</b>
                 </Link>
                 
                 <p
-                    style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"6px",fontFamily:"Montserrat"}}
+                    style={{color:"#3d3d3d",fontSize:"15px", paddingTop:"9px",fontFamily:"Montserrat"}}
                   >
-                    <b>{topicName}</b>
+                    <b><LocalLibraryIcon style={{color:"#3d3d3d", margin:"5px"}}/>{topicName}</b>
                   </p>
               </Breadcrumbs>
             </GridItem>

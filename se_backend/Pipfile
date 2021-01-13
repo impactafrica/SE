@@ -7,6 +7,14 @@ verify_ssl = true
 
 [packages]
 django = "*"
+django-cors-headers = "*"
+djangorestframework = "*"
+djoser = "*"
+pillow = "*"
+djangorestframework-simplejwt = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+django-crum = "*"
 
 [requires]
 python_version = "3.8"

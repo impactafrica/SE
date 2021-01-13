@@ -32,8 +32,11 @@ import Typography from '@material-ui/core/Typography';
 import idea from "assets/img/idea.png";
 import market from "assets/img/market.png";
 import research from "assets/img/pic.png";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
+import AppsIcon from '@material-ui/icons/Apps';
+
 
 //import contexts here
 import {moduleContext} from '../../context/modulecontext'
@@ -103,13 +106,13 @@ const Topics = () => {
                     onClick={to_modules}
                     className={classes.link}
                   >
-                    <b>Modules</b>
+                    <b><AppsIcon style={{ color:"#3d3d3d", margin:"5px"}}/>Modules</b>
                   </Link>
                   <p
-                    style={{color:"#3d3d3d",paddingTop:"6px",fontFamily:"Montserrat"}}
+                    style={{color:"#3d3d3d",paddingTop:"9px",fontFamily:"Montserrat"}}
                     
                   >
-                    <b>{moduleName}</b>
+                    <b>{moduleName}Market Research</b>
                   </p>
                  
                 </Breadcrumbs>
@@ -145,7 +148,7 @@ const Topics = () => {
                         <div style={{color:"#ff9933",textAlign:"right"}}>
                         <p><b>{postData.topic_number}{' '}</b></p>
                         </div>
-                        <div style={{paddingLeft:"10px"}}>
+                        <div style={{paddingLeft:"10px",textAlign:"center"}}>
                             <p><b>{postData.topic_name}</b></p>
                         </div>
                         <br/><br/>

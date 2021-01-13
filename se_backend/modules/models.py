@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from crum import get_current_user  
+# from crum import get_current_user  
 import crum      
 # As model field:
 from django.contrib.auth import get_user_model as user_model

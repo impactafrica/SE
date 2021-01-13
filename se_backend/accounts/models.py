@@ -23,7 +23,7 @@ class UserAccountManager(BaseUserManager):
                 name=name
         )
         user.is_admin = True
-        user.is_superuser = False
+        user.is_superuser = True
         user.save()
         return user
 

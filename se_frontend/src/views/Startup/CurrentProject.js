@@ -25,6 +25,8 @@ import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import HomeIcon from '@material-ui/icons/Home';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 
 import profile from "assets/img/twixy.jpg";
 import Background from "assets/img/profile-bg.jpg";
@@ -102,15 +104,15 @@ const ProfilePage = () => {
             <GridContainer justify="left" style={{padding:"10px"}}>
               <GridItem xs={12} sm={12} md={12} style={{paddingTop:"120px"}}>
                 <Breadcrumbs separator="›" aria-label="breadcrumb" 
-                  style={{fontSize:"15px",color:"purple"}}>
+                  style={{fontSize:"15px",color:"purple",paddingTop:"13px"}}>
                   <Link onClick={to_home}
                     style={{color:"purple",fontFamily:"Montserrat"}} >
-                    <b>Home</b>
+                    <b><HomeIcon style={{ color:"#3d3d3d", margin:"5px"}}/>Home</b>
                   </Link>
                   <p
-                      style={{color:"#3d3d3d",fontFamily:"Montserrat",paddingTop:"6px"}}
+                      style={{color:"#3d3d3d",fontFamily:"Montserrat",paddingTop:"10px"}}
                     >
-                      <b>Projects</b>
+                      <b><SettingsApplicationsIcon style={{ color:"#3d3d3d", margin:"5px"}}/>Projects</b>
                     </p>
                 </Breadcrumbs>
               </GridItem>
